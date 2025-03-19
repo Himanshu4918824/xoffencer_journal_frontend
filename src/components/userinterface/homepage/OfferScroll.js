@@ -5,13 +5,15 @@ import "slick-carousel/slick/slick-theme.css";
 import { useRef } from "react";
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+
 export default function OfferScroll()
  {
-  var scrollRef=useRef();
 
-   var data=['3.png','5.jpg','7.webp','6.jpeg','3.webp','1.webp','2.webp','4.jpg'] 
+    var scrollRef=useRef();
 
-  var settings = {
+    var data=['3.png','5.jpg','7.webp','6.jpeg','3.webp','1.webp','2.webp','4.jpg'] 
+
+    var settings = {
     dots: false,
     infinite: true,
     speed: 500,

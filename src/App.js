@@ -18,7 +18,7 @@ function App() {
         <Route element={<SubCategory/>} path="/subcategory"></Route>
         <Route element={<DisplayAllSubCategory/>} path="/displayAllSubCategory"></Route>
         <Route element={<JournalForm/>} path="/journalform"></Route>
-        <Route element={<Homepage/>} path="/homepage"></Route>
+        <Route element={<Homepage/>} path="/"></Route>
       </Routes>
     </Router>
     

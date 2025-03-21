@@ -1,4 +1,4 @@
-import { Avatar, Button, FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, TextField } from "@mui/material"
+import { Avatar, Button, FormControl, FormControlLabel, FormGroup, FormHelperText, Grid, InputLabel, MenuItem, Select, TextField } from "@mui/material"
 import { userStyle } from "./JournalFormCss"
 import { useState } from "react";
 import logo from '../../../assets//logo.png'
@@ -7,29 +7,27 @@ import { postData } from "../../../services/FetchNodeAdminServices";
 import Swal from "sweetalert2";
 import { LoadingButton } from "@mui/lab";
 import SaveIcon from '@mui/icons-material/Save';
-import { Tune } from "@mui/icons-material";
 import Header from "../homepage/Header";
 import Footer from "../homepage/Footer";
+import Checkbox from '@mui/material/Checkbox';
 
 export default function JournalForm(props)
 {
-    const [journal,setJournal]=useState('');
-    const [author,setAuthor]=useState('');
+    const [fatherName,setFatherName]=useState('');
     const [name,setName]=useState('');
     const [subject,setSubject]=useState('');
     const [branch ,setBranch ]=useState('');
     const [education,setEducation]=useState('');
-    const [secondAuthor,setSecondAuthor]=useState('');
+    const [link,setLink]=useState('');
     const [paper,setPaper]=useState('');
     const [address,setAddress]=useState('')
     const [abstract,setAbstract]=useState('');
     const [email,setEmail]=useState('');
     const [contact,setContact]=useState('');
     const [adhaar,setAdhaar]=useState({bytes:'',fileName:cart})
-    const [paperIcon,setPaperIcon]=useState({bytes:'',fileName:cart})
     const [photo,setPhoto]=useState({bytes:'',fileName:cart})
-    const [marksheet,setMarksheet]=useState({bytes:'',fileName:cart})
-    const [anynumber,setAnyNumber]=useState('')
+   
+  
 
     const [loadingButton,setLoadingButton]=useState(false)
     const [errorMessage,setErrorMessage]=useState({})
@@ -44,23 +42,20 @@ export default function JournalForm(props)
 
     function resetData()
     {
-        setJournal('');
-        setAuthor('');
+        setFatherName('')
         setName('');
         setBranch('');
         setSubject('');
         setEducation('');
-        setSecondAuthor('')
+        setLink('')
         setPaper('');
         setAbstract('');
         setAddress('');
         setEmail('');
         setContact('');
         setAdhaar({bytes:"",fileName:cart})
-        setPaperIcon({bytes:"",fileName:cart})
         setPhoto({bytes:"",fileName:cart})
-        setMarksheet({bytes:"",fileName:cart})
-        setAnyNumber('')
+        
     }
 
     
@@ -71,11 +66,6 @@ export default function JournalForm(props)
     
     }
 
-    const handlePaperIcon=(e)=>{
-        handleErrorMessage('paperIcon',null)
-        setPaperIcon({bytes:e.target.files[0],fileName:URL.createObjectURL(e.target.files[0])})
-    
-    }
 
     const handlePhoto=(e)=>{
         handleErrorMessage('photo',null)
@@ -83,11 +73,6 @@ export default function JournalForm(props)
     
     }
 
-    const handleMarksheet=(e)=>{
-       handleErrorMessage('marksheet',null)
-        setMarksheet({bytes:e.target.files[0],fileName:URL.createObjectURL(e.target.files[0])})
-    
-    }
 
 
     const handleSubmitData=async()=>{
@@ -96,22 +81,20 @@ export default function JournalForm(props)
      
         setLoadingButton(true)
         var formData=new FormData()
-        formData.append('journal',journal);
-        formData.append('author',author);
         formData.append('name',name);
+        formData.append('fathername',fatherName)
         formData.append('subject',subject);
         formData.append('branch',branch);
         formData.append('education',education);
-        formData.append('secondauthor',secondAuthor);
+        formData.append('link',link);
         formData.append('paper',paper);
         formData.append('abstract',abstract);
         formData.append('address',address);
         formData.append('email',email);
         formData.append('contact',contact);
         formData.append('adhaar',adhaar.bytes);
-        formData.append('paperIcon',paperIcon.bytes);
         formData.append('photo',photo.bytes);
-        formData.append('marksheet',marksheet.bytes);
+      
 
         var result=await postData('',formData)
         if(result.status)
@@ -144,21 +127,15 @@ resetData()
 
 const validData=()=>{
     var err=false;
-    if(journal.length==0)
+    if(name.length==0)
         {
-            handleErrorMessage('journal','plz insert journal...')
+            handleErrorMessage('name','plz insert Name...')
              err = true;
         }
 
-        if(author.length==0)
-            {
-                handleErrorMessage('author','plz insert Author...')
-                 err = true;
-            }
-
-            if(name.length==0)
+            if(fatherName.length==0)
                 {
-                    handleErrorMessage('name','plz insert Father / Husband Name...')
+                    handleErrorMessage('fathername','plz insert Father / Husband Name...')
                      err = true;
                 }
 
@@ -180,9 +157,9 @@ const validData=()=>{
                                  err = true;
                             }
 
-                            if(secondAuthor.length==0)
+                            if(link.length==0)
                                 {
-                                    handleErrorMessage('secondAuthor','plz insert secondAuthor...')
+                                    handleErrorMessage('link','plz insert Link for Publication...')
                                      err = true;
                                 }
 
@@ -222,11 +199,7 @@ const validData=()=>{
                                                              err = true;
                                                         }
 
-                                                        if(paperIcon.bytes==0)
-                                                            {
-                                                                handleErrorMessage('paperIcon','plz Upload paper/Article...')
-                                                                 err = true;
-                                                            }
+                                                
 
                                                             if(photo.bytes==0)
                                                                 {
@@ -234,11 +207,7 @@ const validData=()=>{
                                                                      err = true;
                                                                 }
 
-                                                                if(marksheet.bytes==0)
-                                                                    {
-                                                                        handleErrorMessage('marksheet','plz Upload  marksheet...')
-                                                                         err = true;
-                                                                    }
+                                                               
 
                                                                 
 return err;
@@ -256,38 +225,20 @@ return err;
 
         <div style={{background: 'lightgrey',color:'black',width:'100%',height:250,display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',marginBottom:40}}> 
 
-           <div style={{fontSize:'2.2rem',fontWeight:500,letterSpacing:1.2}}>FORM FOR JOURNAL PUBLICATION</div>
+           <div style={{fontSize:'2.2rem',fontWeight:500,letterSpacing:1.2}}>FORM FOR JOURNAL CERTIFICATION</div>
            
        </div>
     
          <div className={classes.root}>
         <div className={classes.box}>
            <Grid container spacing={2}>
-           <Grid item xs={6}>
-                    <FormControl fullWidth>
-                        <InputLabel>journal</InputLabel>
-                        <Select label='journal'
-                                value={journal}
-                                onChange={(event)=>setJournal(event.target.value)}
-                                error={errorMessage?.journal}
-                                onFocus={()=>handleErrorMessage('journal',null)}
-                         >
-                            <MenuItem value='National Journal'>National Journal</MenuItem>
-                            <MenuItem value='International Journal'>International Journal</MenuItem>
-                            
-
-                        </Select>
-
-                    </FormControl>
-                    <FormHelperText>{errorMessage?.journal}</FormHelperText>
-                   </Grid>
 
             <Grid item xs={6}>
-                <TextField onFocus={()=>handleErrorMessage('author',null)} error={errorMessage?.author} helperText={errorMessage?.author} onChange={(event)=>setAuthor(event.target.value)} label="Name Of Author" value={author} fullWidth/>
+               <TextField onFocus={()=>handleErrorMessage('name',null)} error={errorMessage?.name} helperText={errorMessage?.name} onChange={(event)=>setName(event.target.value)} label="Name" value={name} fullWidth/>
             </Grid>
 
             <Grid item xs={6}>
-                <TextField onFocus={()=>handleErrorMessage('name',null)} error={errorMessage?.name} helperText={errorMessage?.name} onChange={(event)=>setName(event.target.value)} label="Name Of father/Husband" value={name} fullWidth/>
+                <TextField onFocus={()=>handleErrorMessage('fathername',null)} error={errorMessage?.name} helperText={errorMessage?.name} onChange={(event)=>setFatherName(event.target.value)} label="Name Of father/Husband" value={fatherName} fullWidth/>
             </Grid>
 
             <Grid item xs={6}>
@@ -303,10 +254,10 @@ return err;
             </Grid>
 
             <Grid item xs={6}>
-                <TextField onFocus={()=>handleErrorMessage('secondAuthor',null)} error={errorMessage?.secondAuthor} helperText={errorMessage?.secondAuthor} onChange={(event)=>setSecondAuthor(event.target.value)} label="Second Author/Guide Name ( if any )" value={secondAuthor} fullWidth/>
+                <TextField onFocus={()=>handleErrorMessage('link',null)} error={errorMessage?.link} helperText={errorMessage?.link} onChange={(event)=>setLink(event.target.value)} label="Link Of Publication" value={link} fullWidth/>
             </Grid>
 
-            <Grid item xs={6}>
+            <Grid item xs={12}>
                 <TextField onFocus={()=>handleErrorMessage('paper',null)} error={errorMessage?.paper} helperText={errorMessage?.paper} onChange={(event)=>setPaper(event.target.value)} label="Title of the paper/Article" value={paper} fullWidth/>
             </Grid>
 
@@ -342,19 +293,6 @@ return err;
 
             <Grid item xs={7}>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <Button variant="contained" component="label">Upload your Paper/Article ( Doc., Docx Format)
-                     <input onChange={handlePaperIcon} type="file" accept="images/*" multiple hidden />
-                    </Button>
-                    <div>{errorMessage?.paperIcon != null ? errorMessage?.paperIcon : <></>}</div>
-               </div>
-            </Grid>
-
-            <Grid item xs={5} className={classes.centerStyle}>
-                <Avatar src={paperIcon.fileName} variant="rounded"></Avatar>
-            </Grid>
-
-            <Grid item xs={7}>
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
                   <Button variant="contained" component="label">Photo
                     <input onChange={handlePhoto} type="file" accept="images/*" multiple hidden />
                   </Button>
@@ -366,26 +304,19 @@ return err;
                 <Avatar src={photo.fileName} variant="rounded"></Avatar>
             </Grid>
 
-            <Grid item xs={7}>
-                <div style={{ display: 'flex', flexDirection: 'column' }}>
-                    <Button variant="contained" component="label">Upload Last Educational Qualification
-                      <input onChange={handleMarksheet} type="file" accept="images/*" multiple hidden />
-                    </Button>
-                      <div>{errorMessage?.marksheet != null ? errorMessage?.marksheet : <></>}</div>
-               </div>
-            </Grid>
-
-            <Grid item xs={5} className={classes.centerStyle}>
-                <Avatar src={marksheet.fileName} variant="rounded"></Avatar>
-            </Grid>
+            
 
             <Grid item xs={12}>
-                <div style={{fontSize:20,color:'#007bff',fontWeight:'bolder',margin:15}}>To prove you are not a robot please type any digit from 1 to 10</div>     
+                <div style={{fontWeight:400,fontSize:16,letterSpacing:1.2,marginTop:10}}>
+               <span style={{fontWeight:'bold',fontSize:18}}>Note :</span> Publication is free for all. Any amount is charged for other further process which include the annual maintenance or issues like of certificate, duplicate certificate with delivery, correction, formatting delivery of print journal etc
+
+                    Soft copy will be sent to the registered email ID of the candidate
+
+                Hard copy of the certificate will be sent to the registered address of the candidate
+                </div>
             </Grid>
 
-            <Grid item xs={12}>
-                <TextField onChange={(event)=>setAnyNumber(event.target.value)} label="Enter Number" value={anynumber} fullWidth/>
-            </Grid>
+            
 
 
             <Grid item xs={12} className={classes.centerStyle} style={{marginTop:30}}>
@@ -406,8 +337,7 @@ return err;
         </div>
 
         <div style={{marginTop:30}}>
-                    <Footer/>
+            <Footer/>
         </div>
-
     </div>)
 }

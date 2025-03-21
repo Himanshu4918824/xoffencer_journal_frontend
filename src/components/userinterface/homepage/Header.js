@@ -9,6 +9,7 @@ import TextBoxSearch from "../homepage/TextBoxSearch"
 import CallIcon from '@mui/icons-material/Call';
 import { IconButton } from '@mui/material';
 import Menubar from './Menubar';
+import HomeIcon from '@mui/icons-material/Home';
 
 export default function Header() {
   return (
@@ -23,6 +24,7 @@ export default function Header() {
             </Typography>
 
           <TextBoxSearch/>
+
         <div>
           
         <IconButton
@@ -32,8 +34,22 @@ export default function Header() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
+             <HomeIcon style={{fontSize:30}}/>
+             </IconButton>
+
+             
+
+             <IconButton
+            
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
              <CallIcon style={{fontSize:30}}/>
              </IconButton>
+
+
           </div>
           
           </div>

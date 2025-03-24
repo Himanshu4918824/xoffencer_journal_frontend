@@ -38,12 +38,12 @@ export default function Category(props) {
 
     const validData = () => {
         var err = false
-        if (categoryName.length == 0) {
+        if (categoryName.length === 0) {
             handleErrorMessage('categoryName', 'Pls insert categoryname...');
             err = true;
         }
 
-        if (categoryIcon.bytes == 0) {
+        if (categoryIcon.bytes === 0) {
             handleErrorMessage('categoryIcon', 'Pls select category icon...');
             err = true;
 
@@ -53,7 +53,7 @@ export default function Category(props) {
 
     const handleSubmitData = async () => {
         var err = validData();
-        if (err == false) {
+        if (err === false) {
             setLoadingButton(true)
             var formData = new FormData()
             formData.append('categoryname', categoryName);

@@ -1,7 +1,7 @@
-import { Avatar, Button, FormControl, FormControlLabel, FormGroup, FormHelperText, Grid, InputLabel, MenuItem, Select, TextField } from "@mui/material"
+import { Avatar, Button,Grid,  TextField } from "@mui/material"
 import { userStyle } from "./JournalFormCss"
 import { useState } from "react";
-import logo from '../../../assets//logo.png'
+// import logo from '../../../assets//logo.png'
 import cart from '../../../assets/cart.png'
 import { postData } from "../../../services/FetchNodeAdminServices";
 import Swal from "sweetalert2";
@@ -9,7 +9,7 @@ import { LoadingButton } from "@mui/lab";
 import SaveIcon from '@mui/icons-material/Save';
 import Header from "../homepage/Header";
 import Footer from "../homepage/Footer";
-import Checkbox from '@mui/material/Checkbox';
+// import Checkbox from '@mui/material/Checkbox';
 
 export default function JournalForm(props)
 {
@@ -77,7 +77,7 @@ export default function JournalForm(props)
 
     const handleSubmitData=async()=>{
         var error=validData();
-        if(error==false){
+        if(error===false){
      
         setLoadingButton(true)
         var formData=new FormData()
@@ -127,73 +127,73 @@ resetData()
 
 const validData=()=>{
     var err=false;
-    if(name.length==0)
+    if(name.length===0)
         {
             handleErrorMessage('name','plz insert Name...')
              err = true;
         }
 
-            if(fatherName.length==0)
+            if(fatherName.length===0)
                 {
                     handleErrorMessage('fathername','plz insert Father / Husband Name...')
                      err = true;
                 }
 
-                if(subject.length==0)
+                if(subject.length===0)
                     {
                         handleErrorMessage('subject','plz insert Subject...')
                          err = true;
                     }
 
-                    if(branch.length==0)
+                    if(branch.length===0)
                         {
                             handleErrorMessage('branch','plz insert Field...')
                              err = true;
                         }
 
-                        if(education.length==0)
+                        if(education.length===0)
                             {
                                 handleErrorMessage('education','plz insert education...')
                                  err = true;
                             }
 
-                            if(link.length==0)
+                            if(link.length===0)
                                 {
                                     handleErrorMessage('link','plz insert Link for Publication...')
                                      err = true;
                                 }
 
-                                if(paper.length==0)
+                                if(paper.length===0)
                                     {
                                         handleErrorMessage('paper','plz insert Paper...')
                                          err = true;
                                     }
 
-                                    if(abstract.length==0)
+                                    if(abstract.length===0)
                                         {
                                             handleErrorMessage('abstract','plz insert Abstract...')
                                              err = true;
                                         }
 
-                                        if(address.length==0)
+                                        if(address.length===0)
                                             {
                                                 handleErrorMessage('address','plz insert Address...')
                                                  err = true;
                                             }
 
-                                            if(email.length==0)
+                                            if(email.length===0)
                                                 {
                                                     handleErrorMessage('email','plz insert Email...')
                                                      err = true;
                                                 }
 
-                                                if(contact.length==0)
+                                                if(contact.length===0)
                                                     {
                                                         handleErrorMessage('contact','plz insert Contact...')
                                                          err = true;
                                                     }
 
-                                                    if(adhaar.bytes==0)
+                                                    if(adhaar.bytes===0)
                                                         {
                                                             handleErrorMessage('adhaar','plz Upload Adhaar Photo...')
                                                              err = true;
@@ -201,7 +201,7 @@ const validData=()=>{
 
                                                 
 
-                                                            if(photo.bytes==0)
+                                                            if(photo.bytes===0)
                                                                 {
                                                                     handleErrorMessage('photo','plz Upload  photo...')
                                                                      err = true;

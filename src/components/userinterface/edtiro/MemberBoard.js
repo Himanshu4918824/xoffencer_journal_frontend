@@ -1,7 +1,7 @@
 import { Avatar, Button, FormControl, FormControlLabel, FormGroup, FormHelperText, Grid, InputLabel, MenuItem, Select, TextField } from "@mui/material"
 import { userStyle } from "./EditroCss"
 import { useState } from "react";
-import logo from '../../../assets//logo.png'
+// import logo from '../../../assets//logo.png'
 import cart from '../../../assets/cart.png'
 import { postData } from "../../../services/FetchNodeAdminServices";
 import Swal from "sweetalert2";
@@ -90,7 +90,7 @@ export default function MemberBoard(props)
 
     const handleSubmitData=async()=>{
         var error=validData();
-        if(error==false){
+        if(error===false){
      
         setLoadingButton(true)
         var formData=new FormData()
@@ -141,97 +141,97 @@ resetData()
 
 const validData=()=>{
     var err=false;
-    if(name.length==0)
+    if(name.length===0)
         {
             handleErrorMessage('name','plz insert name...')
              err = true;
         }
 
-        if(designation.length==0)
+        if(designation.length===0)
             {
                 handleErrorMessage('designation','plz insert designation...')
                  err = true;
             }
 
-            if(fatherName.length==0)
+            if(fatherName.length===0)
                 {
                     handleErrorMessage('fatherName','plz insert Father / Husband Name...')
                      err = true;
                 }
 
-                if(status.length==0)
+                if(status.length===0)
                     {
                         handleErrorMessage('status','plz insert status...')
                          err = true;
                     }
 
-                    if(branch.length==0)
+                    if(branch.length===0)
                         {
                             handleErrorMessage('branch','plz insert Field...')
                              err = true;
                         }
 
-                        if(education.length==0)
+                        if(education.length===0)
                             {
                                 handleErrorMessage('education','plz insert education...')
                                  err = true;
                             }
 
-                            if(experience.length==0)
+                            if(experience.length===0)
                                 {
                                     handleErrorMessage('experience','plz insert Education Experience...')
                                      err = true;
                                 }
 
-                                    if(abstract.length==0)
+                                    if(abstract.length===0)
                                         {
                                             handleErrorMessage('abstract','plz insert Abstract...')
                                              err = true;
                                         }
 
-                                        if(address.length==0)
+                                        if(address.length===0)
                                             {
                                                 handleErrorMessage('address','plz insert Address...')
                                                  err = true;
                                             }
 
-                                            if(email.length==0)
+                                            if(email.length===0)
                                                 {
                                                     handleErrorMessage('email','plz insert Email...')
                                                      err = true;
                                                 }
 
-                                                if(contact.length==0)
+                                                if(contact.length===0)
                                                     {
                                                         handleErrorMessage('contact','plz insert Contact...')
                                                          err = true;
                                                     }
 
-                                                    if(adhaar.bytes==0)
+                                                    if(adhaar.bytes===0)
                                                         {
                                                             handleErrorMessage('adhaar','plz Upload Adhaar Photo...')
                                                              err = true;
                                                         }
 
-                                                        if(dateBirth.bytes==0)
+                                                        if(dateBirth.bytes===0)
                                                             {
                                                                 handleErrorMessage('dateBirth','plz Upload Date of Birth...')
                                                                  err = true;
                                                             }
 
-                                                            if(photo.bytes==0)
+                                                            if(photo.bytes===0)
                                                                 {
                                                                     handleErrorMessage('photo','plz Upload  photo...')
                                                                      err = true;
                                                                 }
 
-                                                                if(marksheet.bytes==0)
+                                                                if(marksheet.bytes===0)
                                                                     {
                                                                         handleErrorMessage('marksheet','plz Upload  marksheet...')
                                                                          err = true;
                                                                     }
 
-                                                                    if(any.length==0)
+                                                                    if(any.length===0)
                                                                         {
                                                                             handleErrorMessage('any','plz Click...')
                                                                              err = true;

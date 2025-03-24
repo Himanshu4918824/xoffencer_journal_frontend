@@ -15,7 +15,7 @@ export default function BroadCast()
 
                     <div style={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
                         <div style={{marginTop:20}}> 
-                            <img src={item.picture}/>
+                            <img alt="" src={item.picture}/>
                         </div>
 
                         <div style={{fontSize:22,fontWeight:600,letterSpacing:1.2}}>
@@ -112,7 +112,7 @@ export default function BroadCast()
 
             <Divider style={{marginBottom:20}}/>
 
-            <div><img src="pen.png" style={{width:40,height:40,marginLeft:'45%'}}/></div>
+            <div><img alt="" src="pen.png" style={{width:40,height:40,marginLeft:'45%'}}/></div>
 
         </Paper>
 
@@ -135,7 +135,7 @@ export default function BroadCast()
 
             <Divider style={{marginBottom:20,marginTop:'40%'}}/>
 
-            <div><img src="pen.png" style={{width:40,height:40,marginLeft:'45%'}}/></div>
+            <div><img alt="" src="pen.png" style={{width:40,height:40,marginLeft:'45%'}}/></div>
 
         </Paper>
 
@@ -159,7 +159,7 @@ export default function BroadCast()
 
             <Divider style={{marginBottom:20,marginTop:'54%'}}/>
 
-            <div><img src="pen.png" style={{width:40,height:40,marginLeft:'45%'}}/></div>
+            <div><img alt="" src="pen.png" style={{width:40,height:40,marginLeft:'45%'}}/></div>
 
         </Paper>
 

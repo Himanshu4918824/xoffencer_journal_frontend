@@ -10,6 +10,7 @@ import CallIcon from '@mui/icons-material/Call';
 import { IconButton } from '@mui/material';
 import Menubar from './Menubar';
 import HomeIcon from '@mui/icons-material/Home';
+import Contact from './Contact';
 
 export default function Header() {
   return (
@@ -44,7 +45,7 @@ export default function Header() {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }}
+            sx={{ mr: 2 }}  
           >
              <CallIcon style={{fontSize:30}}/>
              </IconButton>

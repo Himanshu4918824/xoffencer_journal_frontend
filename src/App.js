@@ -10,6 +10,7 @@ import NationalJournal from "./components/userinterface/nationaljournal/National
 import JournalCertification from "./components/userinterface/journal/JournalCertification";
 import Team from "./components/userinterface/edtiro/Team";
 import MemberBoard from "./components/userinterface/edtiro/MemberBoard";
+import Guidline from "./components/userinterface/guidlineoriginality/Guidline";
 
 
 
@@ -28,6 +29,9 @@ function App() {
         <Route element={<JournalCertification/>} path="/journalcertification"></Route>
         <Route element={<Team/>} path="/team"></Route>
         <Route element={<MemberBoard/>} path="/memberboard"></Route>
+        <Route element={<Guidline/>} path="/guidline"></Route>
+        
+        
       </Routes>
     </Router>
     

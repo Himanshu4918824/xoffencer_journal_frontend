@@ -24,18 +24,12 @@ function App() {
         <Route element={<SubCategory/>} path="/subcategory"></Route>
         <Route element={<DisplayAllSubCategory/>} path="/displayAllSubCategory"></Route>
         <Route element={<JournalForm/>} path="/journalform"></Route>
-<<<<<<< HEAD
-        <Route element={<Homepage/>} path="/homepage"></Route>
         <Route element={<NationalJournal/>} path="/nationaljournal"></Route>
         <Route element={<JournalCertification/>} path="/journalcertification"></Route>
         <Route element={<Team/>} path="/team"></Route>
         <Route element={<MemberBoard/>} path="/memberboard"></Route>
         <Route element={<Guidline/>} path="/guidline"></Route>
-        
-        
-=======
         <Route element={<Homepage/>} path="/"></Route>
->>>>>>> 7b1b787a45d2df9de85a3537def1e17cf1511ff2
       </Routes>
     </Router>
     

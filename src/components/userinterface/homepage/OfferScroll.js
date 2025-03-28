@@ -6,8 +6,13 @@ import { useRef } from "react";
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 export default function OfferScroll()
  {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
 
     var scrollRef=useRef();
 
@@ -17,7 +22,7 @@ export default function OfferScroll()
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: matches?3:1,
     slidesToScroll: 1,
     autoplay:true
   };
@@ -25,7 +30,7 @@ export default function OfferScroll()
   const showImages=()=>{
     return data.map((item,i)=>{
         return(<div>
-            <img src={item} style={{width:'90%',height:250,borderRadius:15}}/>
+            <img alt="" src={item} style={{width:'90%',height:250,borderRadius:15}}/>
         </div>)
     })
 

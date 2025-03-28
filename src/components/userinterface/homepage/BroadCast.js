@@ -1,7 +1,14 @@
 import { Divider, Paper } from "@mui/material";
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export default function BroadCast()
 {
+
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
+
+
     var data=[{picture:'article.png',name:'Article / Paper Consideration',info:'Plagiarism should not be more than 10%. Fonts should be in Time New Roman. Content should be in single or double column. Title Font Size 16, Sub-titles 14, Other Text 1'},
         {picture:'Disclaimer.png',name:'Disclaimer',info:'If copied or fully plagiarized unacceptable articles or research papers are submitted or if any real author or patent or copyright issue arises then Airo Journals will never be responsible for any issue. Such articles will be deleted from the website with immediate effect. In such cases no fees will be refunded.'},
         {picture:'philosophy.png',name:'Refereed Journal',info:'All Research Articles are updated on Google Scholar and other specific research gateways with updated References to cite advance key features for future research work. It gives time saving and enhancement of innovative next step research in different fields of scientific approach.'},
@@ -10,8 +17,8 @@ export default function BroadCast()
 
     const showData=()=>{
         return data.map((item,i)=>{
-            return(<div style={{margin:10,padding:10,marginTop:40}}>
-                <Paper elevation={6} style={{width:600,height:300,borderRadius:20,marginLeft:'18%'}}>
+            return(<div style={{margin:10,padding:10,marginTop:20,display:'flex',justifyContent:'center',alignItems:'center'}}>
+                <Paper elevation={6} style={{width:matches?600:300,height:matches?300:450,borderRadius:20}}>
 
                     <div style={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
                         <div style={{marginTop:20}}> 
@@ -37,56 +44,47 @@ export default function BroadCast()
     
 
     return(<div>
-    <div style={{display:'flex',marginLeft:60}}>
-        <div style={{width:'40%',height:160,background:'#f8f9fa',marginLeft:30,margin:10,padding:15}}>
+    <div style={{display:'flex',flexDirection:matches?'row':'column',justifyContent:'center',alignItems:'center'}}>
+        <div style={{width:matches?600:500,height:170,background:'#f8f9fa',marginLeft:matches?20:0,margin:10,padding:15}}>
             <div style={{fontSize:20,fontWeight:'bold',marginBottom:15}}>
                Airo National and International Journal is now on the following research hub :
             </div>
-
-            
+ 
             <div>
-                1.  Core Review Methodology .
-            </div>
-
-            <div>
-                2. Visibility in Google.
-            </div>
-
-            <div>
-                3. Publon Author listing .
-            </div>
-
-            <div>
-                4. IEEE Collabratec Inventory .
+                <ul>
+                    <li>Core Review Methodology .</li>
+                    <li style={{marginTop:5}}>Visibility in Google.</li>
+                    <li style={{marginTop:5}}>Publon Author listing .</li>
+                    <li style={{marginTop:5}}>IEEE Collabratec Inventory .</li>
+                </ul>
+        
             </div>
 
         </div>
         
 
-        <div style={{width:'40%',height:160,background:'lightgrey',marginLeft:45,margin:10,padding:15,fontSize:20,fontWeight:400}}>
+        <div style={{width:matches?600:500,height:170,background:'lightgrey',margin:10,padding:15,fontSize:20,fontWeight:400}}>
             <div style={{margin:10}}>
-                1. Multidisciplinary Research Journal for all Subjects .
+                <ol>
+                    <li>Multidisciplinary Research Journal for all Subjects.</li>
+                    <li style={{marginTop:7}}>Publication for all</li>
+                    <li style={{marginTop:7}}>Comprehensive Publishing Support</li>
+                </ol>
             </div>
 
-            <div style={{margin:10}}>
-                2. Publication for all
-            </div>
-
-            <div style={{margin:10}}>
-                3. Comprehensive Publishing Support
-            </div>
+            
         </div>
         
     </div>
 
     
-    <div>
-       <h2 style={{marginLeft:'42%',fontSize:24,fontWeight:500,letterSpacing:1.2}}>BROADCAST</h2> 
-       <hr style={{width:'8%',height:5,background:'lightgray',marginRight:'49%'}}/>
+    <div style={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column',marginTop:30}}>
+       <h2 style={{fontSize:24,fontWeight:500,letterSpacing:1.2}}>BROADCAST</h2> 
+       <hr style={{width:'10%',height:5,background:'lightgray'}}/>
     </div>
 
 
-       <div style={{marginTop:30,padding:15,display:'flex',margin:20,marginLeft:'10%'}}>
+       <div style={{marginTop:30,padding:15,display:'flex',flexDirection:matches?'row':'column',margin:20,justifyContent:'center',alignItems:'center'}}>
         <Paper elevation={6} style={{width:350,height:400,borderRadius:20}}>
             
             <div style={{fontSize:24,fontWeight:500,letterSpacing:2,color:'#313131',marginLeft:'40%',padding:10}}>ISSN</div>
@@ -118,7 +116,7 @@ export default function BroadCast()
 
                {/********************************Next paper******************************************/}
 
-        <Paper elevation={6} style={{width:350,height:400,borderRadius:20,marginLeft:50}}>
+        <Paper elevation={6} style={{width:350,height:400,borderRadius:20,marginLeft:matches?50:10,marginTop:matches?0:25}}>
             
             <div style={{fontSize:24,fontWeight:500,letterSpacing:2,color:'#313131',marginLeft:'10%',padding:10}}>Global Impact Factor</div>
 
@@ -126,7 +124,7 @@ export default function BroadCast()
 
            
 
-            <div style={{margin:10,fontSize:16,fontWeight:400,color:'#6c757d',lineHeight:'25px',marginBottom:20,letterSpacing:1}}>
+            <div style={{margin:10,fontSize:16,fontWeight:500,color:'#6c757d',lineHeight:'25px',marginBottom:20,letterSpacing:1}}>
                 Humanities, Fine Arts, and Music 6.3 Management, 
                 Commerce, Economics, Law 6.7 Life Science,
                 Agriculture, Nursing, Medical and Bio 5.2
@@ -143,7 +141,7 @@ export default function BroadCast()
         
                {/********************************Next paper******************************************/}
 
-               <Paper elevation={6} style={{width:350,height:400,borderRadius:20,marginLeft:50}}>
+               <Paper elevation={6} style={{width:350,height:400,borderRadius:20,marginLeft:matches?50:10,marginTop:matches?0:25}}>
             
             <div style={{fontSize:24,fontWeight:500,letterSpacing:2,color:'#313131',marginLeft:'23%',padding:10}}>We Help You</div>
 
@@ -168,7 +166,7 @@ export default function BroadCast()
 
 {/**********************************************************************************************************/}
 
-       <div style={{background:'#F0F2F5',width:'100%',height:800,display:'flex',flexWrap:'wrap'}}>
+       <div style={{background:'#F0F2F5',width:'100%',height:'auto',display:'flex',flexWrap:'wrap',justifyContent:'center',alignItems:'center'}}>
        {showData()}
        </div>
     

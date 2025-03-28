@@ -11,6 +11,8 @@ import JournalCertification from "./components/userinterface/journal/JournalCert
 import Team from "./components/userinterface/edtiro/Team";
 import MemberBoard from "./components/userinterface/edtiro/MemberBoard";
 import Guidline from "./components/userinterface/guidlineoriginality/Guidline";
+import DatasetRepositry from "./components/userinterface/dataset/DatasetRepositry";
+import Contact from "./components/userinterface/homepage/Contact";
 
 
 
@@ -29,7 +31,10 @@ function App() {
         <Route element={<Team/>} path="/team"></Route>
         <Route element={<MemberBoard/>} path="/memberboard"></Route>
         <Route element={<Guidline/>} path="/guidline"></Route>
+        <Route element={<DatasetRepositry/>} path="/datasetrepositry"></Route>
         <Route element={<Homepage/>} path="/"></Route>
+
+        <Route element={<Contact/>} path="/contact"></Route>
       </Routes>
     </Router>
     

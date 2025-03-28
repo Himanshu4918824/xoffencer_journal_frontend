@@ -1,51 +1,55 @@
-import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-// import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-// import IconButton from '@mui/material/IconButton';
-// import MenuIcon from '@mui/icons-material/Menu';
-import { Menu } from '@mui/material';
+import React from 'react'
+import './Menubar.css'
+import { useNavigate } from 'react-router-dom'
 
-export default function Menubar() {
-{/*
-  var data=['Journal','Apply Online','Editorial','Guidline Originality','Thesis Publication','Thesis Publication','Thesis Publication','Thesis Publication']
+const Menubar = () => {
+  const navigate=useNavigate();
+    return (<div style={{background:'#576574'}}>
+        <nav>
+            <div className="main">
+                <ul>
+                <li className='dropdown-1'>Journal
+                        <div className="Subdropdown-1">
+                            <ul>
+                                <li onClick={()=>navigate('/nationaljournal')}>National Journal</li>
+                                <li>International Journal</li>
+                            </ul>
+                        </div>
+                    </li>
+                  
+                    <li className='dropdown-2'>Apply Online
+                        <div className="Subdropdown-2">
+                            <ul>
+                                <li onClick={()=>navigate('/journalform')}>Form For Journal Pubilication</li>
+                                <li onClick={()=>navigate('/journalcertification')}>Application From For Journal Certificate</li>
+                            </ul>
+                        </div>
+                    </li>
 
-  const showCateoryMenu=()=>{
-    return data.map((item,i)=>{
-      return (<Button style={{ color: '#fff', margin: 10 }}>{item}</Button>)
-    })
-  }
-*/}
+                    <li className='dropdown-2'>Editorial
+                        <div className="Subdropdown-2">
+                            <ul>
+                                <li onClick={()=>navigate('/team')}>Team</li>
+                                <li onClick={()=>navigate('/memberboard')}>Membership In Editorial Board</li>
+                            </ul>
+                        </div>
+                    </li>
 
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{background:'#576574',color:'black'}}>
-        <Toolbar style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        {/*{showCateoryMenu()}*/}
-           <Button style={{ color: '#fff', margin: 10 }}>Journal</Button>
-           <Button style={{ color: '#fff', margin: 10 }}>Apply Online</Button>
-           <Button style={{ color: '#fff', margin: 10 }}>Editorial</Button>
-           <Button style={{ color: '#fff', margin: 10 }}>Guidline Originality</Button>
-           <Button style={{ color: '#fff', margin: 10 }}>Thesis Publication</Button>
-           <Button style={{ color: '#fff', margin: 10 }}>Thesis Publication</Button>
-           <Button style={{ color: '#fff', margin: 10 }}>Thesis Publication</Button>
-           <Button style={{ color: '#fff', margin: 10 }}>Thesis Publication</Button>
+                    <li className='dropdown-2'>Guidline Originality
+                        <div className="Subdropdown-2">
+                            <ul>
+                                <li onClick={()=>navigate('/guidline')}>Guidline</li>
+                                <li>Sample 1</li>
+                            </ul>
+                        </div>
+                    </li>
 
-            <Menu
-
-            aria-labelledby="demo-positioned-button"
-            transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-            anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-          >
-
-
-          </Menu>
-
-
-        </Toolbar>
-      </AppBar>
-    </Box>
-  );
+                    <li onClick={()=>navigate('/datasetrepositry')}>Dataset Repositry</li>
+                    
+                </ul>
+            </div>
+        </nav>
+   </div>)
 }
+
+export default Menubar

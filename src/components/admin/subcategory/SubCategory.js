@@ -59,21 +59,21 @@ export default function SubCategory(props)
 
     const validData=()=>{
         var err=false;
-        if(subCategoryName.length==0)
+        if(subCategoryName.length===0)
         {
             handleErrorMessage('subCategoryName','plz insert SubCategoryName...')
              err = true;
 
         }
 
-        if(subCategoryIcon.bytes==0)
+        if(subCategoryIcon.bytes===0)
             {
                 handleErrorMessage('subCategoryIcon','plz upload picture...')
                  err = true;
     
             }
 
-            if(categoryId.length==0)
+            if(categoryId.length===0)
                 {
                     handleErrorMessage('categoryId','plz insert categoryId...')
                      err = true;

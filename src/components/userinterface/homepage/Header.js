@@ -7,24 +7,57 @@ import Typography from '@mui/material/Typography';
 import logo from "../../../assets/logo.png"
 import TextBoxSearch from "../homepage/TextBoxSearch"
 import CallIcon from '@mui/icons-material/Call';
-import { IconButton } from '@mui/material';
+import { Drawer, IconButton } from '@mui/material';
 import Menubar from './Menubar';
-import HomeIcon from '@mui/icons-material/Home';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+
 // import Contact from './Contact';
 
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import MenuIcon from '@mui/icons-material/Menu';
+
+import { useNavigate } from 'react-router-dom';
+
 export default function Header() {
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);   
+  };
+
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
+
+  const navigate = useNavigate();
+
+
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{background:'#8395a7',color:'Black',height:100}}>
+      <AppBar position="static" style={{background:'#8395a7',color:'Black',height:80}}>
         <Toolbar>
 
+        {matches?<div></div>:<IconButton
+            size="large"
+            edge="start"
+            color="inherit"
+            aria-label="menu"
+            sx={{ mr: 2 }}
+          >
+            <MenuIcon onClick={handleClick}/>
+          </IconButton> }
+
         <div style={{display:'flex',alignItems:'center',justifyContent:'space-between', width:'100%'}}>
-            <Typography variant="h6" component="div" sx={{cursor:'pointer', display:'flex',alignItems:'center'}}>
-               <img src={logo} style={{width:70,height:70,marginLeft:50,padding:10}} />
-               <div style={{fontSize:24,fontWeight:'bold'}}> Xoffencer Journal</div> 
+            <Typography onClick={()=>navigate('/')} variant="h6" component="div" sx={{cursor:'pointer', display:'flex',alignItems:'center'}}>
+               <img alt='logo' src={logo} style={{width:70,height:70,marginLeft:50,padding:10}} />
+               <div style={{fontSize:24,fontWeight:'bold'}}>Varsha Institude</div> 
             </Typography>
 
-          <TextBoxSearch/>
+            {matches?
+         <TextBoxSearch/>:<div></div>
+         }
+
 
         <div>
           
@@ -35,7 +68,7 @@ export default function Header() {
             aria-label="menu"
             sx={{ mr: 2 }}
           >
-             <HomeIcon style={{fontSize:30}}/>
+             <NotificationsIcon style={{fontSize:30}}/>
              </IconButton>
 
              
@@ -45,7 +78,9 @@ export default function Header() {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }}  
+            sx={{ mr: 2 }} 
+            onClick={()=>navigate('/contact')} 
+            
           >
              <CallIcon style={{fontSize:30}}/>
              </IconButton>
@@ -57,7 +92,24 @@ export default function Header() {
         </Toolbar>
       </AppBar>
 
-      <Menubar/>
+      {matches?<div></div>:
+
+     <AppBar position="static" style={{background:'#8395a7',color:'Black'}}>
+        <Toolbar style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
+          
+        <TextBoxSearch width='80%' />
+    
+        </Toolbar>
+      </AppBar>}
+      
+
+      {matches?<Menubar/>:<div></div>}
+
+      <Drawer open={open} onClose={() => setOpen(false)} anchor="left">
+       
+          <Menubar/>
+        
+      </Drawer>
     </Box>
   );
 }

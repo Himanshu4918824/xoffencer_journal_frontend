@@ -8,7 +8,7 @@ export default function NationalJournal()
 
     const showData=()=>{
         return data.map((item,i)=>{
-            return(<div style={{margin:12,padding:10,marginLeft:80}}>
+            return(<div style={{margin:10,padding:10}}>
                 <Paper elevation={9} style={{width:350,height:60,display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <div style={{fontSize:22,fontWeight:600,color:'#576574'}}>{item}</div>   
                 </Paper>
@@ -22,13 +22,13 @@ export default function NationalJournal()
         <Header/>
        </div>
 
-       <div style={{background: 'lightgrey',color:'black',width:'100%',height:250,display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}> 
+       <div style={{background: 'lightgrey',color:'black',width:'100%',height:250,display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',textAlign:'center'}}> 
 
            <div style={{fontSize:'2.5rem',fontWeight:500,letterSpacing:1.2}}>NATIONAL JOURNAL</div>
             <div style={{fontSize:'1.1rem',fontWeight:400}}>Airo National Research Journal ISSN 2321-3914</div>
        </div>
 
-       <div style={{display:'flex',flexWrap:'wrap',marginTop:30}}>
+       <div style={{display:'flex',flexWrap:'wrap',marginTop:20,justifyContent:'center',alignItems:'center'}}>
         {showData()}
        </div>
 

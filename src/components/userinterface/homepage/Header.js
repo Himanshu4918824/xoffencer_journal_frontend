@@ -51,7 +51,7 @@ export default function Header() {
         <div style={{display:'flex',alignItems:'center',justifyContent:'space-between', width:'100%'}}>
             <Typography onClick={()=>navigate('/')} variant="h6" component="div" sx={{cursor:'pointer', display:'flex',alignItems:'center'}}>
                <img alt='logo' src={logo} style={{width:70,height:70,marginLeft:50,padding:10}} />
-               <div style={{fontSize:24,fontWeight:'bold'}}>Varsha Institude</div> 
+               <div style={{fontSize:24,fontWeight:'bold',marginTop:5}}>Xoffencer_Journal</div> 
             </Typography>
 
             {matches?
@@ -105,11 +105,12 @@ export default function Header() {
 
       {matches?<Menubar/>:<div></div>}
 
-      <Drawer open={open} onClose={() => setOpen(false)} anchor="left">
-       
+      <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
+        <div style={{width:300,background:'#8395a7',height:'100vh',textAlign:'center'}}>
           <Menubar/>
-        
-      </Drawer>
+        </div>
+        </Drawer>
+
     </Box>
   );
 }

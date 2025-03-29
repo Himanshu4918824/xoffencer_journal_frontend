@@ -45,12 +45,12 @@ export default function BroadCast()
 
     return(<div>
     <div style={{display:'flex',flexDirection:matches?'row':'column',justifyContent:'center',alignItems:'center'}}>
-        <div style={{width:matches?600:500,height:170,background:'#f8f9fa',marginLeft:matches?20:0,margin:10,padding:15}}>
+        <div style={{width:matches?600:500,height:180,background:'#f8f9fa',marginLeft:matches?20:0,margin:10,padding:15}}>
             <div style={{fontSize:20,fontWeight:'bold',marginBottom:15}}>
                Airo National and International Journal is now on the following research hub :
             </div>
  
-            <div>
+            <div style={{margin:15}}>
                 <ul>
                     <li>Core Review Methodology .</li>
                     <li style={{marginTop:5}}>Visibility in Google.</li>
@@ -63,7 +63,7 @@ export default function BroadCast()
         </div>
         
 
-        <div style={{width:matches?600:500,height:170,background:'lightgrey',margin:10,padding:15,fontSize:20,fontWeight:400}}>
+        <div style={{width:matches?600:500,height:180,background:'lightgrey',margin:10,padding:15,fontSize:20,fontWeight:400}}>
             <div style={{margin:10}}>
                 <ol>
                     <li>Multidisciplinary Research Journal for all Subjects.</li>

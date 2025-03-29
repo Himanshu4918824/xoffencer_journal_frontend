@@ -2,12 +2,20 @@ import React from 'react'
 import './Menubar.css'
 import { useNavigate } from 'react-router-dom'
 
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 const Menubar = () => {
+
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
+
+    
   const navigate=useNavigate();
     return (<div style={{background:'#576574'}}>
         <nav>
             <div className="main">
-                <ul>
+                <ul style={{display:'flex',flexDirection:matches?'row':'column',color:matches?'#fff':'#000'}}>
                 <li className='dropdown-1'>Journal
                         <div className="Subdropdown-1">
                             <ul>

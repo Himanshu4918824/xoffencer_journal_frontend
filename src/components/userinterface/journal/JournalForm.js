@@ -109,10 +109,10 @@ export default function JournalForm(props)
         formData.append('paperIcon',paperIcon.bytes);
         formData.append('photo',photo.bytes);
         formData.append('marksheet',marksheet.bytes);
-        formData.append('created_at',currentDate());
+        // formData.append('created_at',currentDate());
 
 
-        var result=await postData('',formData)
+        var result=await postData('api/v1/form-for-publication',formData)
         if(result.status)
         {
             Swal.fire({

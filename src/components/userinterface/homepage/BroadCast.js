@@ -25,7 +25,7 @@ export default function BroadCast()
                             <img alt="" src={item.picture}/>
                         </div>
 
-                        <div style={{fontSize:22,fontWeight:600,letterSpacing:1.2}}>
+                        <div style={{fontSize:22,fontWeight:600,letterSpacing:1.2,textAlign:'center'}}>
                             {item.name}
                         </div>
 
@@ -45,8 +45,8 @@ export default function BroadCast()
 
     return(<div>
     <div style={{display:'flex',flexDirection:matches?'row':'column',justifyContent:'center',alignItems:'center'}}>
-        <div style={{width:matches?600:500,height:180,background:'#f8f9fa',marginLeft:matches?20:0,margin:10,padding:15}}>
-            <div style={{fontSize:20,fontWeight:'bold',marginBottom:15}}>
+        <div style={{width:matches?600:330,height:'auto',background:'#f8f9fa',margin:10,padding:15}}>
+            <div style={{fontSize:matches?20:18,fontWeight:'bold',marginBottom:15}}>
                Airo National and International Journal is now on the following research hub :
             </div>
  
@@ -63,12 +63,12 @@ export default function BroadCast()
         </div>
         
 
-        <div style={{width:matches?600:500,height:180,background:'lightgrey',margin:10,padding:15,fontSize:20,fontWeight:400}}>
+        <div style={{width:matches?600:'100%',height:210,background:'lightgrey',margin:10,padding:15,fontSize:matches?20:18,fontWeight:400}}>
             <div style={{margin:10}}>
                 <ol>
                     <li>Multidisciplinary Research Journal for all Subjects.</li>
-                    <li style={{marginTop:7}}>Publication for all</li>
-                    <li style={{marginTop:7}}>Comprehensive Publishing Support</li>
+                    <li style={{marginTop:12}}>Publication for all</li>
+                    <li style={{marginTop:12}}>Comprehensive Publishing Support</li>
                 </ol>
             </div>
 
@@ -84,8 +84,8 @@ export default function BroadCast()
     </div>
 
 
-       <div style={{marginTop:30,padding:15,display:'flex',flexDirection:matches?'row':'column',margin:20,justifyContent:'center',alignItems:'center'}}>
-        <Paper elevation={6} style={{width:350,height:400,borderRadius:20}}>
+       <div style={{marginTop:20,padding:15,display:'flex',flexDirection:matches?'row':'column',margin:20,justifyContent:'center',alignItems:'center'}}>
+        <Paper elevation={6} style={{width:matches?350:'94%',height:'auto',borderRadius:20}}>
             
             <div style={{fontSize:24,fontWeight:500,letterSpacing:2,color:'#313131',marginLeft:'40%',padding:10}}>ISSN</div>
 
@@ -116,7 +116,7 @@ export default function BroadCast()
 
                {/********************************Next paper******************************************/}
 
-        <Paper elevation={6} style={{width:350,height:400,borderRadius:20,marginLeft:matches?50:10,marginTop:matches?0:25}}>
+        <Paper elevation={6} style={{width:matches?350:'94%',height:'auto',borderRadius:20,marginLeft:matches?50:10,marginTop:matches?0:25}}>
             
             <div style={{fontSize:24,fontWeight:500,letterSpacing:2,color:'#313131',marginLeft:'10%',padding:10}}>Global Impact Factor</div>
 
@@ -141,7 +141,7 @@ export default function BroadCast()
         
                {/********************************Next paper******************************************/}
 
-               <Paper elevation={6} style={{width:350,height:400,borderRadius:20,marginLeft:matches?50:10,marginTop:matches?0:25}}>
+               <Paper elevation={6} style={{width:matches?350:'94%',height:'auto',borderRadius:20,marginLeft:matches?50:10,marginTop:matches?0:25}}>
             
             <div style={{fontSize:24,fontWeight:500,letterSpacing:2,color:'#313131',marginLeft:'23%',padding:10}}>We Help You</div>
 

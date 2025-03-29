@@ -35,7 +35,7 @@ export default function Header() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{background:'#8395a7',color:'Black',height:80}}>
+      <AppBar position="static" style={{background:'#8395a7',color:'Black',height:80,width:'100%'}}>
         <Toolbar>
 
         {matches?<div></div>:<IconButton
@@ -44,14 +44,15 @@ export default function Header() {
             color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
+            onClick={handleClick}
           >
-            <MenuIcon onClick={handleClick}/>
+            <MenuIcon />
           </IconButton> }
 
-        <div style={{display:'flex',alignItems:'center',justifyContent:'space-between', width:'100%'}}>
+        <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',width:matches?'100%':'100%'}}>
             <Typography onClick={()=>navigate('/')} variant="h6" component="div" sx={{cursor:'pointer', display:'flex',alignItems:'center'}}>
-               <img alt='logo' src={logo} style={{width:70,height:70,marginLeft:50,padding:10}} />
-               <div style={{fontSize:24,fontWeight:'bold',marginTop:5}}>Xoffencer_Journal</div> 
+               <img alt='logo' src={logo} style={{width:matches?70:50,height:matches?70:50,marginLeft:matches?50:2}} />
+               <div style={{ fontSize: matches ? 24 : 18, fontWeight: 'bold', marginTop: 5 }}>Xoffencer_Journal</div>
             </Typography>
 
             {matches?
@@ -59,16 +60,15 @@ export default function Header() {
          }
 
 
-        <div>
+ <div style={{display:'flex'}}>
           
         <IconButton
             
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }}
           >
-             <NotificationsIcon style={{fontSize:30}}/>
+             <NotificationsIcon style={{ fontSize: matches ? 30 : 24 }}/>
              </IconButton>
 
              
@@ -78,11 +78,10 @@ export default function Header() {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }} 
             onClick={()=>navigate('/contact')} 
             
           >
-             <CallIcon style={{fontSize:30}}/>
+             <CallIcon style={{ fontSize: matches ? 30 : 24 }} />
              </IconButton>
 
 

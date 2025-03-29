@@ -1,5 +1,4 @@
 import BroadCast from "./BroadCast";
-// import Body from "./BroadCast";
 import Footer from "./Footer";
 import Header from "./Header";
 import OfferScroll from "./OfferScroll"
@@ -8,7 +7,7 @@ export default function Homepage(props)
 {
     return(<div>
         <div>
-            <Header/>
+             <Header/> 
         </div>
 
         <div style={{margin:50}}>

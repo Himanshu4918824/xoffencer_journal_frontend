@@ -15,7 +15,7 @@ const ShowPage = () => {
 
     useEffect(() => {
         setLoading(true);
-        getData(`api/v1/National/${year}/${vol}/${issue}`)
+        getData(`api/v1/National Journal/${year}/${vol}/${issue}`)
             .then((res) => {
                 if (res && Array.isArray(res)) {
                     console.log({ res })

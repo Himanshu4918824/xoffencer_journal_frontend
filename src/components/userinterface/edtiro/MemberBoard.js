@@ -106,7 +106,7 @@ export default function MemberBoard(props)
         formData.append('marksheet',marksheet.bytes);
         formData.append('created_at', currentDate());
 
-        var result=await postData('',formData)
+            var result = await postData('api/v1/form-for-MemberBoard',formData)
         if(result.status)
         {
             Swal.fire({

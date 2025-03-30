@@ -93,7 +93,7 @@ export default function JournalForm(props)
         formData.append('created_at', currentDate());
       
 
-        var result=await postData('',formData)
+            var result = await postData('api/v1/form-for-JournalCertification',formData)
         if(result.status)
         {
             Swal.fire({

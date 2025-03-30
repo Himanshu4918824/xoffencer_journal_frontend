@@ -3,7 +3,7 @@ import { userStyle } from "./JournalFormCss"
 import { useState } from "react";
 // import logo from '../../../assets//logo.png'
 import cart from '../../../assets/cart.png'
-import { currentDate, postData } from "../../../services/FetchNodeAdminServices";
+import {  postData } from "../../../services/FetchNodeAdminServices";
 import Swal from "sweetalert2";
 import { LoadingButton } from "@mui/lab";
 import SaveIcon from '@mui/icons-material/Save';
@@ -169,10 +169,6 @@ export default function JournalForm(props) {
             err = true;
         }
 
-        if (secondAuthor.length === 0) {
-            handleErrorMessage('secondAuthor', 'plz insert secondAuthor...')
-            err = true;
-        }
 
         if (paper.length === 0) {
             handleErrorMessage('paper', 'plz insert Paper...')
@@ -278,7 +274,7 @@ export default function JournalForm(props) {
                     </Grid>
 
                     <Grid item xs={matches ? 6 : 12}>
-                        <TextField onFocus={() => handleErrorMessage('secondAuthor', null)} error={errorMessage?.secondAuthor} helperText={errorMessage?.secondAuthor} onChange={(event) => setSecondAuthor(event.target.value)} label="Second Author/Guide Name ( if any )" value={secondAuthor} fullWidth />
+                        <TextField onChange={(event) => setSecondAuthor(event.target.value)} label="Second Author/Guide Name ( if any )" value={secondAuthor} fullWidth />
                     </Grid>
 
                     <Grid item xs={matches ? 6 : 12}>

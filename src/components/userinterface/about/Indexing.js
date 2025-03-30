@@ -15,7 +15,7 @@ export default function Indexing()
             <Header/>
         </div>
 
-        <div style={{margin:20,padding:20,marginLeft:'10%',width:'81%',letterSpacing:0.5,lineHeight:matches?1.7:1.6,color:'#47424c',fontSize:16.5}}>
+        <div style={{margin:20,padding:20,marginLeft:'10%',width:'81%',letterSpacing:0.5,lineHeight:matches?1.7:1.6,color:'#47424c',fontSize:16.6}}>
 
         <div style={{fontSize:matches?28:24,fontWeight:'bold',color:'#8395a7'}}>What is Indexing ?</div>
         

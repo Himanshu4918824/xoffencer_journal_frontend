@@ -23,7 +23,7 @@ export default function AboutUs()
         <Grid container letterSpacing={0.3}>
 
              <Grid item xs={matches?3:12}>
-                <img alt="varsha" src="varsha.png" style={{width:matches?350:250,height:180}}/>
+                <img alt="varsha" src="varsha.png" style={{width:250,height:180}}/>
             </Grid>
 
 

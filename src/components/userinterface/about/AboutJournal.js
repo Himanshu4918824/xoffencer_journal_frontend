@@ -15,7 +15,7 @@ export default function AboutJournal()
             <Header/>
         </div>
 
-        <div style={{margin:20,padding:20,marginLeft:'10%',width:'81%',letterSpacing:0.3,color:'#47424c',fontSize:matches?16.5:16}}>
+        <div style={{margin:20,padding:20,marginLeft:'10%',width:'81%',letterSpacing:0.3,color:'#47424c',fontSize:matches?16.6:16}}>
 
         <div style={{fontSize:matches?26:22,fontWeight:'bold',color:'#8395a7'}}>About The Journal</div>
         

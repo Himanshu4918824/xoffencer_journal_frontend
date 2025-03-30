@@ -11,13 +11,13 @@ export default function Guidline()
         </div>
 
         <div style={{background: 'lightgrey',color:'black',width:'100%',height:250,display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center',marginBottom:40,textAlign:'center'}}> 
-           <div style={{fontSize:'2.2rem',fontWeight:500,letterSpacing:1.2}}>AUTHER & REVIEWER GUIDLINES</div> 
+           <div style={{fontSize:'2.2rem',fontWeight:500,letterSpacing:1.2}}>AUTHER PUBLICATION GUIDLINES</div> 
        </div>
 
        <div style={{margin:10,padding:10,width:'80%',marginLeft:'10%'}}>
         <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c'}}>
             <ol style={{listStyle:'none'}}>
-                <li>These guidelines are intended to give you the information needed to submit your paper to the VARSHA JOURNALS and present it in accordance with our requirements.</li>
+                <li>These guidelines are intended to give you the information needed to submit your paper to the VARSHA RESEARCH and present it in accordance with our requirements.</li>
                 <li style={{marginTop:7}}> Pre-Selection</li>
                 <li style={{marginTop:7}}> All papers are pre-screened to ensure that your manuscript satisfies the following points:</li>
             </ol>
@@ -25,126 +25,95 @@ export default function Guidline()
 
         <Divider style={{marginTop:20}}/>
 
-        <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c'}}>
+        <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c',marginTop:7}}>
             <ol style={{listStyle:'none'}}>
-                <li style={{fontSize:26,fontWeight:'bold',color:'#8395a7'}}>Plagiarism:</li>
-                <li style={{marginTop:7}}>Only below 10% plagiarism will be accepted.</li>
+                <li style={{fontSize:24,fontWeight:'bold',color:'#8395a7'}}>Publication Guidelines:</li>
+                <li style={{marginTop:7}}>At Varsha Research Organization, we welcome prospective authors to contribute their original research papers for publication. We value and prioritize quality, innovation, and effective communication in the field of science and technology. To ensure a smooth and efficient publication process, please adhere to the following guidelines.</li>
             </ol>
         </div>
 
         <Divider style={{marginTop:20}}/>
 
-        <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c'}}>
-            <ol style={{listStyle:'none'}}>
-                <li style={{fontSize:26,fontWeight:'bold',color:'#8395a7'}}>Originality:</li>
-                <li style={{marginTop:7}}>is the work scientifically rigorous, accurate and novel? Does the work contain significant additional material to that already published? Has its value been demonstrated?</li>
-            </ol>
+        <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c',marginTop:7}}>
+                <div style={{fontSize:24,fontWeight:'bold',color:'#8395a7'}}>Paper Submission Process</div>
+             <ul style={{marginLeft:55}}>
+                <li style={{marginTop:7}}>Prepare your research paper in the standard format provided.</li>
+                <li style={{marginTop:7}}>Papers should contain new theoretical and/or experimental research and must not be under consideration for publication elsewhere.</li>
+                <li style={{marginTop:7}}>There is no page limit, and authors are encouraged to include figures, tables, and references as needed.</li>
+            </ul>
         </div>
 
         <Divider style={{marginTop:20}}/>
 
-        <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c'}}>
-            <ol style={{listStyle:'none'}}>
-                <li style={{fontSize:26,fontWeight:'bold',color:'#8395a7'}}>Submission:</li>
-                <li style={{marginTop:7}}>is the material appropriate to the scope of the journal to which it is submitted? research paper will be submitted online in only in doc word file format</li>
-            </ol>
+        <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c',marginTop:7}}>
+                <div style={{fontSize:24,fontWeight:'bold',color:'#8395a7'}}>Steps for Publishing Your Paper with Varsha Research Organization</div>
+             <ul style={{marginLeft:55}}>
+                <li style={{marginTop:7}}>Submit your research paper by clicking here to Submit the Paper Online.</li>
+                <li style={{marginTop:7}}>You will receive a paper submission notification via email, which will include a unique Paper Registration ID.</li>
+                <li style={{marginTop:7}}>You can track the status of your paper using this ID.</li>
+                <li style={{marginTop:7}}>Expect to receive a review (acceptance/rejection) notification within 1-2 days of submitting your paper.</li>
+                <li style={{marginTop:7}}>Upon acceptance, authors are required to make payment for publication charges.</li>
+                <li style={{marginTop:7}}>Submit the necessary documents for paper publication, including the Copyright Form, Undertaking Form, Payment Proof, and Identity Proof.</li>
+            </ul>
         </div>
 
         <Divider style={{marginTop:20}}/>
 
-        <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c'}}>
-            <ol style={{listStyle:'none'}}>
-                <li style={{fontSize:26,fontWeight:'bold',color:'#8395a7'}}>Multidisciplinary:</li>
-                <li style={{marginTop:7}}>Research Articles/ Papers of any subject can be submitted for publication.</li>
-            </ol>
+        <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c',marginTop:7}}>
+                <div style={{fontSize:24,fontWeight:'bold',color:'#8395a7'}}>Publication Process</div>
+             <ul style={{marginLeft:55}}>
+                <li style={{marginTop:7}}>Once all required documents and fees are received, your paper will be published within 1-2 days.</li>
+                <li style={{marginTop:7}}>Authors can download certificates of publication from their Author’s Home.</li>
+            </ul>
         </div>
 
         <Divider style={{marginTop:20}}/>
 
-        <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c'}}>
-            <ol style={{listStyle:'none'}}>
-                <li style={{fontSize:26,fontWeight:'bold',color:'#8395a7'}}>Motivation::</li>
-                <li style={{marginTop:7}}>does the problem considered have a sound motivation? Does the paper clearly demonstrate the scientific interest of the results?</li>
-            </ol>
+        <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c',marginTop:7}}>
+                <div style={{fontSize:24,fontWeight:'bold',color:'#8395a7'}}>Author’s Home</div>
+             <ul style={{marginLeft:55}}>
+                <li style={{marginTop:7}}>Varsha Research Organization provides individual accounts for corresponding authors. You will receive your account credentials in your provided email address.</li>
+                <li style={{marginTop:7}}>You can access your account to review your paper details, your personal information, and paper status.</li>
+                <li style={{marginTop:7}}>Authors can download a soft copy of the published paper certificate and the published paper PDF from their account after successful publication.</li>
+            </ul>
         </div>
 
         <Divider style={{marginTop:20}}/>
 
-        <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c'}}>
-            <ol style={{listStyle:'none'}}>
-                <li style={{fontSize:26,fontWeight:'bold',color:'#8395a7'}}>Referencing:</li>
-                <li style={{marginTop:7}}>has reference been made to the most recent and most appropriate work? Is the present work set in the context of the previous work?</li>
-            </ol>
+        <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c',marginTop:7}}>
+                <div style={{fontSize:24,fontWeight:'bold',color:'#8395a7'}}>Benefits of Publishing with Varsha Research Organization</div>
+                <p></p>
+             <ul style={{marginLeft:55}}>
+                <li style={{marginTop:7}}>Quick and speedy review process.</li>
+                <li style={{marginTop:7}}>Meta-level programming for enhanced SEO effectiveness.</li>
+                <li style={{marginTop:7}}>Automated Citation Generator.</li>
+                <li style={{marginTop:7}}>Instant certificate generation upon publication of your paper.</li>
+                <li style={{marginTop:7}}>Varsha Research Organization is an open-access, peer-reviewed international journal.</li>
+                <li style={{marginTop:7}}>Check your paper status online using your Paper ID and Author Email Address.</li>
+                <li style={{marginTop:7}}>Individual soft copies of “Certificate of Publication” for all authors.</li>
+                <li style={{marginTop:7}}>Indexing of papers in major online journal databases like Google Scholar and academia.edu.</li>
+                <li style={{marginTop:7}}>Open Access Journal Database for high visibility and promotion of your article with keywords and abstract.</li>
+                <li style={{marginTop:7}}>Author research guidelines and support.</li>
+                <li style={{marginTop:7}}>Reliable, easy, and rapidly growing e-publication journal.</li>
+                <li style={{marginTop:7}}>Prestigious reviewers from well-known institutes.</li>
+                <li style={{marginTop:7}}>Only quality papers are accepted.</li>
+                <li style={{marginTop:7}}>Varsha Research Organization has initiated a “Go Green Initiative” by providing e-publication of research papers and certificates.</li>
+                <li style={{marginTop:7}}>Lifetime access to Varsha Research Organization papers and certificates in your Author Account.</li>
+            </ul>
         </div>
 
-        <Divider style={{marginTop:20}}/>
+         
 
-        <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c'}}>
-            <ol style={{listStyle:'none'}}>
-                <li style={{fontSize:26,fontWeight:'bold',color:'#8395a7'}}>Clarity:</li>
-                <li style={{marginTop:7}}>is the English clear and well written? Poorly written English may obscure the scientific merit of your paper. Are the ideas expressed clearly and concisely? Are the concepts understandable?</li>
-            </ol>
-        </div>
+          <div style={{fontSize:18,fontWeight:400,letterSpacing:0.30,color:'#47424c',marginTop:30}}>
+              For any inquiries or assistance, please contact us at editor@varsharesearch.org or call us at +919827646334
+          </div>
 
-        <Divider style={{marginTop:20}}/>
+          <div style={{fontSize:18,fontWeight:400,letterSpacing:0.30,color:'#47424c',marginTop:20}}>
+                Thank you for considering Varsha Research Organization for your research publication needs. We look forward to your valuable contributions
+          </div>
 
-        <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c'}}>
-            <ol style={{listStyle:'none'}}>
-                <li style={{fontSize:26,fontWeight:'bold',color:'#8395a7'}}>Structure:</li>
-                <li style={{marginTop:7}}>Last, F. M., & Last, F. M. (Year Published). Article title. Journal Name, Volume(Issue), pp. Pages.</li>
-            </ol>
-        </div>
-
-        <Divider style={{marginTop:20}}/>
-
-        <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c'}}>
-            <ol style={{listStyle:'none'}}>
-                <li style={{fontSize:26,fontWeight:'bold',color:'#8395a7'}}>Conference paper:</li>
-                <li style={{marginTop:7}}>Structure</li>
-                <li style={{marginTop:7}}>Last name, FM. (Year published). Title of Paper or Proceedings, Title of Conference, Location, Date. Place of publication: Publisher.</li>
-                <li style={{marginTop:7}}>Example</li>
-                <li style={{marginTop:7}}>Cloyd, AM. (2014). Surveying students: A look at citation habits of college students, presented at EasyBib Info Lit Conference, New York City, 2014. New York, NY: EasyBib Publishing.</li>
-            </ol>
-        </div>
-
-        <Divider style={{marginTop:20}}/>
-
-        <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c'}}>
-            <ol style={{listStyle:'none'}}>
-                <li style={{fontSize:26,fontWeight:'bold',color:'#8395a7'}}>Book, book chapter and manual</li>
-                <li style={{marginTop:7}}>Structure</li>
-                <li style={{marginTop:7}}>Last, F. M. (Year Published) Book. City, State: Publisher..</li>
-                <li style={{marginTop:7}}>Example</li>
-                <li style={{marginTop:7}}>Rowling, J.K. (2001). Harry Potter and the socerer's stone. London: Bloomsburg Children's.</li>
-            </ol>
-        </div>
-
-        <Divider style={{marginTop:20}}/>
-
-        <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c'}}>
-            <ol style={{listStyle:'none'}}>
-                <li style={{fontSize:26,fontWeight:'bold',color:'#8395a7'}}>Thesis:</li>
-                <li style={{marginTop:7}}>Abbott, N.L.: ‘The title of the thesis’. PhD thesis, XYZ University, 2005</li>
-               
-            </ol>
-        </div>
-
-        <Divider style={{marginTop:20}}/>
-
-        <div style={{fontSize:16,fontWeight:400,letterSpacing:0.30,color:'#47424c'}}>
-            <ol style={{listStyle:'none'}}>
-                <li style={{fontSize:26,fontWeight:'bold',color:'#8395a7'}}>Copyright:</li>
-                <li style={{marginTop:7}}>Completed 'Publication Agreement and Assessment of Copyright' and 'Statement of Originality' forms are required for all papers. These should be emailed, posted or faxed to the Editorial Office (address given on the form) once you have uploaded your paper.</li>
-                <li style={{marginTop:5}}>The forms should be signed by all authors. If this is not practical, the corresponding author may sign on behalf of all authors.</li>
-                <li style={{marginTop:5}}>If you wish to make use of previously published illustrations, diagrams or photographs in your paper, you must first obtain the written permission of the copyright holder concerned (usually the publisher) before incorporating the work in your article. The source of the material must also be acknowledged in full.</li>
-            </ol>
-        </div>
-
-        <Divider style={{marginTop:20}}/>
-
-
-
-
+       
+          <Divider style={{marginTop:20}}/>
 
        </div>
 

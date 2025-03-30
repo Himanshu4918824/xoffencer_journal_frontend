@@ -15,7 +15,7 @@ export default function Policy()
             <Header/>
         </div>
 
-         <div style={{margin:20,padding:20,marginLeft:'10%',width:'80%',letterSpacing:0.3,color:'#47424c',fontSize:16.5,lineHeight:1.4}}>
+         <div style={{margin:20,padding:20,marginLeft:'10%',width:'80%',letterSpacing:0.3,color:'#47424c',fontSize:16.6,lineHeight:1.4}}>
 
         <div style={{fontSize:26,fontWeight:'bold',color:'#8395a7',marginBottom:20}}>Publication Ethics Policy</div>
 

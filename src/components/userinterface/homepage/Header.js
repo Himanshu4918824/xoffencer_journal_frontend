@@ -9,7 +9,7 @@ import TextBoxSearch from "../homepage/TextBoxSearch"
 import CallIcon from '@mui/icons-material/Call';
 import { Drawer, IconButton } from '@mui/material';
 import Menubar from './Menubar';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+//import NotificationsIcon from '@mui/icons-material/Notifications';
 
 // import Contact from './Contact';
 
@@ -62,7 +62,7 @@ export default function Header() {
 
  <div style={{display:'flex'}}>
           
-        <IconButton
+       {/* <IconButton
             
             edge="start"
             color="inherit"
@@ -71,7 +71,7 @@ export default function Header() {
              <NotificationsIcon style={{ fontSize: matches ? 30 : 24 }}/>
              </IconButton>
 
-             
+             */}
 
              <IconButton
             
@@ -81,7 +81,7 @@ export default function Header() {
             onClick={()=>navigate('/contact')} 
             
           >
-             <CallIcon style={{ fontSize: matches ? 30 : 24 }} />
+             <CallIcon style={{ fontSize: matches ? 30 : 24 ,marginLeft: matches ? 0: 15 }} />
              </IconButton>
 
 

@@ -18,7 +18,7 @@ export default function BroadCast()
     const showData=()=>{
         return data.map((item,i)=>{
             return(<div style={{margin:10,padding:10,marginTop:20,display:'flex',justifyContent:'center',alignItems:'center'}}>
-                <Paper elevation={6} style={{width:matches?600:300,height:matches?300:450,borderRadius:20}}>
+                <Paper elevation={6} style={{width:matches?600:300,height:matches?340:450,borderRadius:20,padding:16}}>
 
                     <div style={{display:'flex',justifyContent:'center',alignItems:'center',flexDirection:'column'}}>
                         <div style={{marginTop:20}}> 
@@ -91,17 +91,17 @@ export default function BroadCast()
 
             <Divider/>
 
-            <div style={{margin:10,fontSize:18,fontWeight:400,color:'#f0edea'}}>
+            <div style={{margin:10,fontSize:18,fontWeight:400,color:'#f0edea',padding:3}}>
                2020-2024  National Journal
             </div>
 
-            <div style={{margin:10,fontSize:18,fontWeight:400,marginBottom:25,color:'#f0edea'}}>
+            <div style={{margin:10,fontSize:18,fontWeight:400,marginBottom:25,color:'#f0edea',padding:2}}>
             2020-2024  International Journal
             </div>
 
             <Divider height='10px'/>
 
-            <div style={{margin:10,fontSize:16,fontWeight:400,color:'#6c757d',lineHeight:'25px',marginBottom:20,letterSpacing:1}}>
+            <div style={{margin:10,fontSize:16,fontWeight:400,color:'#6c757d',lineHeight:'25px',marginBottom:20,letterSpacing:1,padding:7}}>
                 Airo Journals are categorized in two publication gateways.
                 Airo National Research Journal and Airo International Journal
                 which maintains submissions from Indian and foreign author’s 
@@ -124,7 +124,7 @@ export default function BroadCast()
 
            
 
-            <div style={{margin:10,fontSize:16,fontWeight:500,color:'#6c757d',lineHeight:'25px',marginBottom:20,letterSpacing:1}}>
+            <div style={{margin:10,fontSize:16,fontWeight:500,color:'#6c757d',lineHeight:'25px',marginBottom:20,letterSpacing:1,padding:7}}>
                 Humanities, Fine Arts, and Music 6.3 Management, 
                 Commerce, Economics, Law 6.7 Life Science,
                 Agriculture, Nursing, Medical and Bio 5.2
@@ -149,7 +149,7 @@ export default function BroadCast()
 
             
 
-            <div style={{margin:10,fontSize:16,fontWeight:400,color:'#6c757d',lineHeight:'25px',marginBottom:20,letterSpacing:1}}>
+            <div style={{margin:10,fontSize:16,fontWeight:400,color:'#6c757d',lineHeight:'25px',marginBottom:20,letterSpacing:1,padding:6}}>
             Conference Conduct Thesis Publication
              Conference Paper Publication Seminar Paper
               Publication Editorial Membership

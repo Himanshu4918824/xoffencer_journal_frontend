@@ -13,6 +13,10 @@ import MemberBoard from "./components/userinterface/edtiro/MemberBoard";
 import Guidline from "./components/userinterface/guidlineoriginality/Guidline";
 import DatasetRepositry from "./components/userinterface/dataset/DatasetRepositry";
 import Contact from "./components/userinterface/homepage/Contact";
+import AboutJournal from "./components/userinterface/about/AboutJournal";
+import Indexing from "./components/userinterface/about/Indexing";
+import Policy from "./components/userinterface/about/Policy";
+import AboutUs from "./components/userinterface/about/AboutUs";
 
 
 
@@ -35,6 +39,10 @@ function App() {
         <Route element={<Homepage/>} path="/"></Route>
 
         <Route element={<Contact/>} path="/contact"></Route>
+        <Route element={<AboutJournal/>} path="/aboutjournal"></Route>
+        <Route element={<Indexing/>} path="/indexing"></Route>
+        <Route element={<Policy/>} path="/policy"></Route>
+        <Route element={<AboutUs/>} path="/aboutus"></Route>
       </Routes>
     </Router>
     

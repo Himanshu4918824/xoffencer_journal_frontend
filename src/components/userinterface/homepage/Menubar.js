@@ -52,6 +52,18 @@ const Menubar = () => {
                         </div>
                     </li>
 
+                    <li className='dropdown-2'>About
+                        <div className="Subdropdown-2">
+                            <ul>
+                                <li onClick={()=>navigate('/aboutus')}>About Us</li>
+                                <li onClick={()=>navigate('/aboutjournal')}>About The Journal</li>
+                                <li onClick={()=>navigate('/indexing')}>Indexing</li>
+                                <li onClick={()=>navigate('/policy')}>Publication Ethics Policy</li>
+
+                            </ul>
+                        </div>
+                    </li>
+
                     <li onClick={()=>navigate('/datasetrepositry')}>Dataset Repositry</li>
                     
                 </ul>

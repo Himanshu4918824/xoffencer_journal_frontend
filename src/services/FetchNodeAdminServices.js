@@ -3,23 +3,23 @@ import axios from "axios";
 const serverURL = 'http://localhost:8000'
 
 const currentDate = () => {
-      var d = new Date();
-      var cd = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
-      var ct = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+      let d = new Date();
+      let cd = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+      let ct = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
       return cd + " " + ct;
 }
 
 const createdDate = (date) => {
-      var d = new Date(date);
-      var cd = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
-      var ct = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
+      let d = new Date(date);
+      let cd = d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate();
+      let ct = d.getHours() + ":" + d.getMinutes() + ":" + d.getSeconds();
       return cd + " " + ct;
 }
 
 const postData = async (url, body) => {
       try {
-            var response = await axios.post(`${serverURL}/${url}`, body)
-            var result = response.data;
+            let response = await axios.post(`${serverURL}/${url}`, body)
+            let result = response.data;
             return result;
       }
       catch (e) {
@@ -29,13 +29,17 @@ const postData = async (url, body) => {
 }
 
 const getData = async (url) => {
-      try {
-            var response = await axios.get(`${serverURL}/${url}`)
-            var result = response.data;
-            return result;
+      if (url === null) {
+         
+            return null; // Prevent the request
       }
-      catch (e) {
-            return e.response.data;
+
+      try {
+            let response = await axios.get(`${serverURL}/${url}`);
+            return response.data;
+      } catch (e) {
+            console.error("Fetch error:", e);
+            return e.response ? e.response.data : "Unknown error";
       }
 
 }

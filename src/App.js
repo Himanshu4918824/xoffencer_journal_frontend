@@ -13,32 +13,32 @@ import MemberBoard from "./components/userinterface/edtiro/MemberBoard";
 import Guidline from "./components/userinterface/guidlineoriginality/Guidline";
 import DatasetRepositry from "./components/userinterface/dataset/DatasetRepositry";
 import Contact from "./components/userinterface/homepage/Contact";
-
+import ShowPage from "./components/userinterface/nationaljournal/ShowPage";
 
 
 function App() {
   return (
-   <div>
-    <Router>
-      <Routes>
-        <Route element={<Category/>} path="/category"></Route> 
-        <Route element={<DisplayAllCategory/>} path="/displayAllCategory"></Route>
-        <Route element={<SubCategory/>} path="/subcategory"></Route>
-        <Route element={<DisplayAllSubCategory/>} path="/displayAllSubCategory"></Route>
-        <Route element={<JournalForm/>} path="/journalform"></Route>
-        <Route element={<NationalJournal/>} path="/nationaljournal"></Route>
-        <Route element={<JournalCertification/>} path="/journalcertification"></Route>
-        <Route element={<Team/>} path="/team"></Route>
-        <Route element={<MemberBoard/>} path="/memberboard"></Route>
-        <Route element={<Guidline/>} path="/guidline"></Route>
-        <Route element={<DatasetRepositry/>} path="/datasetrepositry"></Route>
-        <Route element={<Homepage/>} path="/"></Route>
+    <div>
+      <Router>
+        <Routes>
+          <Route element={<Category />} path="/category"></Route>
+          <Route element={<DisplayAllCategory />} path="/displayAllCategory"></Route>
+          <Route element={<SubCategory />} path="/subcategory"></Route>
+          <Route element={<DisplayAllSubCategory />} path="/displayAllSubCategory"></Route>
+          <Route element={<JournalForm />} path="/journalform"></Route>
+          <Route element={<NationalJournal />} path="/nationaljournal"></Route>
+          <Route element={<JournalCertification />} path="/journalcertification"></Route>
+          <Route element={<Team />} path="/team"></Route>
+          <Route element={<MemberBoard />} path="/memberboard"></Route>
+          <Route element={<Guidline />} path="/guidline"></Route>
+          <Route element={<DatasetRepositry />} path="/datasetrepositry"></Route>
+          <Route element={<Homepage />} path="/"></Route>
+          <Route element={<ShowPage />} path="/ShowJournal"></Route>
+          <Route element={<Contact />} path="/contact"></Route>
+        </Routes>
+      </Router>
 
-        <Route element={<Contact/>} path="/contact"></Route>
-      </Routes>
-    </Router>
-    
-   </div>
+    </div>
   );
 }
 

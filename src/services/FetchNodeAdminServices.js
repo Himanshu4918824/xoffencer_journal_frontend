@@ -29,13 +29,17 @@ const postData = async (url, body) => {
 }
 
 const getData = async (url) => {
-      try {
-            let response = await axios.get(`${serverURL}/${url}`)
-            let result = response.data;
-            return result;
+      if (url === null) {
+         
+            return null; // Prevent the request
       }
-      catch (e) {
-            return e.response.data;
+
+      try {
+            let response = await axios.get(`${serverURL}/${url}`);
+            return response.data;
+      } catch (e) {
+            console.error("Fetch error:", e);
+            return e.response ? e.response.data : "Unknown error";
       }
 
 }

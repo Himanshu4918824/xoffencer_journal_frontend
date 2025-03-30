@@ -27,7 +27,7 @@ const JournalDetails = ({ details }) => {
             </Table>
 
             {/* Buttons Section */}
-            <div style={{ display: "flex", gap: "10px", marginTop: 20 }}>
+            <div style={{ display: "flex", gap: "10px", marginTop: 20 , justifyContent: "center"}}>
                 <Button variant="contained" color="primary" onClick={() => window.open("#", "_blank")}>
                     VIEW PUBLICATION
                 </Button>

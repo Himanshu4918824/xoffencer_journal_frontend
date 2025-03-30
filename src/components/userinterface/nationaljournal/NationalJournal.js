@@ -36,9 +36,9 @@ export default function NationalJournal() {
             const result = await getData(endpoint);
             if (Array.isArray(result)) {
                 setData(result);
-                console.log("New Data:", result);
+                // console.log("New Data:", result);
             } else {
-                console.error("Expected an array but received:", result);
+                // console.error("Expected an array but received:", result);
                 setData([]);
             }
         } catch (error) {
@@ -50,12 +50,13 @@ export default function NationalJournal() {
 
     // Fetch Initial Data (Years)
     useEffect(() => {
-        fetchData("api/v1/National Journal");
+        fetchData("api/v1/National Journal")
     }, []);
 
     // Handle Card Click - Move to Next Level
     const handleCardClick = (item) => {
-        console.log("Clicked:", item);
+
+        // console.log("Clicked:", item);
 
         // Update the path for navigation
         const newPath = [...path, item];
@@ -72,8 +73,9 @@ export default function NationalJournal() {
             apiEndpoint = `api/v1/National Journal/${path[0]}/${encodeURIComponent(item)}`;
         } else if (currentLevel === "issue") {
             nextLevel = "result";
-           navigate(`/ShowJournal?year=${path[0]}&vol=${path[1]}&issue=${item}`); // Navigate to the result page
-            
+            apiEndpoint = null;
+            navigate(`/ShowJournal?year=${path[0]}&vol=${path[1]}&issue=${item}`); // Navigate to the result page
+
         } else {
             return; // Stop if at the final result level
         }
@@ -132,7 +134,7 @@ export default function NationalJournal() {
                 ))}
             </div>
             {path.length > 0 && (
-                <div style={{ textAlign: "center", marginTop: 10 , marginBottom: 20}}>
+                <div style={{ textAlign: "center", marginTop: 10, marginBottom: 20 }}>
                     <Button variant="contained" color="primary" onClick={handleBack}>
                         Back
                     </Button>

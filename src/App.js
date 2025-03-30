@@ -18,25 +18,29 @@ import Indexing from "./components/userinterface/about/Indexing";
 import Policy from "./components/userinterface/about/Policy";
 import AboutUs from "./components/userinterface/about/AboutUs";
 
+import ShowPage from "./components/userinterface/nationaljournal/ShowPage";
 
 
 function App() {
   return (
-   <div>
-    <Router>
-      <Routes>
-        <Route element={<Category/>} path="/category"></Route> 
-        <Route element={<DisplayAllCategory/>} path="/displayAllCategory"></Route>
-        <Route element={<SubCategory/>} path="/subcategory"></Route>
-        <Route element={<DisplayAllSubCategory/>} path="/displayAllSubCategory"></Route>
-        <Route element={<JournalForm/>} path="/journalform"></Route>
-        <Route element={<NationalJournal/>} path="/nationaljournal"></Route>
-        <Route element={<JournalCertification/>} path="/journalcertification"></Route>
-        <Route element={<Team/>} path="/team"></Route>
-        <Route element={<MemberBoard/>} path="/memberboard"></Route>
-        <Route element={<Guidline/>} path="/guidline"></Route>
-        <Route element={<DatasetRepositry/>} path="/datasetrepositry"></Route>
-        <Route element={<Homepage/>} path="/"></Route>
+    <div>
+      <Router>
+        <Routes>
+          <Route element={<Category />} path="/category"></Route>
+          <Route element={<DisplayAllCategory />} path="/displayAllCategory"></Route>
+          <Route element={<SubCategory />} path="/subcategory"></Route>
+          <Route element={<DisplayAllSubCategory />} path="/displayAllSubCategory"></Route>
+          <Route element={<JournalForm />} path="/journalform"></Route>
+          <Route element={<NationalJournal />} path="/nationaljournal"></Route>
+          <Route element={<JournalCertification />} path="/journalcertification"></Route>
+          <Route element={<Team />} path="/team"></Route>
+          <Route element={<MemberBoard />} path="/memberboard"></Route>
+          <Route element={<Guidline />} path="/guidline"></Route>
+          <Route element={<DatasetRepositry />} path="/datasetrepositry"></Route>
+          <Route element={<Homepage />} path="/"></Route>
+          <Route element={<ShowPage />} path="/ShowJournal"></Route>
+          <Route element={<Contact />} path="/contact"></Route>
+        
 
         <Route element={<Contact/>} path="/contact"></Route>
         <Route element={<AboutJournal/>} path="/aboutjournal"></Route>
@@ -47,6 +51,7 @@ function App() {
     </Router>
     
    </div>
+    
   );
 }
 

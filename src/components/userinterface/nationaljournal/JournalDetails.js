@@ -1,7 +1,35 @@
 import React from "react";
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableRow } from "@mui/material";
+import axios from "axios";
 
 const JournalDetails = ({ details }) => {
+    const handleDownload = async () => {
+        try {
+            console.log(`Downloading file with ID: ${details.id}`);
+            const response = await axios.post(
+                `http://localhost:8000/api/v1/download/${details.id}`,
+                null,
+                { responseType: "blob" }  // 🔥 Ensures binary data is handled correctly
+            );
+
+            if (response.data.size === 0) {
+                console.error("Received an empty file!");
+                return;
+            }
+
+            const blob = new Blob([response.data], { type: "application/pdf" });
+            const url = window.URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.href = url;
+            link.setAttribute("download", `${details.Title_of_paper}.pdf`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        } catch (error) {
+            console.error("Error downloading file:", error);
+        }
+    };
+
 
     return (
         <TableContainer component={Paper} style={{ padding: 20, maxWidth: 800, margin: "auto", marginTop: 20 }}>
@@ -27,8 +55,8 @@ const JournalDetails = ({ details }) => {
             </Table>
 
             {/* Buttons Section */}
-            <div style={{ display: "flex", gap: "10px", marginTop: 20 , justifyContent: "center"}}>
-                <Button variant="contained" color="primary" onClick={() => window.open("#", "_blank")}>
+            <div style={{ display: "flex", gap: "10px", marginTop: 20, justifyContent: "center" }}>
+                <Button variant="contained" color="primary" onClick={() => handleDownload()}>
                     VIEW PUBLICATION
                 </Button>
                 <Button variant="contained" style={{ backgroundColor: "#4CAF50", color: "white" }} onClick={() => window.open("#", "_blank")}>

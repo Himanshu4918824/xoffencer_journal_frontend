@@ -9,7 +9,9 @@ import { LoadingButton } from "@mui/lab";
 import SaveIcon from '@mui/icons-material/Save';
 import Header from "../homepage/Header";
 import Footer from "../homepage/Footer";
-// import Checkbox from '@mui/material/Checkbox';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -37,6 +39,17 @@ export default function JournalForm(props)
 
     const [loadingButton,setLoadingButton]=useState(false)
     const [errorMessage,setErrorMessage]=useState({})
+
+    const [selectedOptions, setSelectedOptions] = useState({softCopyINR:false, softCopyUSD:false, softAndHardCopyINR:false});
+
+    const handleCheckboxChange = (event) =>
+        {
+           const { name, checked } = event.target;
+           setSelectedOptions((prevState) => ({ ...prevState, [name]: checked }));
+        };
+    
+
+
 
     const handleErrorMessage=(label,message)=>{
         var msg=errorMessage;
@@ -279,15 +292,23 @@ return err;
                 <Avatar src={photo.fileName} variant="rounded"></Avatar>
             </Grid>
 
+            <Grid item xs={12}>
+                <FormGroup>
+                   <FormControlLabel control={<Checkbox name="softCopyINR" checked={selectedOptions.softCopyINR} onChange={handleCheckboxChange} />} label="I want Soft copy of the certificate @550 INR"/>
+                   <FormControlLabel control={<Checkbox name="softCopyUSD" checked={selectedOptions.softCopyUSD} onChange={handleCheckboxChange}/>} label="I want Soft copy of the certificate @ 27 USD (For the authors belong to out of India)"/>
+                   <FormControlLabel control={<Checkbox name="softAndHardCopyINR" checked={selectedOptions.softAndHardCopyINR} onChange={handleCheckboxChange} />} label="I want Soft and Hardcopy of the certificate @1250 INR"/>
+                </FormGroup>
+
+            </Grid>
+
             
 
             <Grid item xs={12}>
                 <div style={{fontWeight:400,fontSize:16,letterSpacing:1.2,marginTop:10}}>
-               <span style={{fontWeight:'bold',fontSize:18}}>Note :</span> Publication is free for all. Any amount is charged for other further process which include the annual maintenance or issues like of certificate, duplicate certificate with delivery, correction, formatting delivery of print journal etc
+               <span style={{fontWeight:'bold',fontSize:18}}>Note :</span> Publication is free for all. Any amount is charged for other further process which include the annual maintenance or issues like of certificate, duplicate certificate with delivery, correction, formatting delivery of print journal etc. 
 
-                    Soft copy will be sent to the registered email ID of the candidate
-
-                Hard copy of the certificate will be sent to the registered address of the candidate
+                    Soft copy will be sent to the registered email ID of the candidate.
+                    Hard copy of the certificate will be sent to the registered address of the candidate
                 </div>
             </Grid>
 

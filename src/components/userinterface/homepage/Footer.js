@@ -63,7 +63,7 @@ export default function Footer() {
             <div style={{ marginTop: '20px' }}>
               For bugs, glitches, or other issues, email us at:
               <br />
-              <strong>editor@varsharesearch.org</strong>
+              <strong>editor@varsharesearchorganization.com</strong>
             </div>
           </div>
         </div>

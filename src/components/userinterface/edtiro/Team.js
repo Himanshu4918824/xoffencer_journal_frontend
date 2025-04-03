@@ -24,7 +24,7 @@ export default function Team() {
     { sno: 3, name: 'Dr. Rajesh Kumar Jha, Associate Professor in MBA, Dr.D.Y.Patil Institute of Management and Enterprenure Development. ,Pune', pic: Rajesh, email: '' },
     { sno: 4, name: 'Dr.Manoj Kumar Vats, Head of Deptt. Sociology, R.S.K. D. Post Graduate Collage, Janupur 222002 ', pic: manoj, email: 'Email:editor.manojvats@varsharesearchorganization.com' },
     { sno: 5, name: 'Dr Deepchand Dhankher, Adjunct Research Supervisor, liutbem University lushakha Zambia', pic: dee, email: '' },
-    { sno: 6, name: 'Dr.Sandhya Pandey, Assistant Professor, M.Sc., Ph.D., FCRSD, Deptt.Of Zoology, PPN Post Graduate Collage, Kanpur', pic: sand, email: ':Emaileditor.drsandhya@varsharesearchorganization.com' },
+    { sno: 6, name: 'Dr.Sandhya Pandey, Assistant Professor, M.Sc., Ph.D., FCRSD, Deptt.Of Zoology, PPN Post Graduate Collage, Kanpur', pic: sand, email: 'Emaileditor.drsandhya@varsharesearchorganization.com' },
     { sno: 7, name: 'Dr. Vineeta Dixit,HOD, Department of Botany , SSJSN College Garhwa 822114 ,Jharkhand', pic: ram, email: 'Email:editor.ramkinker@varsharesearchorganization.com' },
     { sno: 8, name: 'Professor Ram Kinkar Pandey, Principal,Government Lahiri Post Graduate College, Chirmiri District – Manendragarh – Chirmiri – Bharatpur Chhattisgarh', pic: vineeta, email: 'Email:editor.drvineeta@varsharesearchorganization.com' },
     { sno: 9, name: 'Maya Mishra, Assistant Professor, B.Ed. Departmen, Government Teacher Education College, Rewa', pic: maya, email: 'Email:editor.mayamishra@varsharesearchorganization.com' },
@@ -76,6 +76,7 @@ export default function Team() {
         </Typography>
         <Typography variant="body1" style={{ marginBottom: 10 }}>
           Varsha Rajput Architect B.Arc., B.Tech.(Civil Engineering) [MPCT Gwalior ] Chief Executive Officer
+          <div style={{wordWrap: 'break-word',marginTop:5}}>Email:editor@varsharesearchorganization.com</div>
         </Typography>
 
         <Typography variant="h5" style={{ fontWeight: 500, color: '#8395a7',  marginTop: 20, marginBottom:20 }}>

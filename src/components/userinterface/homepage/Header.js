@@ -43,7 +43,7 @@ export default function Header() {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: 2 }}
+            sx={{ mr: matches?2:1 }}
             onClick={handleClick}
           >
             <MenuIcon />
@@ -51,8 +51,8 @@ export default function Header() {
 
         <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',width:matches?'100%':'100%'}}>
             <Typography onClick={()=>navigate('/')} variant="h6" component="div" sx={{cursor:'pointer', display:'flex',alignItems:'center'}}>
-               <img alt='logo' src={logo} style={{width:matches?70:50,height:matches?70:50,marginLeft:matches?50:2,marginTop:5}} />
-               <div style={{ fontSize: matches ? 24 : 18, fontWeight: 'bold', marginTop: 5 }}>Xoffencer_Journal</div>
+               <img alt='logo' src={logo} style={{width:matches?80:60,height:matches?70:50,marginLeft:matches?50:0,marginTop:5}} />
+               <div style={{ fontSize: matches ? 24 : 18, fontWeight: 'bold', marginTop: 5, marginLeft: 9 }}>Varsha Research </div>
             </Typography>
 
             {matches?
@@ -104,11 +104,11 @@ export default function Header() {
 
       {matches?<Menubar/>:<div></div>}
 
-      <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
+     { matches ? <></> : <Drawer anchor="left" open={open} onClose={() => setOpen(false)}>
         <div style={{width:300,background:'#8395a7',height:'100vh',textAlign:'center'}}>
           <Menubar/>
         </div>
-        </Drawer>
+        </Drawer> }
 
     </Box>
   );

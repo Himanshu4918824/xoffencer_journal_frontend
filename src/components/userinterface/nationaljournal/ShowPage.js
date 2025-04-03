@@ -3,6 +3,8 @@ import { getData } from "../../../services/FetchNodeAdminServices";
 import { useSearchParams } from "react-router-dom";
 import JournalDetails from "./JournalDetails";
 import Header from "../homepage/Header";
+import { Button } from "@mui/material";
+import Footer from "../homepage/Footer";
 
 const ShowPage = () => {
     const [searchParams] = useSearchParams(); // This returns a URLSearchParams object
@@ -38,16 +40,18 @@ const ShowPage = () => {
         <div>
             <div>
                 <Header />
+  
 
                 <div
-                    style={{ background: 'lightgrey', color: 'black', width: '100%', height: 250, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}
+                    style={{ background: 'lightgrey', color: 'black', width: '100%', height: 250, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', marginBottom:5 }}
                 >
                     <div style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: 1.2 }}>NATIONAL JOURNAL</div>
                     <div style={{ fontSize: '1.5rem', fontWeight: 400, letterSpacing: 1.2 }}>{year} PUBLICATIONS - {vol} - {issue}</div>
                     <div style={{ fontSize: '1.1rem', fontWeight: 400 }}>Airo National Research Journal ISSN 2321-3914</div>
                 </div>
             </div>
-            <div style={{ padding: '20px', backgroundColor: '#f0f0f0' }}>
+            <Button style={{ display: 'flex', marginLeft: 'auto', marginRight: '20px'}} variant="contained">Dwonload Magazine</Button>
+            <div style={{ padding: '20px', backgroundColor: '#f0f0f0' ,marginTop:7 }}>
                 {loading ? (
                     <p>Loading...</p>
                 ) : data.length > 0 ? (
@@ -58,6 +62,8 @@ const ShowPage = () => {
                     <p>No data found.</p>
                 )}
             </div>
+
+            <Footer/>
         </div>
     );
 };

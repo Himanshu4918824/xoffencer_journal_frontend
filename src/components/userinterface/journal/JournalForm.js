@@ -1,4 +1,4 @@
-import { Avatar, Button, FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, TextField } from "@mui/material"
+import { Avatar, Button, FormControl, FormControlLabel, FormHelperText, Grid, InputLabel, MenuItem, RadioGroup, Select, TextField } from "@mui/material"
 import { userStyle } from "./JournalFormCss"
 import { useState } from "react";
 // import logo from '../../../assets//logo.png'
@@ -10,6 +10,8 @@ import SaveIcon from '@mui/icons-material/Save';
 // import { Tune } from "@mui/icons-material";
 import Header from "../homepage/Header";
 import Footer from "../homepage/Footer";
+
+import Radio from '@mui/material/Radio';
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -34,6 +36,8 @@ export default function JournalForm(props) {
     const [photo, setPhoto] = useState({ bytes: '', fileName: cart })
     const [marksheet, setMarksheet] = useState({ bytes: '', fileName: cart })
     const [anynumber, setAnyNumber] = useState('')
+
+    const [value,setValue]=useState('')
 
     const [loadingButton, setLoadingButton] = useState(false)
     const [errorMessage, setErrorMessage] = useState({})
@@ -342,6 +346,35 @@ export default function JournalForm(props) {
 
                     <Grid item xs={12}>
                         <TextField onChange={(event) => setAnyNumber(event.target.value)} label="Enter Number" value={anynumber} fullWidth />
+                    </Grid>
+                    
+                    <Grid item xs={12}>
+                        <div>
+                            <b> Note :</b> Certificate fee will be charged extra and AMC (annual maintenance charge) will be applicable every year. Annual Renewal Fee is charged as AMC (Annual Maintenance Charge ). Maintenance includes technical support, space and frequent informative services for the scholars. AMC is 650 per year only.
+                        </div>
+
+                        <FormControl style={{marginTop:8}}>
+                            <RadioGroup  aria-labelledby="demo-controlled-radio-buttons-group"
+                                          name="controlled-radio-buttons-group"
+                                          value={value}
+                                        
+                                          onChange={(event)=>setValue(event.target.value)}
+                           >
+                                <FormControlLabel  value="female" control={<Radio />} label="Instant Publication (Paper will be published within 5 working Days) Fee" />
+                                <FormControlLabel  value="male" control={<Radio />} label="Instant International Publication (Paper will be published within 5 working Days) Fee $" />
+
+                            </RadioGroup>
+                        </FormControl>
+
+                        <div style={{margin:10,padding:10}}>
+                            <b>Note:</b>
+                            <ol>
+                                <li style={{marginBottom:5}}>Paper / Article will be published within 7 days after re\viewing process.</li>
+                                <li style={{marginBottom:5}}>Your certificate acceptance letter and the research paper / article will be shown on this website in the current year publication column.</li>
+                                <li>If any update on research paper or article is required then the applicant will be informed through email.</li>
+                            </ol>
+                        </div>
+
                     </Grid>
 
 

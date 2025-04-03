@@ -36,6 +36,54 @@ const ShowPage = () => {
             .finally(() => setLoading(false));
     }, [year, vol, issue]);
 
+
+    const handelDownloadMagazine = async () => {
+        console.log("Downloading magazine...");
+
+        try {
+            // Make sure the function sends a correct request
+            const response = await fetch(`http://localhost:8000/api/v1/downloadMagzine/${year}/${vol}/${issue}`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json", // Ensure it matches what the backend expects
+                },
+            });
+
+            // Check if the response is successful
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            // Ensure response is correctly interpreted as a Blob
+            const blob = await response.blob();
+
+            // Check if the response is actually a PDF (not an error response)
+            if (blob.type !== "application/pdf") {
+                throw new Error("Received data is not a valid PDF file.");
+            }
+
+            // Create a temporary URL for the Blob
+            const url = window.URL.createObjectURL(blob);
+
+            // Create a temporary anchor element to trigger the download
+            const link = document.createElement("a");
+            link.href = url;
+            link.setAttribute("download", `Magazine_${year}_${vol}_${issue}.pdf`);
+
+            document.body.appendChild(link);
+            link.click();
+
+            // Cleanup
+            document.body.removeChild(link);
+            window.URL.revokeObjectURL(url);
+
+            console.log("Download successful!");
+        } catch (error) {
+            console.error("Error downloading magazine:", error);
+        }
+    };
+
+
     return (
         <div>
             <div>
@@ -50,8 +98,8 @@ const ShowPage = () => {
                     <div style={{ fontSize: '1.1rem', fontWeight: 400 }}>Airo National Research Journal ISSN 2321-3914</div>
                 </div>
             </div>
-            <Button style={{ display: 'flex', marginLeft: 'auto', marginRight: '20px'}} variant="contained">Dwonload Magazine</Button>
             <div style={{ padding: '20px', backgroundColor: '#f0f0f0' ,marginTop:7 }}>
+            <Button onClick={handelDownloadMagazine} style={{ display: 'flex', marginLeft: 'auto', marginRight: '20px'}} variant="contained">Download Magazine</Button>
                 {loading ? (
                     <p>Loading...</p>
                 ) : data.length > 0 ? (

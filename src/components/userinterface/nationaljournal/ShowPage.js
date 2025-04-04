@@ -12,6 +12,7 @@ const ShowPage = () => {
     const vol = searchParams.get("vol");
     const issue = searchParams.get("issue");
 
+    console.log({ year, vol, issue });
 
     const [data, setData] = useState([]);  // Initialize as an empty array
     const [loading, setLoading] = useState(true);
@@ -21,13 +22,14 @@ const ShowPage = () => {
         getData(`api/v1/National Journal/${year}/${vol}/${issue}`)
             .then((res) => {
                 if (res && Array.isArray(res)) {
-                    // console.log({ res })
+                    console.log({ res })
                     setData(res);
                 } else {
                     // console.error("Invalid data format:", res);
                     // console.log(res)
                     setData([]);
                 }
+                
             })
             .catch((error) => {
                 console.error("Error fetching data:", error);

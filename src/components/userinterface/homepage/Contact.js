@@ -7,8 +7,14 @@ import { useState } from "react";
 import { postData } from "../../../services/FetchNodeAdminServices";
 import Swal from "sweetalert2";
 
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 export default function Contact()
 {
+     const theme = useTheme();
+     const matches = useMediaQuery(theme.breakpoints.up('md'));
+
     var [name,setName]=useState('');
     var [email,setEmail]=useState('');
     var [phone,setPhone]=useState('');
@@ -57,16 +63,21 @@ export default function Contact()
 
          <div style={{textAlign:'center',marginTop:40}}>
            <div style={{fontSize:20,fontWeight:500}}>Addresses:</div> 
-           <div style={{fontSize:16,letterSpacing:0.5}}>39, Kishanbhag, Bohdapur</div>
+           <div style={{fontSize:16,letterSpacing:0.5,marginTop:3,marginLeft:25}}><b>Head office:-</b>PMAY Building ,E-52,Flate no- 403,Sagartal Road</div>
+           <div style={{}}>Gwalior MP-474008</div>
+           <div style={{fontSize:16,letterSpacing:0.5,marginTop:5}}><b>Admin office:-</b>39, Kishanbhag, Bahodapur</div>
            <div style={{}}>Gwalior MP-474012</div>
+          
          </div>
 
+         
 
 
-<div style={{display:'flex',justifyContent:'space-around',marginTop:40,marginBottom:20}}>
+
+<div style={{display:'flex',justifyContent:'space-around',flexDirection:matches?'row':'column',marginTop:40,marginBottom:20,textAlign:'center'}}>
 
 <div>
-    <MessageIcon style={{width:80,height:80,marginLeft:100}}/>
+    <MessageIcon style={{width:80,height:80,marginLeft:0}}/>
     <div>editor@varsharesearchoriganization.com</div>
 </div>
 

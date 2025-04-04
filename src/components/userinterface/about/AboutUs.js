@@ -1,6 +1,7 @@
 import Footer from "../homepage/Footer";
 import Header from "../homepage/Header";
 import { Divider, Grid } from "@mui/material";
+import logo from '../../../assets/logo.png';
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -23,7 +24,7 @@ export default function AboutUs()
         <Grid container letterSpacing={0.3}>
 
              <Grid item xs={matches?3:12}>
-                <img alt="varsha" src="varsha.png" style={{width:250,height:180}}/>
+                <img alt="varsha" src={logo} style={{width:230,height:180}}/>
             </Grid>
 
 

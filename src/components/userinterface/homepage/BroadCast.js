@@ -63,8 +63,8 @@ export default function BroadCast()
         </div>
         
 
-        <div style={{width:matches?600:'100%',height:210,background:'lightgrey',margin:10,padding:15,fontSize:matches?20:18,fontWeight:400}}>
-            <div style={{margin:10}}>
+        <div style={{width:matches?600:'100%',height:210,background:'lightgrey',margin:10,padding:15,fontSize:matches?20:18,fontWeight:400,marginLeft:matches?30:0}}>
+            <div style={{margin:10,padding:10}}>
                 <ol>
                     <li>Multidisciplinary Research Journal for all Subjects.</li>
                     <li style={{marginTop:12}}>Publication for all</li>
@@ -91,20 +91,22 @@ export default function BroadCast()
 
             <Divider/>
 
-            <div style={{margin:10,fontSize:18,fontWeight:400,color:'#f0edea',padding:3}}>
+            <div style={{margin:10,fontSize:18,fontWeight:400,color:'grey',padding:3}}>
                2020-2024  National Journal
             </div>
 
-            <div style={{margin:10,fontSize:18,fontWeight:400,marginBottom:25,color:'#f0edea',padding:2}}>
+           {/* <div style={{margin:10,fontSize:18,fontWeight:400,marginBottom:25,color:'#f0edea',padding:2}}>
             2020-2024  International Journal
             </div>
+            */}
 
             <Divider height='10px'/>
 
             <div style={{margin:10,fontSize:16,fontWeight:400,color:'#6c757d',lineHeight:'25px',marginBottom:20,letterSpacing:1,padding:7}}>
-                Airo Journals are categorized in two publication gateways.
-                Airo National Research Journal and Airo International Journal
-                which maintains submissions from Indian and foreign author’s 
+             An ISSN is a unique identifier for serial publications, such as journals, magazines, newspapers, and other periodicals.
+                Varsha Research Organization are categorized as 
+                Varsha National Research Journal
+                which maintains submissions from Indian author’s 
                 selective research content.
             </div>
 

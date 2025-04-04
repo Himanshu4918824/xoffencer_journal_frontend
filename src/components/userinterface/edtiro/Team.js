@@ -3,9 +3,9 @@ import Footer from "../homepage/Footer";
 import Header from "../homepage/Header";
 import dev from '../../../assets/dev.jpg';
 import atul from '../../../assets/atul.jpg';
-import Rajesh from '../../../assets/Rajesh.jpeg';
+//import Rajesh from '../../../assets/Rajesh.jpeg';
 import manoj from '../../../assets/manoj.jpeg';
-import dee from '../../../assets/dee.jpg';
+//import dee from '../../../assets/dee.jpg';
 import sand from '../../../assets/sand.jpg';
 import ram from '../../../assets/ram.jpg';
 import vineeta from '../../../assets/vineeta.jpeg';
@@ -19,15 +19,15 @@ export default function Team() {
   const matches = useMediaQuery(theme.breakpoints.up('md')); // Check if screen width is medium or larger
 
   const data = [
-    { sno: 1, name: 'Dr. Dev Brat Mishra, Senior Assistant Professor, M.Sc., Ph.D., FZSI., FHAS., FSLSc., FGESA., FBPS., FABRF., FIAES., FIASR., FCRSD., PGDBM., CES.,CCY. , Deptt.Of Zoology ,Tilak Dhari Post Graduate Collage, Janupur.', pic: dev, email: 'Email:editor.devbrat@varsharesearchorganization.com' },
-    { sno: 2, name: 'Dr. Atul Kumar Tiwari Head of Department- Zoology Dr. B.S.Porte Govt.College Pendra Chhattisgarh-495119', pic: atul, email: 'Emaileditor.atul@varsharesearchorganization.com' },
-    { sno: 3, name: 'Dr. Rajesh Kumar Jha, Associate Professor in MBA, Dr.D.Y.Patil Institute of Management and Enterprenure Development. ,Pune', pic: Rajesh, email: '' },
-    { sno: 4, name: 'Dr.Manoj Kumar Vats, Head of Deptt. Sociology, R.S.K. D. Post Graduate Collage, Janupur 222002 ', pic: manoj, email: 'Email:editor.manojvats@varsharesearchorganization.com' },
-    { sno: 5, name: 'Dr Deepchand Dhankher, Adjunct Research Supervisor, liutbem University lushakha Zambia', pic: dee, email: '' },
-    { sno: 6, name: 'Dr.Sandhya Pandey, Assistant Professor, M.Sc., Ph.D., FCRSD, Deptt.Of Zoology, PPN Post Graduate Collage, Kanpur', pic: sand, email: 'Emaileditor.drsandhya@varsharesearchorganization.com' },
-    { sno: 7, name: 'Dr. Vineeta Dixit,HOD, Department of Botany , SSJSN College Garhwa 822114 ,Jharkhand', pic: ram, email: 'Email:editor.ramkinker@varsharesearchorganization.com' },
-    { sno: 8, name: 'Professor Ram Kinkar Pandey, Principal,Government Lahiri Post Graduate College, Chirmiri District – Manendragarh – Chirmiri – Bharatpur Chhattisgarh', pic: vineeta, email: 'Email:editor.drvineeta@varsharesearchorganization.com' },
-    { sno: 9, name: 'Maya Mishra, Assistant Professor, B.Ed. Departmen, Government Teacher Education College, Rewa', pic: maya, email: 'Email:editor.mayamishra@varsharesearchorganization.com' },
+    { sno: 1, name: 'Dr. Dev Brat Mishra', edu:'Senior Assistant Professor, M.Sc., Ph.D., FZSI., FHAS., FSLSc., FGESA., FBPS., FABRF., FIAES., FIASR., FCRSD., PGDBM., CES.,CCY.', dept:'Deptt.Of Zoology', add:'Tilak Dhari Post Graduate Collage, Janupur.', pic: dev, email: 'editor.devbrat@varsharesearchorganization.com' },
+    { sno: 2, name: 'Dr. Atul Kumar Tiwari', edu:' Head of Department- Zoology', dept:'Dr. B.S.Porte Govt.College Pendra Chhattisgarh-495119', pic: atul, email: 'editor.atul@varsharesearchorganization.com' },
+   // { sno: 3, name: 'Dr. Rajesh Kumar Jha, Associate Professor in MBA, Dr.D.Y.Patil Institute of Management and Enterprenure Development. ,Pune', pic: Rajesh, email: '' },
+    { sno: 3, name: 'Dr.Manoj Kumar Vats', edu:'Head of Deptt. Sociology', dept:'R.S.K. D. Post Graduate Collage, Janupur 222002 ', pic: manoj, email: 'editor.manojvats@varsharesearchorganization.com' },
+  //  { sno: 5, name: 'Dr Deepchand Dhankher, Adjunct Research Supervisor, liutbem University lushakha Zambia', pic: dee, email: '' },
+    { sno: 4, name: 'Dr.Sandhya Pandey', edu:'Assistant Professor, M.Sc., Ph.D., FCRSD, Deptt.Of Zoology', dept:'PPN Post Graduate Collage, Kanpur', pic: sand, email: 'editor.drsandhya@varsharesearchorganization.com' },
+    { sno: 5, name: 'Dr. Vineeta Dixit', edu:'HOD, Department of Botany', dept:'SSJSN College Garhwa 822114 ,Jharkhand', pic: ram, email: 'editor.ramkinker@varsharesearchorganization.com' },
+    { sno: 6, name: 'Professor Ram Kinkar Pandey', edu:'Principal,Government Lahiri Post Graduate College', add:'Chirmiri District – Manendragarh – Chirmiri – Bharatpur Chhattisgarh', pic: vineeta, email: 'editor.drvineeta@varsharesearchorganization.com' },
+    { sno: 7, name: 'Maya Mishra', edu:'Assistant Professor B.Ed. Department', add:' Government Teacher Education College, Rewa', pic: maya, email: 'editor.mayamishra@varsharesearchorganization.com' },
   ];
 
   const showImage = () => {
@@ -41,7 +41,10 @@ export default function Team() {
 
         <Grid item xs={12} md={5} style={{ marginTop: matches ? 10 : 0 }}>
           <Typography variant="body1" style={{ fontWeight: 'bold', color: '#333' }}>
-            {item.name}
+            <p style={{fontSize:18}}>{item.name}</p>
+            <p style={{fontSize:17,fontWeight:550}}>{item.edu}</p>
+            <p style={{fontSize:16}}>{item.dept}</p>
+            <p style={{fontSize:16}}>{item.add}</p>
           </Typography>
         </Grid>
 
@@ -75,8 +78,8 @@ export default function Team() {
           Editor in Chief
         </Typography>
         <Typography variant="body1" style={{ marginBottom: 10 }}>
-          Varsha Rajput Architect B.Arc., B.Tech.(Civil Engineering) [MPCT Gwalior ] Chief Executive Officer
-          <div style={{wordWrap: 'break-word',marginTop:5}}>Email:editor@varsharesearchorganization.com</div>
+          <p style={{fontSize:20,fontWeight:'bold'}}>Varsha Rajput</p> <p style={{fontSize:18,fontWeight:500}}>Architect B.Arc., B.Tech.(Civil Engineering) [MPCT Gwalior ] Chief Executive Officer</p>
+          <p style={{wordWrap: 'break-word',marginTop:5}}>editor@varsharesearchorganization.com</p>
         </Typography>
 
         <Typography variant="h5" style={{ fontWeight: 500, color: '#8395a7',  marginTop: 20, marginBottom:20 }}>
@@ -87,7 +90,7 @@ export default function Team() {
         <Typography variant="h5" style={{ fontWeight: 500, color: '#8395a7', marginBottom: 5, marginTop: 20 }}>
           Reviewer
         </Typography>
-        <ol>
+        <ol style={{ marginLeft: 30}}>
           <li style={{ marginBottom: 5 }}>Nisha Mishra, MA., (Sociology)B.Ed., FCRSD., Head Mistress ,PS Hakaripur, Jaunpur .U.P.</li>
           <li style={{ marginBottom: 5 }}>DR Poonam Gaur, Associate Professor, School of Education ,Lingaya&#39;S Vidhyapeeth, Faridabad, NCR</li>
           <li style={{ marginBottom: 5 }}>Dr Ranajit Kumar Prajapati , teacher in commerce ,Govt.middle school mohababazar kota raipur, Chhattisgarh</li>

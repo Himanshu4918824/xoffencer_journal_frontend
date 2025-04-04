@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 // import Button from '@mui/material/Button';
 import logo from "../../../assets/logo.png"
-import TextBoxSearch from "../homepage/TextBoxSearch"
+//import TextBoxSearch from "../homepage/TextBoxSearch"
 import CallIcon from '@mui/icons-material/Call';
 import { Drawer, IconButton } from '@mui/material';
 import Menubar from './Menubar';
@@ -55,10 +55,10 @@ export default function Header() {
                <div style={{ fontSize: matches ? 24 : 18, fontWeight: 'bold', marginTop: 5, marginLeft: 9 }}>Varsha Research </div>
             </Typography>
 
-            {matches?
+         { /*  {matches?
          <TextBoxSearch/>:<div></div>
          }
-
+*/}
 
  <div style={{display:'flex'}}>
           
@@ -91,7 +91,7 @@ export default function Header() {
         </Toolbar>
       </AppBar>
 
-      {matches?<div></div>:
+    { /* {matches?<div></div>:
 
      <AppBar position="static" style={{background:'#8395a7',color:'Black'}}>
         <Toolbar style={{display:'flex',alignItems:'center',justifyContent:'center'}}>
@@ -100,6 +100,8 @@ export default function Header() {
     
         </Toolbar>
       </AppBar>}
+
+      */ }
       
 
       {matches?<Menubar/>:<div></div>}

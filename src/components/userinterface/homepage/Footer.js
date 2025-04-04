@@ -2,8 +2,10 @@ import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Divider } from '@mui/material';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Footer() {
+  const navigate = useNavigate();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md')); // Check if screen width is medium or larger
 
@@ -29,12 +31,10 @@ export default function Footer() {
       <div style={{display: 'flex',flexDirection: matches ? 'row' : 'column',justifyContent: 'space-between',alignItems: matches ? 'flex-start' : 'center',marginBottom: '40px',}}> 
         <div style={{ marginBottom: matches ? '0' : '20px' }}>
           <div style={{ fontSize: 20, fontWeight: 'bold', marginBottom: '10px' }}>Quick Links</div>
-          <ul style={{ listStyle: 'none', padding: 0, lineHeight: 1.8 }}>
+          <ul style={{ listStyle: 'none', padding: 0, lineHeight: 1.8, cursor: 'pointer' }}>
             <li>Current Issue</li>
-            <li>Past Issue</li>
-            <li>Blog</li>
-            <li>Editorial Board</li>
-            <li>Join Us Reviewer</li>
+            <li onClick={()=>navigate('/team')}>Editorial Board</li>
+            <li onClick={()=>navigate('/#')}>Join Us Reviewer</li>
             <li>Refund Policy</li>
             <li>Shipping and Delivery Policy</li>
             <li>Privacy Policy</li>
@@ -44,20 +44,17 @@ export default function Footer() {
 
         <div style={{ marginBottom: matches ? '0' : '20px' }}>
           <div style={{ fontSize: 20, fontWeight: 'bold', marginBottom: '10px' }}>More Links</div>
-          <ul style={{ listStyle: 'none', padding: 0, lineHeight: 1.8 }}>
-            <li>Reviews</li>
-            <li>Book Publication</li>
-            <li>Conference Seminar</li>
-            <li>About Us</li>
-            <li>National Publication</li>
-            <li>International Publication</li>
+          <ul style={{ listStyle: 'none', padding: 0, lineHeight: 1.8, cursor: 'pointer' }}>
+            <li><Link to='http://Xoffencerpublication.in' style={{textDecoration:'none',color:'#000'}}>Book Publication</Link></li>
+            <li onClick={()=>navigate('/aboutus')}>About Us</li>
+            <li onClick={()=>navigate('/nationaljournal')}>National Publication</li>
           </ul>
         </div>
 
         <div>
           <div style={{ fontSize: 20, fontWeight: 'bold', marginBottom: '10px' }}>Contact Us</div>
           <div style={{ fontSize: 14, lineHeight: 1.8 }}>
-            <div>WhatsApp us: 70003 70003</div>
+            <div>WhatsApp us: 9827646334</div>
             <div>Call us: +919827646334</div>
             <div>8:00 AM to 8:00 PM, 365 days</div>
             <div style={{ marginTop: '20px' }}>

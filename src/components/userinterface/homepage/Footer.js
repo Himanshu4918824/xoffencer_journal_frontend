@@ -2,10 +2,17 @@ import React from 'react';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { Divider } from '@mui/material';
+<<<<<<< HEAD
 import { Link, useNavigate } from 'react-router-dom';
 
 export default function Footer() {
   const navigate = useNavigate();
+=======
+import send from '../../../services/Vol_Issue';
+import { useNavigate } from 'react-router-dom';
+export default function Footer() {
+  const navigate = useNavigate()
+>>>>>>> 04cd37854d23a32d7c4407382d5f766b0d1d4475
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md')); // Check if screen width is medium or larger
 
@@ -20,21 +27,38 @@ export default function Footer() {
 
   const showImage = () => {
     return data.map((item, i) => (
-      <div style={{display: 'flex',justifyContent: 'center',alignItems: 'center',margin: matches ? '20px' : '10px',}}>
-        <img alt="" src={item} style={{ width: matches ? 200 : 120, height: 'auto'}} />
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', margin: matches ? '20px' : '10px', }}>
+        <img alt="" src={item} style={{ width: matches ? 200 : 120, height: 'auto' }} />
       </div>
     ));
   };
 
+  const handelcurrentIssue = async () => {
+    const { year, volume, issue } = send();
+    console.log({ year, volume, issue })
+    navigate(`/ShowJournal?year=${year}&vol=Volume%20${volume}&issue=Issue%20${issue}`); // Navigate to the result page
+
+  }
+
+
   return (
-    <div style={{ background: 'lightgray', width: '100%',padding: '40px 20px', boxSizing: 'border-box'}}> 
-      <div style={{display: 'flex',flexDirection: matches ? 'row' : 'column',justifyContent: 'space-between',alignItems: matches ? 'flex-start' : 'center',marginBottom: '40px',}}> 
+    <div style={{ background: 'lightgray', width: '100%', padding: '40px 20px', boxSizing: 'border-box' }}>
+      <div style={{ display: 'flex', flexDirection: matches ? 'row' : 'column', justifyContent: 'space-between', alignItems: matches ? 'flex-start' : 'center', marginBottom: '40px', }}>
         <div style={{ marginBottom: matches ? '0' : '20px' }}>
           <div style={{ fontSize: 20, fontWeight: 'bold', marginBottom: '10px' }}>Quick Links</div>
+<<<<<<< HEAD
           <ul style={{ listStyle: 'none', padding: 0, lineHeight: 1.8, cursor: 'pointer' }}>
             <li>Current Issue</li>
             <li onClick={()=>navigate('/team')}>Editorial Board</li>
             <li onClick={()=>navigate('/#')}>Join Us Reviewer</li>
+=======
+          <ul style={{ listStyle: 'none', padding: 0, lineHeight: 1.8 }}>
+            <li onClick={handelcurrentIssue}>Current Issue</li>
+            <li>Past Issue</li>
+            <li>Blog</li>
+            <li>Editorial Board</li>
+            <li>Join Us Reviewer</li>
+>>>>>>> 04cd37854d23a32d7c4407382d5f766b0d1d4475
             <li>Refund Policy</li>
             <li>Shipping and Delivery Policy</li>
             <li>Privacy Policy</li>
@@ -68,7 +92,7 @@ export default function Footer() {
 
       <Divider style={{ marginBottom: '40px' }} />
 
-      <div style={{display: 'flex',flexWrap: 'wrap',justifyContent: 'center',alignItems: 'center',}}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', }}>
         {showImage()}
       </div>
     </div>

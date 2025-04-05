@@ -1,4 +1,4 @@
-import { Avatar, Button, FormControl, FormControlLabel, FormHelperText, Grid, InputLabel, MenuItem, RadioGroup, Select, TextField } from "@mui/material"
+import { Avatar, Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField, FormHelperText } from "@mui/material"
 import { userStyle } from "./JournalFormCss"
 import { useState } from "react";
 // import logo from '../../../assets//logo.png'
@@ -11,7 +11,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import Header from "../homepage/Header";
 import Footer from "../homepage/Footer";
 
-import Radio from '@mui/material/Radio';
+//import Radio from '@mui/material/Radio';
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -37,7 +37,7 @@ export default function JournalForm(props) {
     const [marksheet, setMarksheet] = useState({ bytes: '', fileName: cart })
     const [anynumber, setAnyNumber] = useState('')
 
-    const [value,setValue]=useState('')
+    //const [value,setValue]=useState('')
 
     const [loadingButton, setLoadingButton] = useState(false)
     const [errorMessage, setErrorMessage] = useState({})
@@ -316,7 +316,7 @@ export default function JournalForm(props) {
 
                     <Grid item xs={7}>
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
-                            <Button variant="contained" component="label">Photo( only png,jpg)
+                            <Button variant="contained" component="label">Photo( only .png, .jpg)
                                 <input onChange={handlePhoto} type="file" accept="images/*" multiple hidden />
                             </Button>
                             <div>{errorMessage?.photo != null ? errorMessage?.photo : <></>}</div>
@@ -353,7 +353,7 @@ export default function JournalForm(props) {
                             <b> Note :</b> Certificate fee will be charged extra and AMC (annual maintenance charge) will be applicable every year. Annual Renewal Fee is charged as AMC (Annual Maintenance Charge ). Maintenance includes technical support, space and frequent informative services for the scholars. AMC is 650 per year only.
                         </div>
 
-                        <FormControl style={{marginTop:8}}>
+                       {/* <FormControl style={{marginTop:8}}>
                             <RadioGroup  aria-labelledby="demo-controlled-radio-buttons-group"
                                           name="controlled-radio-buttons-group"
                                           value={value}
@@ -374,7 +374,7 @@ export default function JournalForm(props) {
                                 <li>If any update on research paper or article is required then the applicant will be informed through email.</li>
                             </ol>
                         </div>
-
+*/}
                     </Grid>
 
 

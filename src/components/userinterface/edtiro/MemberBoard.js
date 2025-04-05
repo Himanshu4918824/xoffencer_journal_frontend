@@ -161,12 +161,6 @@ const validData=()=>{
                          err = true;
                     }
 
-                    if(branch.length===0)
-                        {
-                            handleErrorMessage('branch','plz insert Field...')
-                             err = true;
-                        }
-
                         if(education.length===0)
                             {
                                 handleErrorMessage('education','plz insert education...')
@@ -294,7 +288,7 @@ return err;
             </Grid>
 
             <Grid item xs={matches?6:12}>
-                <TextField onFocus={()=>handleErrorMessage('branch',null)} error={errorMessage?.branch} helperText={errorMessage?.branch} onChange={(event)=>setBranch(event.target.value)} label="Branch/Field (if any)" value={branch} fullWidth/>
+                <TextField onChange={(event)=>setBranch(event.target.value)} label="Branch/Field (if any)" value={branch} fullWidth/>
             </Grid>
 
             <Grid item xs={matches?6:12}>

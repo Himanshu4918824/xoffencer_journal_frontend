@@ -37,7 +37,7 @@ export default function Footer() {
             <li onClick={()=>navigate('/#')}>Join Us Reviewer</li>
             <li><Link to='https://drive.google.com/file/d/12MZM91kuFzN5g7t71MebTwrLKSZeso5s/view?usp=sharing' target='' style={{textDecoration:'none',color:'#000'}}>Privacy Policy</Link></li>
             <li><Link to='https://drive.google.com/file/d/1ftgXASSgX9whcIK1-SylsrHDlIXwN_k2/view?usp=sharing' target='' style={{textDecoration:'none',color:'#000'}}>Disclaimer</Link></li>
-            <li><Link to='https://drive.google.com/file/d/12MZM91kuFzN5g7t71MebTwrLKSZeso5s/view?usp=sharing' target='' style={{textDecoration:'none',color:'#000'}}>Terms and Conditions</Link></li>
+            <li><Link to='https://drive.google.com/file/d/1ss_eQPCUUTs7HqvGZucmdN5ltWZXaWmw/view?usp=sharing' target='' style={{textDecoration:'none',color:'#000'}}>Terms and Conditions</Link></li>
           </ul>
         </div>
 

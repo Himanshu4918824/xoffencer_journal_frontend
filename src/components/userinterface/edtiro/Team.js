@@ -42,9 +42,9 @@ export default function Team() {
         <Grid item xs={12} md={5} style={{ marginTop: matches ? 10 : 0 }}>
           <Typography variant="body1" style={{ fontWeight: 'bold', color: '#333' }}>
             <p style={{fontSize:18}}>{item.name}</p>
-            <p style={{fontSize:17,fontWeight:550}}>{item.edu}</p>
-            <p style={{fontSize:16}}>{item.dept}</p>
-            <p style={{fontSize:16}}>{item.add}</p>
+            <p style={{fontSize:16.5,fontWeight:550}}>{item.edu}</p>
+            <p style={{fontSize:15.8}}>{item.dept}</p>
+            <p style={{fontSize:15.8}}>{item.add}</p>
           </Typography>
         </Grid>
 

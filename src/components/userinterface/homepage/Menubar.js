@@ -1,6 +1,6 @@
 import React from 'react'
 import './Menubar.css'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -47,7 +47,8 @@ const Menubar = () => {
                         <div className="Subdropdown-2">
                             <ul>
                                 <li onClick={()=>navigate('/guidline')}>Guidline</li>
-                                <li>Sample 1</li>
+                                <li><Link to='https://drive.google.com/file/d/1sXthxtGm6iuD4FPEraqPVIv8u29pO8Ut/view?usp=sharing' target='' style={{textDecoration:'none',color:'#000'}}>Sample 1</Link></li>
+                                <li><Link to='https://drive.google.com/file/d/1jQ-S6BgrsIsY6PhKpaGXgQ3LutfgYDbf/view?usp=sharing' target='' style={{textDecoration:'none',color:'#000'}}>Sample 2</Link></li>
                             </ul>
                         </div>
                     </li>

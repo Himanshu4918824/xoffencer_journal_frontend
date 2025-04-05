@@ -50,7 +50,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div>
+        <div style={{textAlign: 'center'}}>
           <div style={{ fontSize: 20, fontWeight: 'bold', marginBottom: '10px' }}>Contact Us</div>
           <div style={{ fontSize: 14, lineHeight: 1.8 }}>
             <div>WhatsApp us: 9827646334</div>

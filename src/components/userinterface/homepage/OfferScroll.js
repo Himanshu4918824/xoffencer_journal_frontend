@@ -44,7 +44,7 @@ export default function OfferScroll()
   const showImages=()=>{
     return data.map((item,i)=>{
         return(<div style={{display:'flex',justifyContent:'center',alignItems:'center',alignSelf:'center'}}>
-            <img alt="" src={item} style={{width:'90%',height:250,borderRadius:15}}/>
+            <img alt="" src={item} style={{width:matches?'90%':'100%',height:250,borderRadius:15}}/>
         </div>)
     })
 

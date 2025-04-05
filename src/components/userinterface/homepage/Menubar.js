@@ -20,7 +20,7 @@ const Menubar = () => {
                         <div className="Subdropdown-1">
                             <ul>
                                 <li onClick={()=>navigate('/nationaljournal')}>National Journal</li>
-                                <li>International Journal</li>
+                             {/* <li>International Journal</li>  */}
                             </ul>
                         </div>
                     </li>

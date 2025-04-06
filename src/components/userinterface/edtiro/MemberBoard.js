@@ -121,7 +121,7 @@ export default function MemberBoard(props)
         {
             Swal.fire({
                 position: "top-end",
-                icon: "success",
+                icon: "error",
                 title: "Your work has been not saved",
                showConfirmButton: false,
                timer: 2000
@@ -272,7 +272,7 @@ return err;
                         </Select>
 
                     </FormControl>
-                    <FormHelperText>{errorMessage?.status}</FormHelperText>
+                    <FormHelperText style={{color:'red'}}>{errorMessage?.status}</FormHelperText>
                    </Grid>
 
             <Grid item xs={matches?6:12}>

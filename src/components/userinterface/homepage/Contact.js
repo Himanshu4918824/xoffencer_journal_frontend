@@ -33,15 +33,17 @@ export default function Contact() {
                 timer: 2000
             });
 
-        }
-        else {
-            Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Category Submit Successfully",
-                showConfirmButton: false,
-                timer: 2000
-            });
+        )
+        else
+        {
+             Swal.fire({
+                                position: "top-end",
+                                icon: "success",
+                                title: "Category error Successfully",
+                                showConfirmButton: false,
+                                timer: 2000
+                            });
+
         }
     }
 

@@ -41,10 +41,10 @@ export default function Team() {
 
         <Grid item xs={12} md={5} style={{ marginTop: matches ? 10 : 0 }}>
           <Typography variant="body1" style={{ fontWeight: 'bold', color: '#333' }}>
-            <p style={{fontSize:18}}>{item.name}</p>
-            <p style={{fontSize:16.5,fontWeight:550}}>{item.edu}</p>
-            <p style={{fontSize:15.8}}>{item.dept}</p>
-            <p style={{fontSize:15.8}}>{item.add}</p>
+            <p style={{fontSize:20}}>{item.name}</p>
+            <p style={{fontSize:17.5,fontWeight:550}}>{item.edu}</p>
+            <p style={{fontSize:16}}>{item.dept}</p>
+            <p style={{fontSize:16}}>{item.add}</p>
           </Typography>
         </Grid>
 
@@ -78,7 +78,7 @@ export default function Team() {
           Editor in Chief
         </Typography>
         <Typography variant="body1" style={{ marginBottom: 10 }}>
-          <p style={{fontSize:20,fontWeight:'bold'}}>Varsha Rajput</p> <p style={{fontSize:18,fontWeight:500}}>Architect B.Arc., B.Tech.(Civil Engineering) [MPCT Gwalior ] Chief Executive Officer</p>
+          <p style={{fontSize:20,fontWeight:'bold'}}>Varsha Rajput</p> <p style={{fontSize:18,fontWeight:540}}>Architect B.Arc., B.Tech.(Civil Engineering) [MPCT Gwalior ] Chief Executive Officer</p>
           <p style={{wordWrap: 'break-word',marginTop:5}}>editor@varsharesearchorganization.com</p>
         </Typography>
 

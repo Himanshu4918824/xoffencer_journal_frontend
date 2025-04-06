@@ -33,7 +33,8 @@ export default function Contact() {
                 timer: 2000
             });
 
-        )
+        }
+        
         else
         {
              Swal.fire({

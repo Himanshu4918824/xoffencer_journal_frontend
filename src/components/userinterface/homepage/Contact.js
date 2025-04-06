@@ -41,7 +41,7 @@ export default function Contact()
              Swal.fire({
                                 position: "top-end",
                                 icon: "success",
-                                title: "Category Submit Successfully",
+                                title: "Category error Successfully",
                                 showConfirmButton: false,
                                 timer: 2000
                             });

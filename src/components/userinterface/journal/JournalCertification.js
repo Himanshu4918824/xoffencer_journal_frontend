@@ -121,7 +121,7 @@ export default function JournalForm(props)
         {
             Swal.fire({
                 position: "top-end",
-                icon: "success",
+                icon: "error",
                 title: "Your work has been not saved",
                showConfirmButton: false,
                timer: 2000

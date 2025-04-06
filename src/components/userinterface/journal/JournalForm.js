@@ -127,7 +127,7 @@ export default function JournalForm(props) {
             else {
                 Swal.fire({
                     position: "top-end",
-                    icon: "success",
+                    icon: "error",
                     title: "Your work has been not saved",
                     showConfirmButton: false,
                     timer: 2000
@@ -160,11 +160,6 @@ export default function JournalForm(props) {
 
         if (subject.length === 0) {
             handleErrorMessage('subject', 'plz insert Subject...')
-            err = true;
-        }
-
-        if (branch.length === 0) {
-            handleErrorMessage('branch', 'plz insert Field...')
             err = true;
         }
 
@@ -254,7 +249,7 @@ export default function JournalForm(props) {
                             </Select>
 
                         </FormControl>
-                        <FormHelperText>{errorMessage?.journal}</FormHelperText>
+                        <FormHelperText style={{color:'red'}}>{errorMessage?.journal}</FormHelperText>
                     </Grid>
 
                     <Grid item xs={matches ? 6 : 12}>
@@ -270,7 +265,7 @@ export default function JournalForm(props) {
                     </Grid>
 
                     <Grid item xs={matches ? 6 : 12}>
-                        <TextField onFocus={() => handleErrorMessage('branch', null)} error={errorMessage?.branch} helperText={errorMessage?.branch} onChange={(event) => setBranch(event.target.value)} label="Branch / field (If any)" value={branch} fullWidth />
+                        <TextField onChange={(event) => setBranch(event.target.value)} label="Branch / field (If any)" value={branch} fullWidth />
                     </Grid>
 
                     <Grid item xs={matches ? 6 : 12}>

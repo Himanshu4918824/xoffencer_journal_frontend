@@ -79,7 +79,12 @@ export default function JournalForm(props)
 
     const handlePhoto=(e)=>{
         handleErrorMessage('photo',null)
+        try{
         setPhoto({bytes:e.target.files[0],fileName:URL.createObjectURL(e.target.files[0])})
+        }
+        catch (error) {
+            console.log(error.message)  
+        }
     
     }
 

@@ -67,19 +67,34 @@ export default function MemberBoard(props)
 
     const handlePaperIcon=(e)=>{
         handleErrorMessage('datebirth',null)
+        try{
         setDateBirth({bytes:e.target.files[0],fileName:URL.createObjectURL(e.target.files[0])})
+        }
+        catch (error) {
+            console.log(error.message)  
+        }
     
     }
 
     const handlePhoto=(e)=>{
         handleErrorMessage('photo',null)
+        try{
         setPhoto({bytes:e.target.files[0],fileName:URL.createObjectURL(e.target.files[0])})
+        }
+        catch (error) {
+            console.log(error.message)  
+        }
     
     }
 
     const handleMarksheet=(e)=>{
        handleErrorMessage('marksheet',null)
+       try{
         setMarksheet({bytes:e.target.files[0],fileName:URL.createObjectURL(e.target.files[0])})
+       }
+       catch (error) {
+        console.log(error.message)  
+    }
     
     }
 

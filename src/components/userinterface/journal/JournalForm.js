@@ -73,19 +73,33 @@ export default function JournalForm(props) {
 
     const handlePaperIcon = (e) => {
         handleErrorMessage('paperIcon', null)
+        try{
         setPaperIcon({ bytes: e.target.files[0], fileName: URL.createObjectURL(e.target.files[0]) })
+        }
+        catch (error) {
+            console.log(error.message)  
+        }
 
     }
 
     const handlePhoto = (e) => {
         handleErrorMessage('photo', null)
-        setPhoto({ bytes: e.target.files[0], fileName: URL.createObjectURL(e.target.files[0]) })
-
+        try {
+         setPhoto({ bytes: e.target.files[0], fileName: URL.createObjectURL(e.target.files[0]) })
     }
+    catch (error) {
+        console.log(error.message)  
+    }
+}
 
     const handleMarksheet = (e) => {
         handleErrorMessage('marksheet', null)
+        try{
         setMarksheet({ bytes: e.target.files[0], fileName: URL.createObjectURL(e.target.files[0]) })
+        }
+        catch (error) {
+            console.log(error.message)  
+        }
 
     }
 
@@ -115,6 +129,7 @@ export default function JournalForm(props) {
 
 
             var result = await postData('api/v1/form-for-publication', formData)
+           //console.log("xxxx",result)
             if (result.status) {
                 Swal.fire({
                     position: "top-end",
@@ -243,8 +258,7 @@ export default function JournalForm(props) {
                                 onFocus={() => handleErrorMessage('journal', null)}
                             >
                                 <MenuItem value='National Journal'>National Journal</MenuItem>
-                                <MenuItem value='International Journal'>International Journal</MenuItem>
-
+                                {/*<MenuItem value='International Journal'>International Journal</MenuItem>*/}
 
                             </Select>
 
@@ -324,7 +338,7 @@ export default function JournalForm(props) {
 
                     <Grid item xs={7}>
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
-                            <Button variant="contained" component="label">Upload Last Educational Qualification(only pdf or doc.)
+                            <Button variant="contained" component="label">Upload Last Educational Qualification(only .pdf or doc.)
                                 <input onChange={handleMarksheet} type="file" accept="pdf/*" hidden />
                             </Button>
                             <div>{errorMessage?.marksheet != null ? errorMessage?.marksheet : <></>}</div>

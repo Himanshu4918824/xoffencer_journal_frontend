@@ -23,7 +23,7 @@ const postData = async (url, body) => {
             return result;
       }
       catch (e) {
-            return e.response.data;
+            return e;
       }
 
 }

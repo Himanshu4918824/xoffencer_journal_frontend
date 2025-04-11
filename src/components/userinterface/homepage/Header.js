@@ -43,7 +43,7 @@ export default function Header() {
             edge="start"
             color="inherit"
             aria-label="menu"
-            sx={{ mr: matches?2:1 }}
+            sx={{ mr: matches?2:0 }}
             onClick={handleClick}
           >
             <MenuIcon />
@@ -81,7 +81,7 @@ export default function Header() {
             onClick={()=>navigate('/contact')} 
             
           >
-             <CallIcon style={{ fontSize: matches ? 30 : 24 ,marginLeft: matches ? 0: 15 }} />
+             <CallIcon style={{ fontSize: matches ? 30 : 24 ,marginLeft: matches ? 0: 16 }} />
              </IconButton>
 
 

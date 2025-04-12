@@ -97,7 +97,7 @@ const ShowPage = () => {
                 >
                     <div style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: 1.2 }}>NATIONAL JOURNAL</div>
                     <div style={{ fontSize: '1.5rem', fontWeight: 400, letterSpacing: 1.2 }}>{year} PUBLICATIONS - {vol} - {issue}</div>
-                    <div style={{ fontSize: '1.1rem', fontWeight: 400 }}>Airo National Research Journal ISSN 2321-3914</div>
+                    <div style={{ fontSize: '1.1rem', fontWeight: 400 }}>Varsha National Research Journal ISSN 2321-3914</div>
                 </div>
             </div>
             <div style={{ padding: '20px', backgroundColor: '#f0f0f0' ,marginTop:7 }}>

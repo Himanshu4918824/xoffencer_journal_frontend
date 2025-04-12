@@ -10,9 +10,9 @@ export default function BroadCast()
 
 
     var data=[{picture:'article.png',name:'Article / Paper Consideration',info:'Plagiarism should not be more than 10%. Fonts should be in Time New Roman. Content should be in single or double column. Title Font Size 16, Sub-titles 14, Other Text 1'},
-        {picture:'Disclaimer.png',name:'Disclaimer',info:'If copied or fully plagiarized unacceptable articles or research papers are submitted or if any real author or patent or copyright issue arises then Airo Journals will never be responsible for any issue. Such articles will be deleted from the website with immediate effect. In such cases no fees will be refunded.'},
+        {picture:'Disclaimer.png',name:'Disclaimer',info:'If copied or fully plagiarized unacceptable articles or research papers are submitted or if any real author or patent or copyright issue arises then Varsha Research Journals will never be responsible for any issue. Such articles will be deleted from the website with immediate effect. In such cases no fees will be refunded.'},
         {picture:'philosophy.png',name:'Refereed Journal',info:'All Research Articles are updated on Google Scholar and other specific research gateways with updated References to cite advance key features for future research work. It gives time saving and enhancement of innovative next step research in different fields of scientific approach.'},
-        {picture:'star-certificates.png',name:'Peer Review Process',info:'In both International and National Journals, we review the articles with systematic core process to provide the best content to the readers and researchers. An elite approach is adopted time to time for the publication of articles keeping significant relevant data for upcoming scholars.'}
+        {picture:'star-certificates.png',name:'Peer Review Process',info:'In National Journals, we review the articles with systematic core process to provide the best content to the readers and researchers. An elite approach is adopted time to time for the publication of articles keeping significant relevant data for upcoming scholars.'}
     ]
 
     const showData=()=>{
@@ -47,7 +47,7 @@ export default function BroadCast()
     <div style={{display:'flex',flexDirection:matches?'row':'column',justifyContent:'center',alignItems:'center'}}>
         <div style={{width:matches?600:330,height:'auto',background:'#f8f9fa',margin:10,padding:15}}>
             <div style={{fontSize:matches?20:18,fontWeight:'bold',marginBottom:15}}>
-               Airo National and International Journal is now on the following research hub :
+              Varsha Research Journal is now on the following research hub :
             </div>
  
             <div style={{margin:15}}>

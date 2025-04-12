@@ -44,7 +44,7 @@ const ShowPage = () => {
 
         try {
             // Make sure the function sends a correct request
-            const response = await fetch(`http://13.232.154.106:5678/api/v1/downloadMagzine/${year}/${vol}/${issue}`, {
+            const response = await fetch(`http://13.234.119.217:5678/api/v1/downloadMagzine/${year}/${vol}/${issue}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json", // Ensure it matches what the backend expects

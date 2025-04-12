@@ -7,7 +7,7 @@ const JournalDetails = ({ details }) => {
         try {
             console.log(`Downloading file with ID: ${details.id}`);
             const response = await axios.post(
-                `http://13.232.154.106:5678/api/v1/download/${details.id}`,
+                `http://13.234.119.217:5678/api/v1/download/${details.id}`,
                 null,
                 { responseType: "blob" }  // 🔥 Ensures binary data is handled correctly
             );

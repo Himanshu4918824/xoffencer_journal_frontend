@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const serverURL = 'http://13.232.154.106:5678'
+const serverURL = 'http://13.234.119.217:5678'
 
 const currentDate = () => {
       let d = new Date();

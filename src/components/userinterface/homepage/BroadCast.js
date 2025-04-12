@@ -45,7 +45,7 @@ export default function BroadCast()
 
     return(<div>
     <div style={{display:'flex',flexDirection:matches?'row':'column',justifyContent:'center',alignItems:'center'}}>
-        <div style={{width:matches?600:330,height:'auto',background:'#f8f9fa',margin:10,padding:15}}>
+        <div style={{width:matches?600:'100%',height:'auto',background:'#f8f9fa',margin:10,padding:15}}>
             <div style={{fontSize:matches?20:18,fontWeight:'bold',marginBottom:15}}>
               Varsha Research Journal is now on the following research hub :
             </div>

@@ -3,8 +3,10 @@ import { getData } from "../../../services/FetchNodeAdminServices";
 import { useSearchParams } from "react-router-dom";
 import JournalDetails from "./JournalDetails";
 import Header from "../homepage/Header";
-import { Button } from "@mui/material";
+//import { Button } from "@mui/material";
 import Footer from "../homepage/Footer";
+import LoadingButton from '@mui/lab/LoadingButton';
+import { Download } from "@mui/icons-material";
 
 const ShowPage = () => {
     const [searchParams] = useSearchParams(); // This returns a URLSearchParams object
@@ -16,6 +18,8 @@ const ShowPage = () => {
 
     const [data, setData] = useState([]);  // Initialize as an empty array
     const [loading, setLoading] = useState(true);
+
+    const [loadingButton, setLoadingButton] = useState(false); // State for loading button
 
     useEffect(() => {
         setLoading(true);
@@ -41,6 +45,7 @@ const ShowPage = () => {
 
     const handelDownloadMagazine = async () => {
         console.log("Downloading magazine...");
+        setLoadingButton(true)
 
         try {
             // Make sure the function sends a correct request
@@ -80,9 +85,11 @@ const ShowPage = () => {
             window.URL.revokeObjectURL(url);
 
             console.log("Download successful!");
+            setLoadingButton(false)
         } catch (error) {
             console.error("Error downloading magazine:", error);
         }
+      //  setLoadingButton(false)
     };
 
 
@@ -97,11 +104,22 @@ const ShowPage = () => {
                 >
                     <div style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: 1.2 }}>NATIONAL JOURNAL</div>
                     <div style={{ fontSize: '1.5rem', fontWeight: 400, letterSpacing: 1.2 }}>{year} PUBLICATIONS - {vol} - {issue}</div>
-                    <div style={{ fontSize: '1.1rem', fontWeight: 400 }}>Varsha National Research Journal ISSN 2321-3914</div>
+                    <div style={{ fontSize: '1.1rem', fontWeight: 400 }}>Varsha National Research Journal</div>
                 </div>
             </div>
             <div style={{ padding: '20px', backgroundColor: '#f0f0f0' ,marginTop:7 }}>
-            <Button onClick={handelDownloadMagazine} style={{ display: 'flex', marginLeft: 'auto', marginRight: '20px'}} variant="contained">Download Magazine</Button>
+         {/*   <Button onClick={handelDownloadMagazine} style={{ display: 'flex', marginLeft: 'auto', marginRight: '20px'}} variant="contained">Download Magazine</Button>       */}
+         
+         <LoadingButton
+                            loading={loadingButton}
+                            loadingPosition="start"
+                            startIcon={<Download />}
+                            variant="contained"
+                            onClick={handelDownloadMagazine}
+                            style={{ display: 'flex', marginLeft: 'auto', marginRight: '20px'}}
+                        >
+                            Download Magazine
+                        </LoadingButton>
                 {loading ? (
                     <p>Loading...</p>
                 ) : data.length > 0 ? (

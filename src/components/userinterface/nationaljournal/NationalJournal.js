@@ -118,7 +118,7 @@ export default function NationalJournal() {
                 style={{ background: 'lightgrey', color: 'black', width: '100%', height: 250, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}
             >
                 <div style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: 1.2 }}>NATIONAL JOURNAL</div>
-                <div style={{ fontSize: '1.1rem', fontWeight: 400 }}>Airo National Research Journal ISSN 2321-3914</div>
+                <div style={{ fontSize: '1.1rem', fontWeight: 400 }}>Varsha National Research Journal</div>
             </div>
 
             {/* Back Button */}

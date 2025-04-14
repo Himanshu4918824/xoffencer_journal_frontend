@@ -58,6 +58,7 @@ const ShowPage = () => {
 
             // Check if the response is successful
             if (!response.ok) {
+                setLoadingButton(false)
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
@@ -66,6 +67,7 @@ const ShowPage = () => {
 
             // Check if the response is actually a PDF (not an error response)
             if (blob.type !== "application/pdf") {
+                setLoadingButton(false)
                 throw new Error("Received data is not a valid PDF file.");
             }
 
@@ -87,6 +89,7 @@ const ShowPage = () => {
             console.log("Download successful!");
             setLoadingButton(false)
         } catch (error) {
+            setLoadingButton(false)
             console.error("Error downloading magazine:", error);
         }
       //  setLoadingButton(false)

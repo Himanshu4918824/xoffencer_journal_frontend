@@ -21,7 +21,7 @@ export default function AboutJournal()
         
         <div style={{marginTop:10}}>
             <p style={{marginBottom:matches?7:10}}>Varsha Research Organisation is a peer reviewed international open access online scholarly journal publishing innovative and creative technological research.</p>
-            The journal was started in 2023 with an aim to provide an easy, open and affordable platform for the whole global community of researchers, engineers, students, developers etc.
+            The journal was started in 2024 with an aim to provide an easy, open and affordable platform for the whole global community of researchers, engineers, students, developers etc.
             to publish and share their innovative and creative research work related to various engineering disciplines. We are determined to provide our services with the same basic aims 
             while also always improving our services, infrastructure, reach and scope.</div>
 

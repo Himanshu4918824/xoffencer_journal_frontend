@@ -7,7 +7,7 @@ const JournalDetails = ({ details }) => {
         try {
             console.log(`Downloading file with ID: ${details.id}`);
             const response = await axios.post(
-                `http://15.206.41.116:5678/api/v1/download/${details.id}`,
+                `https://varsharesearchorganization.com/api/v1/download/${details.id}`,
                 null,
                 { responseType: "blob" }  // 🔥 Ensures binary data is handled correctly
             );
@@ -29,7 +29,14 @@ const JournalDetails = ({ details }) => {
             console.error("Error downloading file:", error);
         }
     };
-
+    function getMonthName(dateString) {
+        const date = new Date(dateString);
+        const monthNames = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        return monthNames[date.getMonth()];
+    }
 
     return (
         <TableContainer component={Paper} style={{ padding: 20, maxWidth: 800, margin: "auto", marginTop: 20 }}>
@@ -49,7 +56,7 @@ const JournalDetails = ({ details }) => {
                     </TableRow>
                     <TableRow>
                         <TableCell style={{ fontWeight: "bold", color: "#0d47a1" }}>Month Of Publication</TableCell>
-                        <TableCell>: {details.Created_at}</TableCell>
+                        <TableCell>: {getMonthName(details.Created_at)}</TableCell>
                     </TableRow>
                 </TableBody>
             </Table>
@@ -59,12 +66,12 @@ const JournalDetails = ({ details }) => {
                 <Button variant="contained" color="primary" onClick={() => handleDownload()}>
                     VIEW PUBLICATION
                 </Button>
-                <Button variant="contained" style={{ backgroundColor: "#4CAF50", color: "white" }} onClick={() => window.open("#", "_blank")}>
+                {/* <Button variant="contained" style={{ backgroundColor: "#4CAF50", color: "white" }} onClick={() => window.open("#", "_blank")}>
                     VIEW CERTIFICATE
                 </Button>
                 <Button variant="contained" style={{ backgroundColor: "#424242", color: "white" }} onClick={() => window.open("#", "_blank")}>
                     ACCEPTANCE LETTER
-                </Button>
+                </Button> */}
             </div>
         </TableContainer>
     );

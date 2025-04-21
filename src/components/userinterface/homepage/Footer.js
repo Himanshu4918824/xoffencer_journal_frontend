@@ -56,6 +56,8 @@ export default function Footer() {
             <div>WhatsApp us: 9827646334</div>
             <div>Call us: +919827646334</div>
             <div>8:00 AM to 8:00 PM, 365 days</div>
+            <div>39, Kishanbhag, Bahodapur
+              Gwalior MP-474012</div>
             <div style={{ marginTop: '20px' }}>
               For bugs, glitches, or other issues, email us at:
               <br />

@@ -49,7 +49,7 @@ const ShowPage = () => {
 
         try {
             // Make sure the function sends a correct request
-            const response = await fetch(`http://13.234.119.217:5678/api/v1/downloadMagzine/${year}/${vol}/${issue}`, {
+            const response = await fetch(`https://varsharesearchorganization.com/api/v1/downloadMagzine/${year}/${vol}/${issue}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json", // Ensure it matches what the backend expects
@@ -58,6 +58,7 @@ const ShowPage = () => {
 
             // Check if the response is successful
             if (!response.ok) {
+                setLoadingButton(false)
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
@@ -66,6 +67,7 @@ const ShowPage = () => {
 
             // Check if the response is actually a PDF (not an error response)
             if (blob.type !== "application/pdf") {
+                setLoadingButton(false)
                 throw new Error("Received data is not a valid PDF file.");
             }
 
@@ -87,6 +89,7 @@ const ShowPage = () => {
             console.log("Download successful!");
             setLoadingButton(false)
         } catch (error) {
+            setLoadingButton(false)
             console.error("Error downloading magazine:", error);
         }
       //  setLoadingButton(false)

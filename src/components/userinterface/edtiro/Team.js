@@ -2,10 +2,10 @@ import React from 'react';
 import Footer from "../homepage/Footer";
 import Header from "../homepage/Header";
 import dev from '../../../assets/dev.jpg';
+import devand from '../../../assets/devand.jpg';
 import atul from '../../../assets/atul.jpg';
-//import Rajesh from '../../../assets/Rajesh.jpeg';
-import manoj from '../../../assets/manoj.jpeg';
-//import dee from '../../../assets/dee.jpg';
+import shambu from '../../../assets/shambu.jpg';
+import dee from '../../../assets/dee.jpg';
 import sand from '../../../assets/sand.jpg';
 import ram from '../../../assets/ram.jpg';
 import vineeta from '../../../assets/vineeta.jpeg';
@@ -22,12 +22,15 @@ export default function Team() {
     { sno: 1, name: 'Dr. Dev Brat Mishra', edu:'Senior Assistant Professor, M.Sc., Ph.D., FZSI., FHAS., FSLSc., FGESA., FBPS., FABRF., FIAES., FIASR., FCRSD., PGDBM., CES.,CCY.', dept:'Deptt.Of Zoology', add:'Tilak Dhari Post Graduate Collage, Janupur.', pic: dev, email: 'editor.devbrat@varsharesearchorganization.com' },
     { sno: 2, name: 'Dr. Atul Kumar Tiwari', edu:' Head of Department- Zoology', dept:'Dr. B.S.Porte Govt.College Pendra Chhattisgarh-495119', pic: atul, email: 'editor.atul@varsharesearchorganization.com' },
    // { sno: 3, name: 'Dr. Rajesh Kumar Jha, Associate Professor in MBA, Dr.D.Y.Patil Institute of Management and Enterprenure Development. ,Pune', pic: Rajesh, email: '' },
-    { sno: 3, name: 'Dr.Manoj Kumar Vats', edu:'Head of Deptt. Sociology', dept:'R.S.K. D. Post Graduate Collage, Janupur 222002 ', pic: manoj, email: 'editor.manojvats@varsharesearchorganization.com' },
-  //  { sno: 5, name: 'Dr Deepchand Dhankher, Adjunct Research Supervisor, liutbem University lushakha Zambia', pic: dee, email: '' },
-    { sno: 4, name: 'Dr.Sandhya Pandey', edu:'Assistant Professor, M.Sc., Ph.D., FCRSD, Deptt.Of Zoology', dept:'PPN Post Graduate Collage, Kanpur', pic: sand, email: 'editor.drsandhya@varsharesearchorganization.com' },
-    { sno: 5, name: 'Dr. Vineeta Dixit', edu:'HOD, Department of Botany', dept:'SSJSN College Garhwa 822114 ,Jharkhand', pic: ram, email: 'editor.ramkinker@varsharesearchorganization.com' },
-    { sno: 6, name: 'Professor Ram Kinkar Pandey', edu:'Principal,Government Lahiri Post Graduate College', add:'Chirmiri District – Manendragarh – Chirmiri – Bharatpur Chhattisgarh', pic: vineeta, email: 'editor.drvineeta@varsharesearchorganization.com' },
-    { sno: 7, name: 'Maya Mishra', edu:'Assistant Professor B.Ed. Department', add:' Government Teacher Education College, Rewa', pic: maya, email: 'editor.mayamishra@varsharesearchorganization.com' },
+   { sno: 3, name: 'Dr.Sandhya Pandey', edu:'Assistant Professor, M.Sc., Ph.D., FCRSD, Deptt.Of Zoology', dept:'PPN Post Graduate Collage, Kanpur', pic: sand, email: 'editor.drsandhya@varsharesearchorganization.com' },
+   // { sno: 4, name: 'Dr.Manoj Kumar Vats', edu:'Head of Deptt. Sociology', dept:'R.S.K. D. Post Graduate Collage, Janupur 222002 ', pic: manoj, email: 'editor.manojvats@varsharesearchorganization.com' },
+    { sno: 4, name: 'Dr Deephand Dhankher',edu:'Assistant Professor of Seamanship', dept:'Tolani Maritime Institute, Pune, India' , pic: dee, email: 'editor.drdeepand@varsharesearchorganization.com' },
+    { sno: 5, name: 'Dr. Shambhu Nivrutti Waghule', edu:'HOD, And Advanced Accounting, IT, M.Com, Ph.D.', dept:'Dr.B.A.M. University, Aurangabad', pic: shambu, email: 'editor.drshambhu@varsharesearchorganization.com' },
+    { sno: 6, name: 'Dr. Devender Kumar Gupta', edu:'President of Aggarwal Collage', dept:'', pic: devand, email: 'editor.drdevender@varsharesearchorganization.com' },
+
+    { sno: 7, name: 'Dr. Vineeta Dixit', edu:'HOD, Department of Botany', dept:'SSJSN College Garhwa 822114 ,Jharkhand', pic: vineeta, email: 'editor.drvineeta@varsharesearchorganization.com' },
+    { sno: 8, name: 'Professor Ram Kinkar Pandey', edu:'Principal,Government Lahiri Post Graduate College', add:'Chirmiri District – Manendragarh – Chirmiri – Bharatpur Chhattisgarh', pic: ram, email: 'editor.ramkinker@varsharesearchorganization.com' },
+    { sno: 9, name: 'Maya Mishra', edu:'Assistant Professor B.Ed. Department', add:' Government Teacher Education College, Rewa', pic: maya, email: 'editor.mayamishra@varsharesearchorganization.com' },
   ];
 
   const showImage = () => {

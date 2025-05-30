@@ -52,7 +52,7 @@ export default function Header() {
         <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',width:matches?'100%':'100%'}}>
             <Typography onClick={()=>navigate('/')} variant="h6" component="div" sx={{cursor:'pointer', display:'flex',alignItems:'center'}}>
                <img alt='logo' src={logo} style={{width:matches?80:60,height:matches?70:50,marginLeft:matches?50:0,marginTop:5}} />
-               <div style={{ fontSize: matches ? 24 : 18, fontWeight: 'bold', marginTop: 5, marginLeft: 9 }}>Varsha Research </div>
+               <div style={{ fontSize: matches ? 24 : 18, fontWeight: 'bold', marginTop: 5, marginLeft: 9 }}>Varsha Research Organisation </div>
             </Typography>
 
          { /*  {matches?

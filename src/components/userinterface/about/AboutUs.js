@@ -5,7 +5,7 @@ import logo from '../../../assets/logo.png';
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
-
+import Table from "../homepage/Table";
 export default function AboutUs()
 {
     const theme = useTheme();
@@ -111,6 +111,10 @@ export default function AboutUs()
             </div>
 
             <Divider style={{marginTop:20}}/>
+</div>
+
+<div style={{margin:20,padding:20,marginLeft:'10%',width:'80%',letterSpacing:0.3,lineHeight:1.5}}>
+    <Table/>
 </div>
 
         <div>

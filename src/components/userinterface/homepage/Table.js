@@ -12,12 +12,12 @@ function createData(field, details) {
 const rows = [
   createData('Journal Title', 'Varsha Research Organization'),
   createData('Staring Year', 'April 2025'),
-  createData('Frequency', 'Quarterly (April, July, October, January)'),
+  createData('Frequency', 'Issue: Monthly, Volume: Quarterly (April, July, October, January)'),
   createData('Subject', 'Multidisciplinary'),
   createData('Format', 'Online'),
   createData('Languages', 'Multilingual (Hindi, English, Sanskrit, etc.)'),
   createData('Publisher Name', 'Varsha Research Organization'),
-  createData('Publisher Address', 'PMAY Building ,E-52,Flate no- 403,Sagartal Road Gwalior MP-474008'),
+  createData('Publisher Address', '39, Kishanbhag, Bahodapur Gwalior MP-474012'),
   createData('Email', 'editor@varsharesearchorganization.com'),
   createData('Contact Number', '‪+91 98276 46334‬'),
   createData('Chief Editor Name', 'Varsha Rajput')

@@ -23,7 +23,7 @@ const ShowPage = () => {
 
     useEffect(() => {
         setLoading(true);
-        getData(`api/v1/National Journal/${year}/${vol}/${issue}`)
+        getData(`api/v1/National Journal/${year}/${issue}`)
             .then((res) => {
                 if (res && Array.isArray(res)) {
                     console.log({ res })
@@ -106,7 +106,7 @@ const ShowPage = () => {
                     style={{ background: 'lightgrey', color: 'black', width: '100%', height: 250, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', marginBottom:5 }}
                 >
                     <div style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: 1.2 }}>NATIONAL JOURNAL</div>
-                    <div style={{ fontSize: '1.5rem', fontWeight: 400, letterSpacing: 1.2 }}>{year} PUBLICATIONS - {vol} - {issue}</div>
+                    <div style={{ fontSize: '1.5rem', fontWeight: 400, letterSpacing: 1.2 }}>{year} PUBLICATIONS - {issue}</div>
                     <div style={{ fontSize: '1.1rem', fontWeight: 400 }}>Varsha National Research Journal</div>
                 </div>
             </div>

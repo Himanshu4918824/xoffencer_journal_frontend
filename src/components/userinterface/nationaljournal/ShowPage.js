@@ -22,6 +22,7 @@ const ShowPage = () => {
     const [loadingButton, setLoadingButton] = useState(false); // State for loading button
 
     useEffect(() => {
+        console.log("Fetching data for:", { year, vol, issue });
         setLoading(true);
         getData(`api/v1/National Journal/${year}/${issue}`)
             .then((res) => {
@@ -49,7 +50,7 @@ const ShowPage = () => {
 
         try {
             // Make sure the function sends a correct request
-            const response = await fetch(`https://varsharesearchorganization.com/api/v1/downloadMagzine/${year}/${vol}/${issue}`, {
+            const response = await fetch(`https://varsharesearchorganization.com/api/v1/downloadMagzine/${year}/${issue}`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json", // Ensure it matches what the backend expects
@@ -107,7 +108,7 @@ const ShowPage = () => {
                 >
                     <div style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: 1.2 }}>NATIONAL JOURNAL</div>
                     <div style={{ fontSize: '1.5rem', fontWeight: 400, letterSpacing: 1.2 }}>{year} PUBLICATIONS - {issue}</div>
-                    <div style={{ fontSize: '1.1rem', fontWeight: 400 }}>Varsha National Research Journal</div>
+                    <div style={{ fontSize: '1.1rem', fontWeight: 400 }}>Varsha Research Organisation</div>
                 </div>
             </div>
             <div style={{ padding: '20px', backgroundColor: '#f0f0f0' ,marginTop:7 }}>

@@ -92,7 +92,7 @@ export default function BroadCast()
             <Divider/>
 
             <div style={{margin:10,fontSize:18,fontWeight:400,color:'grey',padding:3}}>
-               2025-2026  National Journal
+               3107-5185  National Journal
             </div>
 
            {/* <div style={{margin:10,fontSize:18,fontWeight:400,marginBottom:25,color:'#f0edea',padding:2}}>

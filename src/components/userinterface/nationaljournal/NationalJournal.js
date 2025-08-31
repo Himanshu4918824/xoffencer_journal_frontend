@@ -79,7 +79,6 @@ export default function NationalJournal() {
         //     nextLevel = "result";
         //     apiEndpoint = null;
         //     navigate(`/ShowJournal?year=${path[0]}&vol=${path[1]}&issue=${item}`); // Navigate to the show page
-
         // }
         else {
             return; // Stop if at the final result level

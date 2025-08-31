@@ -14,7 +14,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-export default function UploadJournalForm(props) {
+export default function UploadJournalForm() {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
 
@@ -126,7 +126,7 @@ export default function UploadJournalForm(props) {
             // formData.append('created_at',currentDate());
 
 
-            var result = await postData('api/v1/form-for-publication', formData)
+            var result = await postData('form-for-publication', formData)
            //console.log("xxxx",result)
             if (result.status) {
                 Swal.fire({

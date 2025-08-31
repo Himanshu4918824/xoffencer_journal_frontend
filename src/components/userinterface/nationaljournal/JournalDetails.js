@@ -1,34 +1,35 @@
-import React from "react";
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableRow } from "@mui/material";
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const JournalDetails = ({ details }) => {
-    const handleDownload = async () => {
-        try {
-            console.log(`Downloading file with ID: ${details.id}`);
-            const response = await axios.post(
-                `https://varsharesearchorganization.com/api/v1/download/${details.id}`,
-                null,
-                { responseType: "blob" }  // 🔥 Ensures binary data is handled correctly
-            );
+    const navigate = useNavigate();
+    // const handleDownload = async () => {
+    //     try {
+    //         console.log(`Downloading file with ID: ${details.id}`);
+    //         const response = await axios.post(
+    //             `https://varsharesearchorganization.com/api/v1/download/${details.id}`,
+    //             null,
+    //             { responseType: "blob" }  // 🔥 Ensures binary data is handled correctly
+    //         );
 
-            if (response.data.size === 0) {
-                console.error("Received an empty file!");
-                return;
-            }
+    //         if (response.data.size === 0) {
+    //             console.error("Received an empty file!");
+    //             return;
+    //         }
 
-            const blob = new Blob([response.data], { type: "application/pdf" });
-            const url = window.URL.createObjectURL(blob);
-            const link = document.createElement("a");
-            link.href = url;
-            link.setAttribute("download", `${details.Title_of_paper}.pdf`);
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        } catch (error) {
-            console.error("Error downloading file:", error);
-        }
-    };
+    //         const blob = new Blob([response.data], { type: "application/pdf" });
+    //         const url = window.URL.createObjectURL(blob);
+    //         const link = document.createElement("a");
+    //         link.href = url;
+    //         link.setAttribute("download", `${details.Title_of_paper}.pdf`);
+    //         document.body.appendChild(link);
+    //         link.click();
+    //         document.body.removeChild(link);
+    //     } catch (error) {
+    //         console.error("Error downloading file:", error);
+    //     }
+    // };
+
     function getMonthName(dateString) {
         const date = new Date(dateString);
         const monthNames = [
@@ -63,7 +64,7 @@ const JournalDetails = ({ details }) => {
 
             {/* Buttons Section */}
             <div style={{ display: "flex", gap: "10px", marginTop: 20, justifyContent: "center" }}>
-                <Button variant="contained" color="primary" onClick={() => handleDownload()}>
+                <Button variant="contained" color="primary" onClick={() => navigate(`/showdetails/${details.id}`)}>
                     VIEW PUBLICATION
                 </Button>
                 {/* <Button variant="contained" style={{ backgroundColor: "#4CAF50", color: "white" }} onClick={() => window.open("#", "_blank")}>

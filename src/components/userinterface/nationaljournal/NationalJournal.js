@@ -52,7 +52,7 @@ export default function NationalJournal() {
 
     // Fetch Initial Data (Years)
     useEffect(() => {
-        fetchData("api/v1/National Journal")
+        fetchData("National Journal")
     }, []);
 
     // Handle Card Click - Move to Next Level
@@ -70,7 +70,7 @@ export default function NationalJournal() {
         if (currentLevel === "year") {
             setIsVolume("False")
             nextLevel = "issue";
-            apiEndpoint = `api/v1/National Journal/${encodeURIComponent(item)}`;
+            apiEndpoint = `National Journal/${encodeURIComponent(item)}`;
         } else if (currentLevel === "issue") {
             nextLevel = "result";
             navigate(`/ShowJournal?year=${path[0]}&issue=${item}`); // Navigate to the show page
@@ -101,13 +101,13 @@ export default function NationalJournal() {
 
         if (newPath.length === 0) {
             prevLevel = "year";
-            apiEndpoint = "api/v1/National Journal";
+            apiEndpoint = "National Journal";
         } else if (newPath.length === 1) {
             prevLevel = "volume";
-            apiEndpoint = `api/v1/National Journal/${newPath[0]}`;
+            apiEndpoint = `National Journal/${newPath[0]}`;
         } else if (newPath.length === 2) {
             prevLevel = "issue";
-            apiEndpoint = `api/v1/National Journal/${newPath[0]}/${newPath[1]}`;
+            apiEndpoint = `National Journal/${newPath[0]}/${newPath[1]}`;
         }
 
         setCurrentLevel(prevLevel);

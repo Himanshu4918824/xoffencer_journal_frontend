@@ -14,7 +14,7 @@ const ShowPage = () => {
     const vol = searchParams.get("vol");
     const issue = searchParams.get("issue");
 
-    console.log({ year, vol, issue });
+    // console.log({ year, vol, issue });
 
     const [data, setData] = useState([]);  // Initialize as an empty array
     const [loading, setLoading] = useState(true);
@@ -22,12 +22,12 @@ const ShowPage = () => {
     const [loadingButton, setLoadingButton] = useState(false); // State for loading button
 
     useEffect(() => {
-        console.log("Fetching data for:", { year, vol, issue });
+        // console.log("Fetching data for:", { year, vol, issue });
         setLoading(true);
-        getData(`api/v1/National Journal/${year}/${issue}`)
+        getData(`National Journal/${year}/${issue}`)
             .then((res) => {
                 if (res && Array.isArray(res)) {
-                    console.log({ res })
+                    // console.log({ res })
                     setData(res);
                 } else {
                     // console.error("Invalid data format:", res);

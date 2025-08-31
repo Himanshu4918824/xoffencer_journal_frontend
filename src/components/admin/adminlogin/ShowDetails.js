@@ -6,74 +6,149 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TelegramIcon from '@mui/icons-material/Telegram';
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import MainContext from "../../../context/maincontext";
+import { useParams } from "react-router-dom";
 
-export default function ShowDetails() {
-  return (
-    <div>
-        <div>
-            <Header/>
-        </div>
+export default function ShowDetails({ details }) {
+   const { id } = useParams();
+   const { getJournalDetail } = useContext(MainContext)
+   const [data, setData] = useState({
+      Abstract: "",
+      Author_Name: "",
+      Branch: "",
+      Created_at: "",
+      Journal_Type: "",
+      Second_Author_Guide_Name: "",
+      Title_of_paper: "",
+      id: 0,
+      subject: "",
+      volume: 0,
+      issue: 0,
+
+   });
+
+   useEffect(() => {
+      if (!id) {
+         console.warn("No ID found in query params");
+         return;
+      }
+      async function fetchdata() {
+         const data = await getJournalDetail(id)
+         setData({
+            Abstract: data[0].Abstract,
+            Author_Name: data[0].Author_Name,
+            Branch: data[0].Branch,
+            Created_at: data[0].Created_at,
+            Journal_Type: data[0].Journal_Type,
+            Second_Author_Guide_Name: data[0].Second_Author_Guide_Name,
+            Title_of_paper: data[0].Title_of_paper,
+            id: data[0].id,
+            subject: data[0].subject,
+            volume: data[0].volume,
+            issue: data[0].issue
+         })
+      }
+      fetchdata()
+   }, [id, getJournalDetail])
 
 
-        <div style={{marginTop: 40,fontSize: 24,fontWeight: 'bold',letterSpacing:0.5,width:'70%',height: '100%',textAlign:'center',marginLeft:'12%'}}>Promoting Judicial Acceptance of Electronic Evidence Through Structured Legal Reform</div>
+   const handleDownload = async (id) => {
+      try {
+         console.log(`Downloading file with ID: ${id}`);
+         const response = await axios.post(
+            `https://varsharesearchorganization.com/api/v1/download/${id}`,
+            null,
+            { responseType: "blob" }  // 🔥 Ensures binary data is handled correctly
+         );
 
-        <div style={{marginTop:20,fontWeight: 400,fontSize:' 1.2rem',marginLeft:'7%',letterSpacing:0.3,marginRight:'7%'}}>
-           <b>Author(S):</b> Navneet Kumar Bharti, Dr. Neeru Gupta
-        </div>
+         if (response.data.size === 0) {
+            console.error("Received an empty file!");
+            return;
+         }
 
-        <div style={{marginTop:7,fontWeight: 400,fontSize:' 1.2rem',marginLeft:'7%',letterSpacing:0.3,marginRight:'7%'}}>
-           <b>Publication #:</b> 2508021
-        </div>
-
-        <div style={{marginTop:7,fontWeight: 400,fontSize:' 1.2rem',marginLeft:'7%',letterSpacing:0.3,marginRight:'7%'}}>
-           <b>Date of Publication:</b> 26.08.2025
-        </div>
-
-        <div style={{marginTop:7,fontWeight: 400,fontSize:' 1.2rem',marginLeft:'7%',letterSpacing:0.3,marginRight:'7%'}}>
-           <b>Country:</b> India
-        </div>
-
-        <div style={{marginTop:7,fontWeight: 400,fontSize:' 1.2rem',marginLeft:'7%',letterSpacing:0.3,marginRight:'7%'}}>
-           <b>Pages:</b> 1-7
-        </div>
-
-        <div style={{marginTop:7,fontWeight: 400,fontSize:' 1.2rem',marginLeft:'7%',letterSpacing:0.3,marginRight:'7%'}}>
-           <b>Published In:</b> Volume 11 Issue 4 August-2025:
-        </div>
-
-        <div style={{marginTop:8,fontWeight: 400,fontSize:' 1.2rem',marginLeft:'7%',letterSpacing:0.3,marginRight:'7%'}}>
-            <div style={{fontWeight: 600,marginBottom: 5}}>Abstract</div>
-            <div style={{fontSize:16}}>Modern court processes cannot function without electronic evidence due to the growing dependence on digital technology. But procedural conservatism, judges' lack of technical knowledge, and the lack of consistent standards still make it difficult for Indian courts to accept such evidence, which means important evidence gets ignored and justice isn't served. If we want electronic evidence to be more trustworthy and admissible in court, this paper says we need a legal reform framework that strikes a compromise between formal protections and practical flexibility. Modifications to Section 65B of the Indian Evidence Act, investment in digital evidence examination units and other technological infrastructure, interdisciplinary collaboration among legal, technical, and policy experts, and judicial capacity building through targeted training are the five pillars that make up the proposed model. The goal of this reform paradigm is to make the judicial system more open, accountable, and efficient by fixing underlying problems. In order to guarantee that everyone has equal access to justice in our increasingly digital world, it is crucial to promote the acceptance of electronic evidence by the judiciary. This is not just a technological need, but also a democratic imperative. To strengthen the rule of law and safeguard the rights of victims who depend on electronic data for legal recourse, the report stresses the critical necessity of integrated reforms that provide courts with the knowledge and skills to handle the intricacies of digital evidence.</div>
-        </div>
-
-        <div style={{marginTop:20,fontWeight: 400,fontSize:' 1.2rem',marginLeft:'7%',letterSpacing:0.3,marginRight:'7%'}}>
-            <span style={{fontWeight: 600,marginBottom: 5}}>Keywords:</span> <span style={{fontSize:17}}>Electronic Evidence, Indian Evidence Act, Judicial Reform, Digital Forensics, Legal Admissibility.</span>
-        </div>
+         const blob = new Blob([response.data], { type: "application/pdf" });
+         const url = window.URL.createObjectURL(blob);
+         const link = document.createElement("a");
+         link.href = url;
+         link.setAttribute("download", `${data.Title_of_paper}.pdf`);
+         document.body.appendChild(link);
+         link.click();
+         document.body.removeChild(link);
+      } catch (error) {
+         console.error("Error downloading file:", error);
+      }
+   };
 
 
 
-        <div style={{textAlign: "center", marginTop: 40,marginBottom:20}}>
-         <Button variant="contained" color="primary">Download/View Paper PDF</Button>
-        </div>
+   return (
+      <div>
+         <div>
+            <Header />
+         </div>
 
-        <div style={{marginTop:50,fontWeight: 400,fontSize:18,marginLeft:'7%',letterSpacing:0.3,marginRight:'7%'}}>
+
+         <div style={{ marginTop: 40, fontSize: 24, fontWeight: 'bold', letterSpacing: 0.5, width: '70%', height: '100%', textAlign: 'center', marginLeft: '12%' }}>{data.Title_of_paper}</div>
+
+         <div style={{ marginTop: 20, fontWeight: 400, fontSize: ' 1.2rem', marginLeft: '7%', letterSpacing: 0.3, marginRight: '7%' }}>
+            <b>Author(S):</b> {data.Author_Name} , {data.Second_Author_Guide_Name}
+         </div>
+
+         <div style={{ marginTop: 7, fontWeight: 400, fontSize: ' 1.2rem', marginLeft: '7%', letterSpacing: 0.3, marginRight: '7%' }}>
+            <b>Publication #:</b> {data.id}
+         </div>
+
+         <div style={{ marginTop: 7, fontWeight: 400, fontSize: ' 1.2rem', marginLeft: '7%', letterSpacing: 0.3, marginRight: '7%' }}>
+            <b>Date of Publication:</b> {new Date(data.Created_at).toLocaleDateString()}
+         </div>
+
+         <div style={{ marginTop: 7, fontWeight: 400, fontSize: ' 1.2rem', marginLeft: '7%', letterSpacing: 0.3, marginRight: '7%' }}>
+            <b>Country:</b> India
+         </div>
+
+         {/* <div style={{ marginTop: 7, fontWeight: 400, fontSize: ' 1.2rem', marginLeft: '7%', letterSpacing: 0.3, marginRight: '7%' }}>
+            <b>Pages:</b> 1-7
+         </div> */}
+
+         <div style={{ marginTop: 7, fontWeight: 400, fontSize: ' 1.2rem', marginLeft: '7%', letterSpacing: 0.3, marginRight: '7%' }}>
+            <b>Published In:</b> Volume {data.volume} Issue {data.issue} : {new Date(data.Created_at).getMonth()}-{new Date(data.Created_at).getFullYear()}
+         </div>
+
+         <div style={{ marginTop: 8, fontWeight: 400, fontSize: ' 1.2rem', marginLeft: '7%', letterSpacing: 0.3, marginRight: '7%' }}>
+            <div style={{ fontWeight: 600, marginBottom: 5 }}>Abstract</div>
+            <div style={{ fontSize: 16 }}>{data.Abstract}</div>
+         </div>
+
+         <div style={{ marginTop: 20, fontWeight: 400, fontSize: ' 1.2rem', marginLeft: '7%', letterSpacing: 0.3, marginRight: '7%' }}>
+            <span style={{ fontWeight: 600, marginBottom: 5 }}>Keywords:</span> <span style={{ fontSize: 17 }}>Electronic Evidence, Indian Evidence Act, Judicial Reform, Digital Forensics, Legal Admissibility.</span>
+         </div>
+
+
+
+         <div style={{ textAlign: "center", marginTop: 40, marginBottom: 20 }}>
+            <Button variant="contained" color="primary" onClick={() => handleDownload(data.id)}>Download/View Paper PDF</Button>
+         </div>
+
+         <div style={{ marginTop: 50, fontWeight: 400, fontSize: 18, marginLeft: '7%', letterSpacing: 0.3, marginRight: '7%' }}>
             Share this Article
 
-            <div style={{marginTop:5,cursor:'pointer',fontSize:20}}>
-              <WhatsAppIcon style={{color:'#25D366',fontSize:30}}/>
-              <FacebookIcon style={{color:'#1877F2',marginLeft:5,fontSize:30}}/>
-              <TwitterIcon style={{color:'#1DA1F2',marginLeft:5,fontSize:30}}/>
-              <LinkedInIcon style={{color:'#0077B5',marginLeft:5,fontSize:30}}/>
-              <TelegramIcon style={{color:'#0088cc',marginLeft:5,fontSize:30}}/>
+            <div style={{ marginTop: 5, cursor: 'pointer', fontSize: 20 }}>
+               <WhatsAppIcon style={{ color: '#25D366', fontSize: 30 }} />
+               <FacebookIcon style={{ color: '#1877F2', marginLeft: 5, fontSize: 30 }} />
+               <TwitterIcon style={{ color: '#1DA1F2', marginLeft: 5, fontSize: 30 }} />
+               <LinkedInIcon style={{ color: '#0077B5', marginLeft: 5, fontSize: 30 }} />
+               <TelegramIcon style={{ color: '#0088cc', marginLeft: 5, fontSize: 30 }} />
 
             </div>
 
-        </div>
+         </div>
 
-        <div style={{marginTop:10}}>
-         <Footer/>
-        </div>
+         <div style={{ marginTop: 10 }}>
+            <Footer />
+         </div>
 
-    </div>
-  );
+      </div>
+   );
 }

@@ -12,7 +12,7 @@ function createData(field, details) {
 const rows = [
   createData('Journal Title', 'Varsha Research Organization'),
   createData('Staring Year', 'April 2025'),
-  createData('Frequency', 'Issue: Monthly, Volume: Quarterly (April, July, October, January)'),
+  createData('Frequency', 'Quarterly'),
   createData('Subject', 'Multidisciplinary'),
   createData('Format', 'Online'),
   createData('Languages', 'Multilingual (Hindi, English, Sanskrit, etc.)'),

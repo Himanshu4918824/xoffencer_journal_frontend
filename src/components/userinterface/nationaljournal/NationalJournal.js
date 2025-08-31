@@ -7,7 +7,7 @@ import { Paper, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 // Card Component
-const Card = ({ item, onClick }) => {
+const Card = ({ item, onClick , Volume}) => {
     return (
         <div style={{ margin: 10, padding: 10 }}>
             <Paper
@@ -15,17 +15,19 @@ const Card = ({ item, onClick }) => {
                 onClick={() => onClick(item)} // Handle Click
                 style={{ width: 350, height: 60, display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: "pointer" }}
             >
-                <div style={{ fontSize: 22, fontWeight: 600, color: '#576574' }}>{item}</div>
+                <div style={{ fontSize: 22, fontWeight: 600, color: '#576574' }}>{item} {Volume}</div>
             </Paper>
         </div>
     );
 };
 
 export default function NationalJournal() {
+
     const navigate = useNavigate(); // Hook for navigation
     const [data, setData] = useState([]); // Holds the fetched data
     const [loading, setLoading] = useState(false); // Loading state
     const [path, setPath] = useState([]); // Stores navigation path (year → volume → issue)
+    const [isVolume, setIsVolume] = useState("True"); // Stores navigation path (year → volume → issue)
     const [currentLevel, setCurrentLevel] = useState("year"); // Track current data level
 
     // Function to Fetch Data
@@ -61,22 +63,24 @@ export default function NationalJournal() {
         // Update the path for navigation
         const newPath = [...path, item];
         setPath(newPath);
-
+        setIsVolume("True")
         // Determine the next API call based on current level
         let nextLevel, apiEndpoint;
 
         if (currentLevel === "year") {
-            nextLevel = "volume";
-            apiEndpoint = `api/v1/National Journal/${encodeURIComponent(item)}`;
-        } else if (currentLevel === "volume") {
+            setIsVolume("False")
             nextLevel = "issue";
-            apiEndpoint = `api/v1/National Journal/${path[0]}/${encodeURIComponent(item)}`;
+            apiEndpoint = `api/v1/National Journal/${encodeURIComponent(item)}`;
         } else if (currentLevel === "issue") {
             nextLevel = "result";
-            apiEndpoint = null;
-            navigate(`/ShowJournal?year=${path[0]}&vol=${path[1]}&issue=${item}`); // Navigate to the show page
-
-        } else {
+            navigate(`/ShowJournal?year=${path[0]}&issue=${item}`); // Navigate to the show page
+        }
+        // else if (currentLevel === "issue") {
+        //     nextLevel = "result";
+        //     apiEndpoint = null;
+        //     navigate(`/ShowJournal?year=${path[0]}&vol=${path[1]}&issue=${item}`); // Navigate to the show page
+        // }
+        else {
             return; // Stop if at the final result level
         }
 
@@ -118,7 +122,7 @@ export default function NationalJournal() {
                 style={{ background: 'lightgrey', color: 'black', width: '100%', height: 250, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}
             >
                 <div style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: 1.2 }}>NATIONAL JOURNAL</div>
-                <div style={{ fontSize: '1.1rem', fontWeight: 400 }}>Varsha National Research Journal</div>
+                <div style={{ fontSize: '1.1rem', fontWeight: 400 }}>Varsha Research Organisation</div>
             </div>
 
             {/* Back Button */}
@@ -130,7 +134,7 @@ export default function NationalJournal() {
             {/* Card List */}
             <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: 20, justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}>
                 {data.map((item, index) => (
-                    <Card key={index} item={item} onClick={handleCardClick} />
+                    <Card key={index} item={item} onClick={handleCardClick} Volume={isVolume === "True" ? `Volume ${index + 1}` : ""} />
                 ))}
             </div>
             {path.length > 0 && (

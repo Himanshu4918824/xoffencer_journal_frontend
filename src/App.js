@@ -42,13 +42,10 @@ function App() {
           <Route element={<Homepage />} path="/"></Route>
           <Route element={<ShowPage />} path="/ShowJournal"></Route>
           <Route element={<Contact />} path="/contact"></Route>
-        
-
-        <Route element={<Contact/>} path="/contact"></Route>
-        <Route element={<AboutJournal/>} path="/aboutjournal"></Route>
-        <Route element={<Indexing/>} path="/indexing"></Route>
-        <Route element={<Policy/>} path="/policy"></Route>
-        <Route element={<AboutUs/>} path="/aboutus"></Route> 
+          <Route element={<AboutJournal />} path="/aboutjournal"></Route>
+          <Route element={<Indexing />} path="/indexing"></Route>
+          <Route element={<Policy />} path="/policy"></Route>
+          <Route element={<AboutUs />} path="/aboutus"></Route>
 
 
         <Route element={<Dashboard/>} path="/dashboard"></Route>

@@ -19,6 +19,8 @@ import Policy from "./components/userinterface/about/Policy";
 import AboutUs from "./components/userinterface/about/AboutUs";
 
 import ShowPage from "./components/userinterface/nationaljournal/ShowPage";
+import Dashboard from "./components/admin/adminlogin/Dashboard";
+import ShowDetails from "./components/admin/adminlogin/ShowDetails";
 
 
 function App() {
@@ -46,7 +48,11 @@ function App() {
         <Route element={<AboutJournal/>} path="/aboutjournal"></Route>
         <Route element={<Indexing/>} path="/indexing"></Route>
         <Route element={<Policy/>} path="/policy"></Route>
-        <Route element={<AboutUs/>} path="/aboutus"></Route>
+        <Route element={<AboutUs/>} path="/aboutus"></Route> 
+
+
+        <Route element={<Dashboard/>} path="/dashboard"></Route>
+        <Route element={<ShowDetails/>} path="/showdetails"></Route>
       </Routes>
     </Router>
     

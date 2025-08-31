@@ -21,6 +21,8 @@ import AboutUs from "./components/userinterface/about/AboutUs";
 import ShowPage from "./components/userinterface/nationaljournal/ShowPage";
 import Dashboard from "./components/admin/adminlogin/Dashboard";
 import ShowDetails from "./components/admin/adminlogin/ShowDetails";
+import UploadJournalForm from "./components/admin/adminlogin/UploadJournalForm";
+import LoginPage from "./components/admin/adminlogin/LoginPage";
 
 
 function App() {
@@ -50,6 +52,8 @@ function App() {
 
         <Route element={<Dashboard/>} path="/dashboard"></Route>
         <Route element={<ShowDetails/>} path="/showdetails"></Route>
+        <Route element={<UploadJournalForm/>} path="/uploadjournalform"></Route>
+        <Route element={<LoginPage/>} path="/login"></Route>
       </Routes>
     </Router>
     

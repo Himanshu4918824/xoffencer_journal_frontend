@@ -1,32 +1,28 @@
 import * as React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import { Divider, Grid, Paper } from '@mui/material';
-import logo from '../../../assets/logo.png'
-import JournalForm from '../../userinterface/journal/JournalForm';
-import Footer from '../../userinterface/homepage/Footer';
 
-export default function ButtonAppBar() {
+import { Divider, Grid, Paper } from '@mui/material';
+
+import Footer from '../../userinterface/homepage/Footer';
+import Header from '../../userinterface/homepage/Header';
+import UploadJournalForm from './UploadJournalForm';
+
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
+export default function Dashboard() {
+     const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ background: '#2E3B55' ,opacity: 0.9 }}>
-        <Toolbar>
-          <div>
-            <img src={logo} alt="Logo"  style={{width:50,height:40,marginRight:10}}/>
-          </div>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Varsha Research Organisation
-          </Typography>
-          <Button color="inherit">LogOut</Button>
-        </Toolbar>
-      </AppBar>
+    <div>
 
       <div>
+        <Header/>
+      </div>
+     
+      <div>
         <Grid container spacing={2} style={{marginTop:20}}>
-          <Grid item xs={2.5} style={{}}>
+         { matches ? <Grid item xs={2.5} style={{}}>
             
               <Paper elevation={4} style={{height:'85vh',borderRadius:5,margin:10,display:'flex',flexDirection:'column',alignItems:'center'}}>
                 <div>
@@ -46,12 +42,12 @@ export default function ButtonAppBar() {
 
               </Paper>
 
-          </Grid>
+          </Grid> : null }
 
-          <Grid item xs={9.5}>
+          <Grid item xs={matches?9.5:12}>
 
             <div>
-              <JournalForm status='hide'/>
+             <UploadJournalForm/>
             </div>
 
           </Grid>
@@ -63,6 +59,6 @@ export default function ButtonAppBar() {
   <Footer/>
 </div>
 
-    </Box>
+    </div>
   );
 }

@@ -1,5 +1,5 @@
 import { Avatar, Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField, FormHelperText } from "@mui/material"
-import { userStyle } from "./JournalFormCss"
+import { userStyle } from "../../userinterface/journal/JournalFormCss"
 import { useState } from "react";
 // import logo from '../../../assets//logo.png'
 import cart from '../../../assets/cart.png'
@@ -8,15 +8,13 @@ import Swal from "sweetalert2";
 import { LoadingButton } from "@mui/lab";
 import SaveIcon from '@mui/icons-material/Save';
 // import { Tune } from "@mui/icons-material";
-import Header from "../homepage/Header";
-import Footer from "../homepage/Footer";
 
 //import Radio from '@mui/material/Radio';
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-export default function JournalForm(props) {
+export default function UploadJournalForm(props) {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
 
@@ -235,17 +233,6 @@ export default function JournalForm(props) {
     var classes = userStyle();
     return (<div>
 
-        <div>
-            <Header />
-
-        </div>
-
-       <div style={{ background: 'lightgrey', color: 'black', width: '100%', height: 250, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginBottom: 40 }}>
-
-            <div style={{ fontSize: '2.2rem', fontWeight: 500, letterSpacing: 1.2, textAlign: 'center' }}>FORM FOR JOURNAL PUBLICATION</div>
-
-        </div> 
-
         <div className={classes.root}>
             <div className={classes.box}>
                 <Grid container spacing={2}>
@@ -403,10 +390,6 @@ export default function JournalForm(props) {
 
                 </Grid>
             </div>
-        </div>
-
-        <div style={{ marginTop: 30 }}>
-          <Footer /> 
         </div>
 
     </div>)

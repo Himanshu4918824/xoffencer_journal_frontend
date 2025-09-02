@@ -1,4 +1,4 @@
-import { postData , getData } from "../services/FetchNodeAdminServices";
+import { postData } from "../services/FetchNodeAdminServices";
 import MainContext from "./maincontext";
 
 const ContextProvider = ({ children }) => {

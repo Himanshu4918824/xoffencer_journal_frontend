@@ -46,8 +46,8 @@ export default function ShowDetails({ details }) {
             Title_of_paper: data[0].Title_of_paper,
             id: data[0].id,
             subject: data[0].subject,
-            volume: data[0].volume,
-            issue: data[0].issue
+            volume: data[0].Volume,
+            issue: data[0].Issue
          })
       }
       fetchdata()
@@ -113,7 +113,7 @@ export default function ShowDetails({ details }) {
          </div> */}
 
          <div style={{ marginTop: 7, fontWeight: 400, fontSize: ' 1.2rem', marginLeft: '7%', letterSpacing: 0.3, marginRight: '7%' }}>
-            <b>Published In:</b> Volume {data.volume} Issue {data.issue} : {new Date(data.Created_at).getMonth()}-{new Date(data.Created_at).getFullYear()}
+            <b>Published In:</b> Volume {data.volume} Issue {data.issue} : {new Date(data.Created_at).getMonth()+1}-{new Date(data.Created_at).getFullYear()}
          </div>
 
          <div style={{ marginTop: 8, fontWeight: 400, fontSize: ' 1.2rem', marginLeft: '7%', letterSpacing: 0.3, marginRight: '7%' }}>

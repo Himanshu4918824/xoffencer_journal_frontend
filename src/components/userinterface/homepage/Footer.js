@@ -20,7 +20,7 @@ export default function Footer() {
 
   const showImage = () => {
     return data.map((item, i) => (
-      <div style={{display: 'flex',justifyContent: 'center',alignItems: 'center',margin: matches ? '20px' : '10px',}}>
+      <div key={i} style={{display: 'flex',justifyContent: 'center',alignItems: 'center',margin: matches ? '20px' : '10px',}}>
         <img alt="" src={item} style={{ width: matches ? 200 : 120, height: 'auto'}} />
       </div>
     ));

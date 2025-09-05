@@ -293,8 +293,8 @@ export default function UploadJournalForm() {
 
                         <Grid item xs={7}>
                             <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                <Button variant="contained" component="label">Upload your Paper/Article ( Doc., Docx Format)
-                                    <input onChange={handlePaperIcon} type="file" accept=".doc,.docx" multiple hidden />
+                                <Button variant="contained" component="label">Upload your Paper/Article ( .pdf , Doc., Docx Format)
+                                    <input onChange={handlePaperIcon} type="file" accept="application/pdf,.doc,.docx" hidden />
                                 </Button>
                                 <div>{errorMessage?.paperIcon != null ? errorMessage?.paperIcon : <></>}</div>
                             </div>

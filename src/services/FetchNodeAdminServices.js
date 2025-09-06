@@ -1,6 +1,10 @@
 import axios from "axios";
 
-const serverURL = 'https://varsharesearchorganization.com'
+// production server url
+const serverURL = 'https://varsharesearchorganization.com/api/v1'
+// local server url
+// const serverURL = 'http://localhost:5678/api/v1'
+
 
 const currentDate = () => {
       let d = new Date();
@@ -18,8 +22,10 @@ const createdDate = (date) => {
 
 const postData = async (url, body) => {
       try {
+           
             let response = await axios.post(`${serverURL}/${url}`, body)
             let result = response.data;
+            console.log(result)
             return result;
       }
       catch (e) {
@@ -29,8 +35,8 @@ const postData = async (url, body) => {
 }
 
 const getData = async (url) => {
-      if (url === null) {
-         
+      if (!url || url === "undefined") {
+
             return null; // Prevent the request
       }
 

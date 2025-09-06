@@ -55,7 +55,7 @@ function App() {
 
 
         <Route element={<Dashboard/>} path="/dashboard"></Route>
-        <Route element={<ShowDetails/>} path="/showdetails"></Route>
+        <Route element={<ShowDetails/>} path="/showdetails/:id"></Route>
         <Route element={<UploadJournalForm/>} path="/uploadjournalform"></Route>
         <Route element={<LoginPage/>} path="/login"></Route>
         <Route element={<AllConference/>} path="/allconference"></Route>

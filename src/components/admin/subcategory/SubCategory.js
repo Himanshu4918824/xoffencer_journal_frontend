@@ -92,7 +92,7 @@ export default function SubCategory(props)
 
     const handleSubmitData=async()=>{
         var error=validData();
-        if(error==false){
+        if(error===false){
         setLoadingButton(true)
         var formData=new FormData()
         formData.append('categoryid',categoryId);
@@ -139,7 +139,7 @@ setLoadingButton(false)
                 <Grid container spacing={2}>
                     <Grid item xs={12}>
                         <div className={classes.mainHeadingStyle}>
-                        <img src={logo} className={classes.imageStyle}/>
+                        <img src={logo} className={classes.imageStyle} alt=".."/>
                         <div className={classes.headingStyle}>SubCategory Register</div>
                         </div>
                     </Grid>

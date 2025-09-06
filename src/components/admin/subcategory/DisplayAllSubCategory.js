@@ -66,7 +66,7 @@ export default function DisplayAllSubCategory()
 
   const validData=()=>{
       var err=false;
-      if(subCategoryName.length==0)
+      if(subCategoryName.length===0)
       {
           handleErrorMessage('subCategoryName','plz insert SubCategoryName...')
            err = true;
@@ -80,7 +80,7 @@ export default function DisplayAllSubCategory()
   
           }
 */
-          if(categoryId.length==0)
+          if(categoryId.length===0)
               {
                   handleErrorMessage('categoryId','plz insert category Id...')
                    err = true;
@@ -104,7 +104,7 @@ export default function DisplayAllSubCategory()
               <Grid container spacing={2}>
                   <Grid item xs={12}>
                       <div className={classes.mainHeadingStyle}>
-                      <img src={logo} className={classes.imageStyle}/>
+                      <img src={logo} alt="." className={classes.imageStyle}/>
                       <div className={classes.headingStyle}>SubCategory Register</div>
                       </div>
                   </Grid>
@@ -154,7 +154,7 @@ export default function DisplayAllSubCategory()
  
   const handleEditData=async()=>{
     var error=validData();
-    if(error==false){
+    if(error===false){
     setLoadingButton(true)
    var body={'categoryid':categoryId,
              'subcategoryname':subCategoryName,
@@ -391,7 +391,7 @@ const handleDeleteCategory = async () => {
                   { title: 'Created_At',render:(rowData)=><div style={{display:'flex',flexDirection:'column'}}><div>{createdDate(rowData.created_at)}</div><div>{createdDate(rowData.updated_at)}</div></div>},
         
                   { title: 'User_Admin', field: 'user_admin'},
-                  { title: 'Icon', render:(rowData)=><div><img src={`${serverURL}/images/${rowData.subcategoryicon}`} style={{width:60,height:60,borderRadius:6}} /></div>},
+                  { title: 'Icon', render:(rowData)=><div><img src={`${serverURL}/images/${rowData.subcategoryicon}`} alt="." style={{width:60,height:60,borderRadius:6}} /></div>},
                   
                 ]}
                 data={subCategoryList}   

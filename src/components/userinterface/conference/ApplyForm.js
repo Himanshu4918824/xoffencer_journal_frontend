@@ -8,13 +8,14 @@ import Swal from "sweetalert2";
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import { postData } from "../../../services/FetchNodeAdminServices";
 
 export default function ApplyForm() {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
 
 
-    const [selectedConference, setSelectedConference] = useState("");
+    const [selectedConference, setSelectedConference]=useState('');
     const [date,setDate]=useState('');
     const [mode,setMode]=useState('');
     const [title,setTitle]=useState('');
@@ -107,10 +108,12 @@ export default function ApplyForm() {
     }
 
     const handleProof=(event)=>{
+        handleErrorMessage('uploadAddressProof',null)
         setUploadAddressProof({bytes:event.target.files[0],fileName:URL.createObjectURL(event.target.files[0])})
     }
 
     const handleArticle=(event)=>{
+        handleErrorMessage('uploadArticle',null)
         setUploadArticle({bytes:event.target.files[0],fileName:URL.createObjectURL(event.target.files[0])})
     }
 
@@ -135,7 +138,38 @@ export default function ApplyForm() {
         formData.append("uploadArticle",uploadArticle.bytes);
         formData.append("couponCode",couponCode);
 
-        var response=await fetch("/",{ method:'POST',body:formData });
+ /*
+        // log all values to console Method I
+        
+    for (let [key, value] of formData.entries()) {
+      console.log(key, value);
+    }
+
+     // log all values to console Method II
+
+     const formValues = {
+    selectedConference,
+    date,
+    mode,
+    title,
+    name,
+    subject,
+    authorName,
+    email,
+    phone,
+    addressProofType,
+    uploadAddressProof,
+    uploadArticle,
+    couponCode
+  };
+
+  console.log("Form Submitted:", formValues);
+*/
+
+
+     var response=await postData("/apply-for-conference", formData);
+
+        console.log("body",response.data)
 
            if(response.status)
                 {
@@ -158,6 +192,7 @@ export default function ApplyForm() {
           });
         
   }
+          
 }
     }
 
@@ -185,9 +220,9 @@ export default function ApplyForm() {
                                  error={errorMessage?.selectedConference}
                                  onFocus={() => handleErrorMessage("selectedConference", null)}
                             >
-                                <MenuItem>Select-Conference</MenuItem>
-                                <MenuItem>Exploring Innovative Research Methodologies in a Variety of Multidisciplinary Fields and Their Prospective Future Impact</MenuItem>
-                                <MenuItem>Integration of Artificial Intelligence in Advancement of Science and Engineering</MenuItem>
+                                <MenuItem value='10'>Select-Conference</MenuItem>
+                                <MenuItem value='10'>Exploring Innovative Research Methodologies in a Variety of Multidisciplinary Fields and Their Prospective Future Impact</MenuItem>
+                                <MenuItem value='10'>Integration of Artificial Intelligence in Advancement of Science and Engineering</MenuItem>
                             </Select>
                         </FormControl>
 
@@ -195,7 +230,7 @@ export default function ApplyForm() {
                     </Grid>
 
                     <Grid item  xs={matches ? 6 : 12}>
-                        <TextField onFocus={() => handleErrorMessage("date", null)} error={errorMessage?.date} helperText={errorMessage?.date} value={date} onChange={(e) => setDate(e.target.value)} label="Date of Conference" fullWidth />
+                        <TextField type="date" onFocus={() => handleErrorMessage("date", null)} error={errorMessage?.date} helperText={errorMessage?.date} value={date} onChange={(e) => setDate(e.target.value)} fullWidth />
                     </Grid>
 
                     <Grid item  xs={matches ? 6 : 12}>
@@ -236,10 +271,10 @@ export default function ApplyForm() {
                                  onFocus={() => handleErrorMessage("addressProofType", null)}
 
                             >
-                                <MenuItem>Select-Address Proof Type</MenuItem>
-                                <MenuItem>Aadhar Card</MenuItem>
-                                <MenuItem>Passport</MenuItem>
-                                <MenuItem>Voter ID</MenuItem>
+                                 <MenuItem value="">Select-Address Proof Type</MenuItem>
+                                 <MenuItem value="aadhar">Aadhar Card</MenuItem>
+                                 <MenuItem value="passport">Passport</MenuItem>
+                                 <MenuItem value="voterid">Voter ID</MenuItem>
                             </Select>
                         </FormControl>
 
@@ -249,7 +284,7 @@ export default function ApplyForm() {
                     <Grid item xs={6}>
                          <div style={{ display: 'flex', flexDirection: 'column' }}>
                            <Button variant="contained" component="label" fullWidth> Upload Address Proof
-                              <input onClick={handleProof} type="file" hidden multiple accept="images/*" />
+                              <input onChange={handleProof} type="file" hidden multiple accept="images/*" />
                            </Button>
                               <div>{errorMessage?.uploadAddressProof != null ? errorMessage?.uploadAddressProof : <></>}</div>
 
@@ -263,7 +298,7 @@ export default function ApplyForm() {
                      <Grid item xs={6}>
                         <div style={{ display: 'flex', flexDirection: 'column' }}>
                         <Button variant="contained" component="label" fullWidth> Please attach your article / Research paper or presentation
-                            <input onClick={handleArticle} type="file" hidden multiple />
+                            <input onChange={handleArticle} type="file" hidden multiple />
                         </Button>
                         <div>{errorMessage?.uploadArticle != null ? errorMessage?.uploadArticle : <></>}</div>
                         </div>
@@ -278,7 +313,7 @@ export default function ApplyForm() {
                     </div>
 
                     <Grid item  xs={12}>
-                        <label style={{color:"red"}}>Note:For Discount on Conference Enter Coupon Code or Contact on: +91-8878331639</label>
+                        <label style={{color:"red"}}>Note:For Discount on Conference Enter Coupon Code or Contact on: +91-9827646334</label>
                         <TextField onFocus={() => handleErrorMessage("couponCode", null)} error={errorMessage?.couponCode} helperText={errorMessage?.couponCode} value={couponCode} onChange={(e) => setCouponCode(e.target.value)} label="Enter Coupon Code" fullWidth />
                     </Grid>
 

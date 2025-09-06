@@ -65,7 +65,32 @@ const Menubar = () => {
                         </div>
                     </li>
 
-                    <li onClick={()=>navigate('/datasetrepositry')}>Dataset Repositry</li>
+                      <li className='dropdown-2'>Conference
+                        <div className="Subdropdown-2">
+                            <ul>
+                                <li onClick={()=>navigate('/allconference')}>All Conferences</li>
+                                <li onClick={()=>navigate('/conferencepaper')}>Conferences Paper</li>
+                                <li onClick={()=>navigate('/applyform')}>Apply for Conference</li>
+                                {/*<li>Proceeding</li>
+                                <li>Apply for External Proceeding</li>*/}
+
+                            </ul>
+                        </div>
+                    </li>
+
+                   <li className='dropdown-2'>Seminar
+                        <div className="Subdropdown-2">
+                            <ul>
+                                <li>All Seminars</li>
+                                <li>Seminars Paper</li>
+                                <li>Apply for Seminar</li>
+                              {/*<li>Proceeding</li>
+                                <li>Apply for External Proceeding</li>*/}
+                            </ul>
+                        </div>
+                    </li>
+
+                   {/* <li onClick={()=>navigate('/datasetrepositry')}>Dataset Repositry</li>*/}
                     
                 </ul>
             </div>

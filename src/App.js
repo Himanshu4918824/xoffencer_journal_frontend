@@ -23,6 +23,10 @@ import Dashboard from "./components/admin/adminlogin/Dashboard";
 import ShowDetails from "./components/admin/adminlogin/ShowDetails";
 import UploadJournalForm from "./components/admin/adminlogin/UploadJournalForm";
 import LoginPage from "./components/admin/adminlogin/LoginPage";
+import AllConference from "./components/userinterface/conference/AllConference";
+import ConferenceDetails from "./components/userinterface/conference/ConferenceDetails";
+import ConferencePaper from "./components/userinterface/conference/ConferencePaper";
+import ApplyForm from "./components/userinterface/conference/ApplyForm";  
 
 
 function App() {
@@ -54,8 +58,14 @@ function App() {
         <Route element={<ShowDetails/>} path="/showdetails"></Route>
         <Route element={<UploadJournalForm/>} path="/uploadjournalform"></Route>
         <Route element={<LoginPage/>} path="/login"></Route>
+        <Route element={<AllConference/>} path="/allconference"></Route>
+
+           <Route element={<ConferenceDetails/>} path="/conferencedetails"></Route>
+           <Route element={<ConferencePaper/>} path="/conferencepaper"></Route>
+           <Route element={<ApplyForm/>} path="/applyform"></Route>
       </Routes>
     </Router>
+    
     
    </div>
     

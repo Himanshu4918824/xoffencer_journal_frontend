@@ -8,20 +8,19 @@
     display: block;
     height: 55px;
     width: 100%;
-
     border-bottom: 1px solid #000;
 }
 
 .main ul {
-    padding: 0 50px 0 50px;
+    /* padding: 0 50px 0 50px; */
     height: 55px;
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 20px;
+    gap: 10px;
     font-size: 20px;
     color: #fff;
-    justify-content: space-between;
+    justify-content: space-evenly;
     font-weight: 600px;
 
 }
@@ -50,16 +49,20 @@
 
 .Subdropdown-1 ul,
 .Subdropdown-2 ul {
-    display: block;
-    padding: 0 20px 0 20px;
+
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
     list-style: none;
     gap: 10px;
     font-size: 18px;
     height: auto;
     width: auto;
     background-color: #fff;
-    border-radius: 0%;
+    border-radius: 5px;
     margin-top: 15px;
+    align-items: start;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 .Subdropdown-1 ul li,
@@ -76,7 +79,7 @@
 .dropdown-2:hover .Subdropdown-2 {
     display: block;
     position: absolute;
-    z-index: 1;
+    z-index: 5;
     transition: 0.3s;
 
 }

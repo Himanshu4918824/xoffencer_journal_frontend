@@ -25,7 +25,7 @@ const postData = async (url, body) => {
            
             let response = await axios.post(`${serverURL}/${url}`, body)
             let result = response.data;
-            console.log(result)
+            // console.log(result)
             return result;
       }
       catch (e) {

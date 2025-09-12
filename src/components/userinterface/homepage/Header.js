@@ -19,7 +19,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { useNavigate } from 'react-router-dom';
-import { Dashboard, Login } from '@mui/icons-material';
+import { Dashboard, Login, Logout } from '@mui/icons-material';
 
 export default function Header() {
 
@@ -98,7 +98,20 @@ export default function Header() {
                 onClick={() => { !token ? navigate('/login') : navigate('/dashboard') }}
                 style={{ fontSize: matches ? 20 : 15 }}
               >
-                {token ? <Dashboard/> : <Login/>}
+                {token ? <Dashboard /> : <Login />}
+              </IconButton>
+              <IconButton
+                color="inherit"
+                // aria-label="menu"
+                onClick={() => {
+                  if (token) {
+                    localStorage.removeItem('token')
+                    navigate('/login')
+                  }
+                }}
+                style={{ fontSize: matches ? 20 : 15 }}
+              >
+                {token ? <Logout /> : <></>}
               </IconButton>
 
 

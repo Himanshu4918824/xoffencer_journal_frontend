@@ -5,9 +5,10 @@ import { getData } from "../../../services/FetchNodeAdminServices";
 
 import { Paper, Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import Loader from '../Loader'
 
 // Card Component
-const Card = ({ item, onClick , Volume}) => {
+const Card = ({ item, onClick, Volume }) => {
     return (
         <div style={{ margin: 10, padding: 10 }}>
             <Paper
@@ -129,7 +130,7 @@ export default function NationalJournal() {
 
 
             {/* Loading Indicator */}
-            {loading && <div style={{ textAlign: "center", marginTop: 20 }}>Loading...</div>}
+            {loading && <Loader/>}
 
             {/* Card List */}
             <div style={{ display: 'flex', flexWrap: 'wrap', marginTop: 20, justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}>

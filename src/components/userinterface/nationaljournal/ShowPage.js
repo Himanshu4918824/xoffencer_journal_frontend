@@ -3,138 +3,164 @@ import { getData } from "../../../services/FetchNodeAdminServices";
 import { useSearchParams } from "react-router-dom";
 import JournalDetails from "./JournalDetails";
 import Header from "../homepage/Header";
-//import { Button } from "@mui/material";
 import Footer from "../homepage/Footer";
-import LoadingButton from '@mui/lab/LoadingButton';
+import LoadingButton from "@mui/lab/LoadingButton";
 import { Download } from "@mui/icons-material";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Loader from "../Loader";
+import BackDrop from "../Backdrop";
 
 const ShowPage = () => {
-    const [searchParams] = useSearchParams(); // This returns a URLSearchParams object
+    const [searchParams] = useSearchParams();
     const year = searchParams.get("year");
     const vol = searchParams.get("vol");
     const issue = searchParams.get("issue");
 
-    // console.log({ year, vol, issue });
-
-    const [data, setData] = useState([]);  // Initialize as an empty array
+    const [data, setData] = useState([]); // journal articles
+    const [open, setOpen] = useState(false);
     const [loading, setLoading] = useState(true);
+    const [loadingButton, setLoadingButton] = useState(false);
 
-    const [loadingButton, setLoadingButton] = useState(false); // State for loading button
+    const [page, setPage] = useState(1);
+    const [totalResults, setTotalResults] = useState(0);
+
+    // Fetch data from API
+    const fetchData = async (pageNum = 1) => {
+        setLoading(true);
+        try {
+            const url = `National Journal/${year}/${issue}/?page=${pageNum}`;
+            const res = await getData(url);
+
+            if (res && res.data && res.pagination) {
+                if (pageNum === 1) {
+                    setData(res.data);
+                } else {
+                    setData((prev) => [...prev, ...res.data]); // append new data
+                }
+                setTotalResults(res.pagination.total);
+            }
+        } catch (error) {
+            console.error("Error fetching data:", error);
+            if (pageNum === 1) setData([]);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     useEffect(() => {
-        const fetchData = async () => {
-            setLoading(true);
-            try {
-                const url = `National Journal/${year}/${issue}`;
-                const res = await getData(url);
-
-                if (res && Array.isArray(res)) {
-                    setData(res);
-                } else {
-                    setData([]);
-                }
-            } catch (error) {
-                console.error("Error fetching data:", error);
-                setData([]);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchData();
+        setPage(1);
+        fetchData(1); // initial fetch
     }, [year, vol, issue]);
 
+    // Infinite scroll loader
+    const fetchMoreData = async () => {
+        const nextPage = page + 1;
+        setPage(nextPage);
+        await fetchData(nextPage);
+    };
 
-
+    // Download magazine
     const handelDownloadMagazine = async () => {
         console.log("Downloading magazine...");
-        setLoadingButton(true)
-
+        setLoadingButton(true);
+        setOpen(true);
         try {
-            // Make sure the function sends a correct request
-            const response = await fetch(`https://varsharesearchorganization.com/api/v1/downloadMagzine/${year}/${issue}`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json", // Ensure it matches what the backend expects
-                },
-            });
+            const response = await fetch(
+                `https://varsharesearchorganization.com/api/v1/downloadMagzine/${year}/${issue}`,
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                }
+            );
 
-            // Check if the response is successful
             if (!response.ok) {
-                setLoadingButton(false)
                 throw new Error(`HTTP error! Status: ${response.status}`);
             }
 
-            // Ensure response is correctly interpreted as a Blob
             const blob = await response.blob();
 
-            // Check if the response is actually a PDF (not an error response)
             if (blob.type !== "application/pdf") {
-                setLoadingButton(false)
                 throw new Error("Received data is not a valid PDF file.");
             }
 
-            // Create a temporary URL for the Blob
             const url = window.URL.createObjectURL(blob);
-
-            // Create a temporary anchor element to trigger the download
             const link = document.createElement("a");
             link.href = url;
             link.setAttribute("download", `Magazine_${year}_${vol}_${issue}.pdf`);
-
             document.body.appendChild(link);
             link.click();
-
-            // Cleanup
             document.body.removeChild(link);
             window.URL.revokeObjectURL(url);
 
             console.log("Download successful!");
-            setLoadingButton(false)
         } catch (error) {
-            setLoadingButton(false)
             console.error("Error downloading magazine:", error);
+        } finally {
+            setLoadingButton(false);
+            setOpen(false);
         }
-        //  setLoadingButton(false)
     };
-
 
     return (
         <div>
-            <div>
-                <Header />
+            <Header />
 
-
-                <div
-                    style={{ background: 'lightgrey', color: 'black', width: '100%', height: 250, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', marginBottom: 5 }}
-                >
-                    <div style={{ fontSize: '2.5rem', fontWeight: 500, letterSpacing: 1.2 }}>NATIONAL JOURNAL</div>
-                    <div style={{ fontSize: '1.5rem', fontWeight: 400, letterSpacing: 1.2 }}>{year} PUBLICATIONS - {issue}</div>
-                    <div style={{ fontSize: '1.1rem', fontWeight: 400 }}>Varsha Research Organisation</div>
+            <div
+                style={{
+                    background: "lightgrey",
+                    color: "black",
+                    width: "100%",
+                    height: 250,
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    textAlign: "center",
+                    marginBottom: 5,
+                }}
+            >
+                <div style={{ fontSize: "2.5rem", fontWeight: 500, letterSpacing: 1.2 }}>
+                    NATIONAL JOURNAL
+                </div>
+                <div style={{ fontSize: "1.5rem", fontWeight: 400, letterSpacing: 1.2 }}>
+                    {year} PUBLICATIONS - {issue}
+                </div>
+                <div style={{ fontSize: "1.1rem", fontWeight: 400 }}>
+                    Varsha Research Organisation
                 </div>
             </div>
-            <div style={{ padding: '20px', backgroundColor: '#f0f0f0', marginTop: 7 }}>
-                {/*   <Button onClick={handelDownloadMagazine} style={{ display: 'flex', marginLeft: 'auto', marginRight: '20px'}} variant="contained">Download Magazine</Button>       */}
 
+            <div style={{ padding: "20px", backgroundColor: "#f0f0f0", marginTop: 7 }}>
                 <LoadingButton
                     loading={loadingButton}
                     loadingPosition="start"
                     startIcon={<Download />}
                     variant="contained"
                     onClick={handelDownloadMagazine}
-                    style={{ display: 'flex', marginLeft: 'auto', marginRight: '20px' }}
+                    style={{ display: "flex", marginLeft: "auto", marginRight: "20px" }}
                 >
                     Download Magazine
                 </LoadingButton>
-                {loading ? (
-                    <p>Loading...</p>
-                ) : data.length > 0 ? (
-                    data.map((item, index) => (
-                        <JournalDetails key={index} details={item} />
-                    ))
-                ) : (
-                    <p>No data found.</p>
-                )}
+                <BackDrop open={open}/>
+                <InfiniteScroll
+                    dataLength={data.length}
+                    next={fetchMoreData}
+                    hasMore={data.length < totalResults}
+                    loader={<Loader />}
+                    style={{ overflow: "hidden" }}
+                >
+                    {loading && page === 1 ? (
+                        <Loader />
+                    ) : data.length > 0 ? (
+                        data.map((item, index) => (
+                            <JournalDetails key={index} details={item} />
+                        ))
+                    ) : (
+                        <p>No data found.</p>
+                    )}
+                </InfiniteScroll>
             </div>
 
             <Footer />

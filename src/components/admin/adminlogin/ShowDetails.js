@@ -1,4 +1,4 @@
-import { Button } from "@mui/material";
+import { Button, CircularProgress } from "@mui/material";
 import Header from "../../userinterface/homepage/Header";
 import Footer from "../../userinterface/homepage/Footer";
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
@@ -10,9 +10,11 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import MainContext from "../../../context/maincontext";
 import { useParams } from "react-router-dom";
+import BackDrop from "../../userinterface/Backdrop";
 
 export default function ShowDetails() {
    const { id } = useParams();
+   const [open, setOpen] = useState(false);
    const [loading, setLoading] = useState(false);
    const { getJournalDetail } = useContext(MainContext)
    const [data, setData] = useState({
@@ -65,6 +67,7 @@ export default function ShowDetails() {
 
    const handleDownload = async (id) => {
       try {
+         setOpen(true);
          console.log(`Downloading file with ID: ${id}`);
          const response = await axios.post(
             `https://varsharesearchorganization.com/api/v1/download/${id}`,
@@ -74,6 +77,7 @@ export default function ShowDetails() {
 
          if (response.data.size === 0) {
             console.error("Received an empty file!");
+            setOpen(false);
             return;
          }
 
@@ -85,8 +89,12 @@ export default function ShowDetails() {
          document.body.appendChild(link);
          link.click();
          document.body.removeChild(link);
+         setOpen(false);
+
       } catch (error) {
          console.error("Error downloading file:", error);
+         setOpen(false);
+
       }
    };
 
@@ -97,8 +105,8 @@ export default function ShowDetails() {
          <div>
             <Header />
          </div>
-
-         {loading ? <h1>Loading...</h1> : (<>
+         <BackDrop open={open} />
+         {loading ? <CircularProgress size="3rem" /> : (<>
             <div style={{ marginTop: 40, fontSize: 24, fontWeight: 'bold', letterSpacing: 0.5, width: '70%', height: '100%', textAlign: 'center', marginLeft: '12%' }}>{data.Title_of_paper}</div>
 
             <div style={{ marginTop: 20, fontWeight: 400, fontSize: ' 1.2rem', marginLeft: '7%', letterSpacing: 0.3, marginRight: '7%' }}>

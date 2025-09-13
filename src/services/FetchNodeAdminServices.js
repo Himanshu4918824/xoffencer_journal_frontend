@@ -1,9 +1,9 @@
 import axios from "axios";
 
 // production server url
-const serverURL = 'https://varsharesearchorganization.com/api/v1'
+// const serverURL = 'https://varsharesearchorganization.com/api/v1'
 // local server url
-// const serverURL = 'http://localhost:5678/api/v1'
+const serverURL = 'http://localhost:5678/api/v1'
 
 
 const currentDate = () => {
@@ -42,7 +42,9 @@ const getData = async (url) => {
 
       try {
             let response = await axios.get(`${serverURL}/${url}`);
+            // console.log(response.data)
             return response.data;
+
       } catch (e) {
             console.error("Fetch error:", e);
             return e.response ? e.response.data : "Unknown error";

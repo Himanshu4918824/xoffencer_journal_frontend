@@ -28,6 +28,8 @@ import ConferenceDetails from "./components/userinterface/conference/ConferenceD
 import ConferencePaper from "./components/userinterface/conference/ConferencePaper";
 import ApplyForm from "./components/userinterface/conference/ApplyForm";
 
+import Delete from "./components/admin/adminlogin/Delete";
+
 
 function App() {
   return (
@@ -63,6 +65,8 @@ function App() {
           <Route element={<ConferenceDetails />} path="/conferencedetails"></Route>
           <Route element={<ConferencePaper />} path="/conferencepaper"></Route>
           <Route element={<ApplyForm />} path="/applyform"></Route>
+
+          <Route element={<Delete/>} path="/delete"></Route>
         </Routes>
       </Router>
 

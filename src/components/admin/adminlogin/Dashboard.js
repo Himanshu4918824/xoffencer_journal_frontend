@@ -1,6 +1,6 @@
 
 
-import { Divider, Grid, Paper } from '@mui/material';
+import { Divider, Grid, Paper, Link } from '@mui/material';
 
 import Footer from '../../userinterface/homepage/Footer';
 import Header from '../../userinterface/homepage/Header';
@@ -48,6 +48,12 @@ export default function Dashboard() {
               </div>
 
               <Divider width='90%' />
+
+              
+              <div style={{marginTop:20,fontSize:18,fontWeight:600, cursor:'pointer'}}>
+                <Link style={{textDecoration:'none',color:'black'}} href="/delete">Delete Journal</Link>
+              </div>
+
 
 
             </Paper>

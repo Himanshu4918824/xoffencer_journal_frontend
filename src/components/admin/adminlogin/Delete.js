@@ -37,11 +37,17 @@ export default function Delete()
 
     var classes=userStyle()
 
-    return( <div className={classes.root}>
+    return( <div>
+             
+    
+            <div className={classes.root}>
               <div className={classes.box}>
                 <TextField style={{marginBottom:10}} value={journalId} onChange={(e)=>setJournalId(e.target.value)} fullWidth placeholder="Enter Journal id which u want to delete "></TextField>
                 <Button onClick={handleDeleteData} variant="contained">Delete</Button>
-        </div>
+              </div>
+            </div>
+
+  
     </div>)
 }
 

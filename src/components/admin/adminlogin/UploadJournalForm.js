@@ -3,7 +3,7 @@ import { userStyle } from "../../userinterface/journal/JournalFormCss"
 import { useState } from "react";
 // import logo from '../../../assets//logo.png'
 import cart from '../../../assets/cart.png'
-import { postData } from "../../../services/FetchNodeAdminServices";
+import { currentDate, postData,} from "../../../services/FetchNodeAdminServices";
 import Swal from "sweetalert2";
 import { LoadingButton } from "@mui/lab";
 import SaveIcon from '@mui/icons-material/Save';
@@ -14,7 +14,8 @@ import SaveIcon from '@mui/icons-material/Save';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-export default function UploadJournalForm() {
+
+export default function UploadJournalForm({show}) {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
 
@@ -31,6 +32,8 @@ export default function UploadJournalForm() {
     const [email, setEmail] = useState("");
     const [contact, setContact] = useState("");
     const [anynumber, setAnyNumber] = useState("");
+
+    const [date, setDate] = useState(currentDate());
 
     const [paperIcon, setPaperIcon] = useState({ bytes: null, fileName: cart });
     const [photo, setPhoto] = useState({ bytes: null, fileName: cart });
@@ -61,6 +64,7 @@ export default function UploadJournalForm() {
         setEmail("");
         setContact("");
         setAnyNumber("");
+        setDate(currentDate());
         setPaperIcon({ bytes: null, fileName: cart });
         setPhoto({ bytes: null, fileName: cart });
         setMarksheet({ bytes: null, fileName: cart });
@@ -132,6 +136,7 @@ export default function UploadJournalForm() {
         formData.append("email", email);
         formData.append("contact", contact);
         formData.append("anynumber", anynumber);
+        formData.append('date',date);
         formData.append("paperIcon", paperIcon.bytes);
         formData.append("photo", photo.bytes);
         formData.append("marksheet", marksheet.bytes);
@@ -225,7 +230,7 @@ export default function UploadJournalForm() {
 
     const classes = userStyle();
     return (
-        <div div >
+        <div>
             <div className={classes.root}>
                 <div className={classes.box}>
                     <Grid container spacing={2}>
@@ -283,12 +288,16 @@ export default function UploadJournalForm() {
                             <TextField onFocus={() => handleErrorMessage('address', null)} error={errorMessage?.address} helperText={errorMessage?.address} onChange={(event) => setAddress(event.target.value)} label="Address" value={address} fullWidth />
                         </Grid>
 
-                        <Grid item xs={matches ? 6 : 12}>
+                        <Grid item xs={matches ? 4 : 12}>
                             <TextField onFocus={() => handleErrorMessage('email', null)} error={errorMessage?.email} helperText={errorMessage?.email} onChange={(event) => setEmail(event.target.value)} label="Email Id" value={email} fullWidth />
                         </Grid>
 
-                        <Grid item xs={matches ? 6 : 12}>
+                        <Grid item xs={matches ? 4 : 12}>
                             <TextField onFocus={() => handleErrorMessage('contact', null)} error={errorMessage?.contact} helperText={errorMessage?.contact} onChange={(event) => setContact(event.target.value)} label="Contact No" value={contact} fullWidth />
+                        </Grid>
+
+                        <Grid item xs={matches ? 4 : 12}>
+                           <TextField type="date" onChange={(event) => setDate(event.target.value)} value={date} fullWidth />
                         </Grid>
 
                         <Grid item xs={7}>

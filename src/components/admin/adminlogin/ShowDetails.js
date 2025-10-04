@@ -146,6 +146,7 @@ export default function ShowDetails() {
 
             <div style={{ textAlign: "center", marginTop: 40, marginBottom: 20 }}>
                <Button variant="contained" color="primary" onClick={() => handleDownload(data.id)}>Download/View Paper PDF</Button>
+               <Button style={{marginLeft:10}} variant="contained" color="success">Download Certificate </Button>
             </div>
 
             <div style={{ marginTop: 50, fontWeight: 400, fontSize: 18, marginLeft: '7%', letterSpacing: 0.3, marginRight: '7%' }}>

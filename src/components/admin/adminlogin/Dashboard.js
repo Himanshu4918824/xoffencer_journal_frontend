@@ -4,7 +4,7 @@ import { Divider, Grid, Paper, Link } from '@mui/material';
 
 import Footer from '../../userinterface/homepage/Footer';
 import Header from '../../userinterface/homepage/Header';
-import UploadJournalForm from './UploadJournalForm';
+// import UploadJournalForm from './UploadJournalForm';
 
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -49,9 +49,12 @@ export default function Dashboard() {
 
               <Divider width='90%' />
 
-              
+               <div style={{marginTop:20,fontSize:18,fontWeight:600, cursor:'pointer'}}>
+                <Link style={{textDecoration:'none',color:'black'}} href="/uploadjournalform" target="nw">Add Journal</Link>
+              </div>
+
               <div style={{marginTop:20,fontSize:18,fontWeight:600, cursor:'pointer'}}>
-                <Link style={{textDecoration:'none',color:'black'}} href="/delete">Delete Journal</Link>
+                <Link style={{textDecoration:'none',color:'black'}} href="/delete" target="nw">Delete Journal</Link>
               </div>
 
 
@@ -61,9 +64,8 @@ export default function Dashboard() {
           </Grid> : null}
 
           <Grid item xs={matches ? 9.5 : 12}>
-
-            <div>
-              <UploadJournalForm />
+           <div style={{display: 'flex',marginTop: '10px'}}>
+                    <iframe width="1200" height="1050" name="nw" frameborder="0"></iframe>
             </div>
 
           </Grid>

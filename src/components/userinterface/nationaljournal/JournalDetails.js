@@ -67,10 +67,10 @@ const JournalDetails = ({ details }) => {
                 <Button variant="contained" color="primary" onClick={() => navigate(`/showdetails/${details.id}`)}>
                     VIEW PUBLICATION
                 </Button>
-                 <Button variant="contained" style={{ backgroundColor: "#4CAF50", color: "white" }} onClick={() => window.open("#", "_blank")}>
+                {/* <Button variant="contained" style={{ backgroundColor: "#4CAF50", color: "white" }} onClick={() => window.open("#", "_blank")}>
                     DOWNLOAD CERTIFICATE
                 </Button>
-              {/*  <Button variant="contained" style={{ backgroundColor: "#424242", color: "white" }} onClick={() => window.open("#", "_blank")}>
+                <Button variant="contained" style={{ backgroundColor: "#424242", color: "white" }} onClick={() => window.open("#", "_blank")}>
                     ACCEPTANCE LETTER
                 </Button> */}
             </div>

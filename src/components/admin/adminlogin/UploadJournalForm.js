@@ -293,8 +293,8 @@ export default function UploadJournalForm() {
 
                         <Grid item xs={7}>
                             <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                <Button variant="contained" component="label">Upload your Paper/Article ( .pdf , Doc., Docx Format)
-                                    <input onChange={handlePaperIcon} type="file" accept="application/pdf,.doc,.docx" hidden />
+                                <Button variant="contained" component="label">Upload your Paper/Article ( .pdf Only)
+                                    <input onChange={handlePaperIcon} type="file" accept="application/pdf,.pdf" hidden />
                                 </Button>
                                 <div>{errorMessage?.paperIcon != null ? errorMessage?.paperIcon : <></>}</div>
                             </div>
@@ -320,7 +320,7 @@ export default function UploadJournalForm() {
                         <Grid item xs={7}>
                             <div style={{ display: 'flex', flexDirection: 'column' }}>
                                 <Button variant="contained" component="label">Upload Last Educational Qualification(only .pdf or doc.)
-                                    <input onChange={handleMarksheet} type="file" accept="application/pdf,.doc,.docx" hidden />
+                                    <input onChange={handleMarksheet} type="file" accept="application/pdf,.doc,.docx,image/*" hidden />
                                 </Button>
                                 <div>{errorMessage?.marksheet != null ? errorMessage?.marksheet : <></>}</div>
                             </div>

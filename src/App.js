@@ -26,7 +26,7 @@ import LoginPage from "./components/admin/adminlogin/LoginPage";
 import AllConference from "./components/userinterface/conference/AllConference";
 import ConferenceDetails from "./components/userinterface/conference/ConferenceDetails";
 import ConferencePaper from "./components/userinterface/conference/ConferencePaper";
-import ApplyForm from "./components/userinterface/conference/ApplyForm";  
+import ApplyForm from "./components/userinterface/conference/ApplyForm";
 
 
 function App() {
@@ -54,21 +54,21 @@ function App() {
           <Route element={<AboutUs />} path="/aboutus"></Route>
 
 
-        <Route element={<Dashboard/>} path="/dashboard"></Route>
-        <Route element={<ShowDetails/>} path="/showdetails/:id"></Route>
-        <Route element={<UploadJournalForm/>} path="/uploadjournalform"></Route>
-        <Route element={<LoginPage/>} path="/login"></Route>
-        <Route element={<AllConference/>} path="/allconference"></Route>
+          <Route element={<Dashboard />} path="/dashboard"></Route>
+          <Route element={<ShowDetails />} path="/showdetails/:id"></Route>
+          <Route element={<UploadJournalForm />} path="/uploadjournalform"></Route>
+          <Route element={<LoginPage />} path="/login"></Route>
+          <Route element={<AllConference />} path="/allconference"></Route>
 
-           <Route element={<ConferenceDetails/>} path="/conferencedetails"></Route>
-           <Route element={<ConferencePaper/>} path="/conferencepaper"></Route>
-           <Route element={<ApplyForm/>} path="/applyform"></Route>
-      </Routes>
-    </Router>
-    
-    
-   </div>
-    
+          <Route element={<ConferenceDetails />} path="/conferencedetails"></Route>
+          <Route element={<ConferencePaper />} path="/conferencepaper"></Route>
+          <Route element={<ApplyForm />} path="/applyform"></Route>
+        </Routes>
+      </Router>
+
+
+    </div>
+
   );
 }
 

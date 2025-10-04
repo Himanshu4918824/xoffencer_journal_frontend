@@ -6,7 +6,10 @@ const ContextProvider = ({ children }) => {
     //  here we write the function where accessible from anywhere
     const login = async (data) => {
         const result = await postData('login', data);
-        localStorage.setItem("token", result.token)
+        console.log(result.status)
+        if (result.status !== 400) {
+            localStorage.setItem("token", result.token)
+        }
         return result.message;
     }
 
@@ -21,7 +24,7 @@ const ContextProvider = ({ children }) => {
         }
     }
     return (
-        <MainContext.Provider value={{ login , getJournalDetail}}>
+        <MainContext.Provider value={{ login, getJournalDetail }}>
             {children}
         </MainContext.Provider>
     )

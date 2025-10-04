@@ -18,7 +18,7 @@ export default function LoginPage() {
   const navigate = useNavigate();
   const [form, setForm] = useState({ email: "", password: "" });
   const token = localStorage.getItem('token');
-  useEffect(() => { if (token) navigate('/dashboard') }, [])
+  useEffect(() => { if (token && token !== 'undefined') { navigate('/dashboard') } }, [navigate , token])
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });

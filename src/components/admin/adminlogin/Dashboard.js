@@ -1,82 +1,160 @@
-
-
-import { Divider, Grid, Paper, Link } from '@mui/material';
+import { Divider, Grid, Paper, Box, Typography, Avatar, Button, IconButton } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Footer from '../../userinterface/homepage/Footer';
 import Header from '../../userinterface/homepage/Header';
-// import UploadJournalForm from './UploadJournalForm';
-
-import { useTheme } from '@mui/material/styles';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 export default function Dashboard() {
   const navigate = useNavigate();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
   const token = localStorage.getItem('token');
-  useEffect(() => {
-    if (!token) {
-      navigate('/');
-    }
-  },[])
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  useEffect(() => {
+    if (!token) navigate('/');
+  }, [token, navigate]);
 
   return (
-    <div>
+    <Box sx={{ backgroundColor: '#f5f5f5', minHeight: '100vh' }}>
+      {/* Header */}
+      <Header />
 
-      <div>
-        <Header />
-      </div>
+      {/* Mobile menu button */}
+      {!matches && (
+        <Box sx={{ display: 'flex', justifyContent: 'flex-start', p: 1 }}>
+          <IconButton
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            color="primary"
+          >
+            <MenuIcon />
+          </IconButton>
+        </Box>
+      )}
 
-      <div>
-        <Grid container spacing={2} style={{ marginTop: 20 }}>
-          {matches ? <Grid item xs={2.5} style={{}}>
-
-            <Paper elevation={4} style={{ height: '85vh', borderRadius: 5, margin: 10, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-              <div>
-                <img src={`rajput.jpg`} alt="Logo" style={{ width: 100, height: 100, borderRadius: 50, marginTop: 10 }} />
-              </div>
-
-              <div style={{ fontSize: 18, fontWeight: 'bold', letterSpacing: 1.2 }}>
+      <Grid container spacing={2} sx={{ mt: 1, px: { xs: 1, md: 3 } }}>
+        {/* Sidebar */}
+        {(matches || sidebarOpen) && (
+          <Grid item xs={12} md={3}>
+            <Paper
+              elevation={6}
+              sx={{
+                borderRadius: 3,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                p: 3,
+                backgroundColor: '#ffffff',
+                mb: { xs: 2, md: 0 },
+              }}
+            >
+              {/* Profile */}
+              <Avatar
+                alt="Varsha Rajput"
+                src="rajput.jpg"
+                sx={{ width: 100, height: 100, mb: 2 }}
+              />
+              <Typography
+                variant="h6"
+                sx={{ fontWeight: 'bold', mb: 0.5, textAlign: 'center' }}
+              >
                 Varsha Rajput
-              </div>
-
-              <div style={{ fontSize: 12, letterSpacing: 1.2, marginBottom: 10 }}>
+              </Typography>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: 'gray',
+                  textAlign: 'center',
+                  mb: 2,
+                  wordBreak: 'break-word',
+                  overflowWrap: 'anywhere',
+                }}
+              >
                 editor@varsharesearchorganization.com
-              </div>
+              </Typography>
 
-              <Divider width='90%' />
+              <Divider sx={{ width: '100%', mb: 3 }} />
 
-               <div style={{marginTop:20,fontSize:18,fontWeight:600, cursor:'pointer'}}>
-                <Link style={{textDecoration:'none',color:'black'}} href="/uploadjournalform" target="nw">Add Journal</Link>
-              </div>
+              {/* Action Buttons */}
+              <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, width: '100%' }}>
+                <Button
+                  href="/uploadjournalform"
+                  target="nw"
+                  variant="outlined"
+                  fullWidth
+                  sx={{
+                    borderRadius: 2,
+                    textTransform: 'none',
+                    fontWeight: 600,
+                    color: 'primary.main',
+                    borderColor: 'primary.main',
+                    '&:hover': {
+                      backgroundColor: 'primary.light',
+                      color: '#fff',
+                      borderColor: 'primary.main',
+                    },
+                  }}
+                >
+                  Add Journal
+                </Button>
 
-              <div style={{marginTop:20,fontSize:18,fontWeight:600, cursor:'pointer'}}>
-                <Link style={{textDecoration:'none',color:'black'}} href="/delete" target="nw">Delete Journal</Link>
-              </div>
-
-
-
+                <Button
+                  href="/delete"
+                  target="nw"
+                  variant="outlined"
+                  fullWidth
+                  sx={{
+                    borderRadius: 2,
+                    textTransform: 'none',
+                    fontWeight: 600,
+                    color: 'error.main',
+                    borderColor: 'error.main',
+                    '&:hover': {
+                      backgroundColor: 'error.light',
+                      color: '#fff',
+                      borderColor: 'error.main',
+                    },
+                  }}
+                >
+                  Delete Journal
+                </Button>
+              </Box>
             </Paper>
-
-          </Grid> : null}
-
-          <Grid item xs={matches ? 9.5 : 12}>
-           <div style={{display: 'flex',marginTop: '10px'}}>
-                    <iframe width="1200" height="1050" name="nw" frameborder="0"></iframe>
-            </div>
-
           </Grid>
+        )}
 
+        {/* Main Content */}
+        <Grid item xs={12} md={9}>
+          <Paper
+            elevation={3}
+            sx={{
+              width: '100%',
+              minHeight: '80vh',
+              borderRadius: 3,
+              overflow: 'hidden',
+              backgroundColor: '#ffffff',
+              
+            }}
+           style={{marginBottom:30}}
+          >
+            <iframe
+              name="nw"
+              src="/uploadjournalform" // default page
+              width="100%"
+              height="100%"
+              style={{ border: 0, minHeight: '80vh' }}
+              title="Dashboard Panel"
+            ></iframe>
+          </Paper>
         </Grid>
-      </div>
+      </Grid>
 
-      <div>
-        <Footer />
-      </div>
-
-    </div>
+      {/* Footer */}
+      <Footer />
+    </Box>
   );
 }

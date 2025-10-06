@@ -1,53 +1,92 @@
-import { Button, TextField } from "@mui/material";
-import { userStyle } from "../category/CategoryCss";
+import { Box, Button, Paper, TextField, Typography } from "@mui/material";
 import { useState } from "react";
-import { postData } from "../../../services/FetchNodeAdminServices";
 import Swal from "sweetalert2";
+import axios from "axios";
 
-export default function Delete()
-{
-    const [journalId,setJournalId]=useState('');
+export default function Delete() {
+  const [journalId, setJournalId] = useState('');
 
-    const handleDeleteData=async()=>{
+  const handleDeleteData = async () => {
 
-        var body={journalId:journalId};
+    // let body = { journalId: journalId };
 
-        var result= await postData('',body);
-         if (result.status) {
-              Swal.fire({
-                position: "top-end",
-                icon: "success",
-                title: "Category Delete Successfully",
-                showConfirmButton: false,
-                timer: 2000
-              });
-            }
-            else {
-              Swal.fire({
-                position: "top-end",
-                icon: "error",
-                title: "Your work has not Delete",
-                showConfirmButton: false,
-                timer: 2000
-              });
-            }
-
+    let result = await axios.delete(`https://varsharesearchorganization.com/api/v1/${journalId}`);
+    if (result.status) {
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Category Delete Successfully",
+        showConfirmButton: false,
+        timer: 2000
+      });
+    }
+    else {
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Your work has not Delete",
+        showConfirmButton: false,
+        timer: 2000
+      });
     }
 
+  }
 
-    var classes=userStyle()
 
-    return( <div>
-             
-    
-            <div className={classes.root}>
-              <div className={classes.box}>
-                <TextField style={{marginBottom:10}} value={journalId} onChange={(e)=>setJournalId(e.target.value)} fullWidth placeholder="Enter Journal id which u want to delete "></TextField>
-                <Button onClick={handleDeleteData} variant="contained">Delete</Button>
-              </div>
-            </div>
 
-  
-    </div>)
+
+  return (<div>
+
+
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        mt: 5,
+        px: { xs: 2, sm: 3, md: 0 },
+      }}
+    >
+      <Paper
+        elevation={6}
+        sx={{
+          p: 4,
+          width: { xs: '100%', sm: '400px' },
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 2,
+          borderRadius: 3,
+        }}
+      >
+        <Typography letiant="h6" sx={{ fontWeight: 'bold', textAlign: 'center' }}>
+          Delete Journal
+        </Typography>
+
+        <TextField
+          label="Journal ID"
+          placeholder="Enter Journal ID to delete"
+          value={journalId}
+          onChange={(e) => setJournalId(e.target.value)}
+          fullWidth
+          letiant="outlined"
+        />
+
+        <Button
+          onClick={() => handleDeleteData(journalId)}
+          letiant="contained"
+          color="error"
+          sx={{
+            textTransform: 'none',
+            fontWeight: 600,
+            py: 1.5,
+            '&:hover': { backgroundColor: 'error.dark' },
+          }}
+        >
+          Delete
+        </Button>
+      </Paper>
+    </Box>
+
+  </div>)
 }
 

@@ -64,11 +64,46 @@ export default function ShowDetails() {
       fetchdata()
    }, [id, getJournalDetail])
 
+   const handleCertificateDownload = async (id) => {
+      try {
+         setOpen(true);
+         console.log(`Downloading file with ID: ${id}`);
+         const response = await axios.post(
+            `https://varsharesearchorganization.com/api/v1/downloadCertificate/${id}`,
+            null,
+            { responseType: "blob" }  // 🔥 Ensures binary data is handled correctly
+         );
+
+         if (response.data.size === 0) {
+            console.error("Received an empty file!");
+            setOpen(false);
+            return;
+         }
+
+         const blob = new Blob([response.data], { type: "application/pdf" });
+         const url = window.URL.createObjectURL(blob);
+         const link = document.createElement("a");
+         link.href = url;
+         link.setAttribute("download", `${data.Title_of_paper}.pdf`);
+         document.body.appendChild(link);
+         link.click();
+         document.body.removeChild(link);
+         setOpen(false);
+
+      } catch (error) {
+         console.error("Error downloading file:", error);
+         setOpen(false);
+
+      }
+   };
+
+
+
 
    const handleDownload = async (id) => {
       try {
          setOpen(true);
-         console.log(`Downloading file with ID: ${id}`);
+         console.log(`Downloading certificate with ID: ${id}`);
          const response = await axios.post(
             `https://varsharesearchorganization.com/api/v1/download/${id}`,
             null,
@@ -146,7 +181,7 @@ export default function ShowDetails() {
 
             <div style={{ textAlign: "center", marginTop: 40, marginBottom: 20 }}>
                <Button variant="contained" color="primary" onClick={() => handleDownload(data.id)}>Download/View Paper PDF</Button>
-               <Button style={{marginLeft:10}} variant="contained" color="success">Download Certificate </Button>
+               <Button style={{ marginLeft: 10 }} onClick={() => handleCertificateDownload(data.id)} variant="contained" color="success">Download Certificate </Button>
             </div>
 
             <div style={{ marginTop: 50, fontWeight: 400, fontSize: 18, marginLeft: '7%', letterSpacing: 0.3, marginRight: '7%' }}>

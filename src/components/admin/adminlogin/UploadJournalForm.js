@@ -3,7 +3,7 @@ import { userStyle } from "../../userinterface/journal/JournalFormCss"
 import { useState } from "react";
 // import logo from '../../../assets//logo.png'
 import cart from '../../../assets/cart.png'
-import { currentDate, postData,} from "../../../services/FetchNodeAdminServices";
+import { currentDate, postData, } from "../../../services/FetchNodeAdminServices";
 import Swal from "sweetalert2";
 import { LoadingButton } from "@mui/lab";
 import SaveIcon from '@mui/icons-material/Save';
@@ -15,9 +15,11 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 
-export default function UploadJournalForm({show}) {
+export default function UploadJournalForm({ show }) {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
+    // format the date time in database datetime data type
+
 
     const [journal, setJournal] = useState("");
     const [author, setAuthor] = useState("");
@@ -32,13 +34,14 @@ export default function UploadJournalForm({show}) {
     const [email, setEmail] = useState("");
     const [contact, setContact] = useState("");
     const [anynumber, setAnyNumber] = useState("");
+    const [date, setDate] = useState(new Date().toISOString().substring(0, 10));
 
-    const [date, setDate] = useState(currentDate());
+    const dateTime = `${date} 00:00:00`
+
 
     const [paperIcon, setPaperIcon] = useState({ bytes: null, fileName: cart });
     const [photo, setPhoto] = useState({ bytes: null, fileName: cart });
     const [marksheet, setMarksheet] = useState({ bytes: null, fileName: cart });
-    
 
     //const [value,setValue]=useState('')
 
@@ -114,7 +117,7 @@ export default function UploadJournalForm({show}) {
         }
 
     }
-
+   
 
     const handleSubmitData = async () => {
         const error = validData();
@@ -136,7 +139,7 @@ export default function UploadJournalForm({show}) {
         formData.append("email", email);
         formData.append("contact", contact);
         formData.append("anynumber", anynumber);
-        formData.append('date',date);
+        formData.append('date', dateTime);
         formData.append("paperIcon", paperIcon.bytes);
         formData.append("photo", photo.bytes);
         formData.append("marksheet", marksheet.bytes);
@@ -297,7 +300,7 @@ export default function UploadJournalForm({show}) {
                         </Grid>
 
                         <Grid item xs={matches ? 4 : 12}>
-                           <TextField type="date" onChange={(event) => setDate(event.target.value)} value={date} fullWidth />
+                            <TextField type="date" onChange={(event) => setDate(event.target.value)} defaultValue={date} fullWidth />
                         </Grid>
 
                         <Grid item xs={7}>

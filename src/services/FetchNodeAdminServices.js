@@ -1,9 +1,9 @@
 import axios from "axios";
 
 // production server url
-const serverURL = 'https://varsharesearchorganization.com/api/v1'
+// const serverURL = 'https://varsharesearchorganization.com/api/v1'
 // local server url
-// const serverURL = 'http://localhost:5678/api/v1'
+const serverURL = 'http://localhost:5678/api/v1'
 
 
 const currentDate = () => {

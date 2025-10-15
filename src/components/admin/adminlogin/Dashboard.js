@@ -57,6 +57,10 @@ export default function Dashboard() {
                 <Link style={{textDecoration:'none',color:'black'}} href="/delete" target="nw">Delete Journal</Link>
               </div>
 
+              <div style={{marginTop:20,fontSize:18,fontWeight:600, cursor:'pointer'}}>
+                <Link style={{textDecoration:'none',color:'black'}} href="/upcommingconferenceform" target="nw">Add Upcomming Conference</Link>
+              </div>
+
 
 
             </Paper>

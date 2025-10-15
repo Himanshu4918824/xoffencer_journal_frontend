@@ -6,9 +6,13 @@ import Footer from "../homepage/Footer";
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
+import { Link, useNavigate } from "react-router-dom";
+
 export default function ConferenceDetails({ details }) {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
+
+    const navigate=useNavigate()
    
 
     return (
@@ -52,14 +56,14 @@ export default function ConferenceDetails({ details }) {
             {/* Buttons Section */}
             <div style={{ display: "flex", gap: "10px", marginTop: 20, justifyContent: "center" }}>
                 <Button variant="contained" color="primary" style={{fontSize:matches?14:10}}>
-                    VIEW GUIDELINES
+                    <Link to='https://drive.google.com/file/d/1I6sCuoaqz2FIjvNeoLHdVH9HjgZFierP/view?usp=sharing' target='' style={{textDecoration:'none',color:'#000'}}>Privacy Policy</Link>
                 </Button>
 
-                <Button variant="contained" style={{ backgroundColor: "#4CAF50", color: "white", fontSize:matches?14:10 }} onClick={() => window.open("#", "_blank")}>
+              {/*  <Button variant="contained" style={{ backgroundColor: "#4CAF50", color: "white", fontSize:matches?14:10 }} onClick={() => window.open("#", "_blank")}>
                     VIEW BROCHURE
-                </Button>
+                </Button>  */}
 
-                <Button variant="contained" style={{ backgroundColor: "#424242", color: "white", fontSize:matches?14:10 }} onClick={() => window.open("#", "_blank")}>
+                <Button variant="contained" style={{ backgroundColor: "#424242", color: "white", fontSize:matches?14:10 }} onClick={() => navigate("/applyform")}>
                     APPLY FOR CONFERENCE
                 </Button>
 

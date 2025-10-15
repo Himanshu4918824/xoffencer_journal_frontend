@@ -1,0 +1,67 @@
+import React from "react";
+
+export default function PaymentDetails() {
+  const handlePayment = async () => {
+    try {
+      // 1️⃣ Create order on backend
+      const response = await fetch("http://localhost:5000/create-order", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ amount: 500 }), // amount in INR
+      });
+
+      const order = await response.json();
+      console.log("Order:", order);
+
+      // 2️⃣ Configure Razorpay options
+      const options = {
+        key: "YOUR_RAZORPAY_KEY_ID", // from dashboard
+        amount: order.amount,
+        currency: order.currency,
+        name: "Modi Eye Care Hospital",
+        description: "Appointment Payment",
+        order_id: order.id,
+        handler: function (response) {
+          alert("✅ Payment successful!");
+          console.log("Payment details:", response);
+
+          // Optional: Send to backend for verification
+        },
+        prefill: {
+          name: "Himanshu Sharma",
+          email: "himanshu@example.com",
+          contact: "9876543210",
+        },
+        theme: {
+          color: "#3399cc",
+        },
+      };
+
+      // 3️⃣ Open Razorpay checkout
+      const rzp = new window.Razorpay(options);
+      rzp.open();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  return (
+    <div style={{ textAlign: "center", marginTop: "100px" }}>
+      <h1>Pay with Razorpay</h1>
+      <button
+        onClick={handlePayment}
+        style={{
+          backgroundColor: "#008CBA",
+          color: "white",
+          padding: "10px 20px",
+          fontSize: "18px",
+          border: "none",
+          borderRadius: "8px",
+          cursor: "pointer",
+        }}
+      >
+        Pay ₹500
+      </button>
+    </div>
+  );
+}

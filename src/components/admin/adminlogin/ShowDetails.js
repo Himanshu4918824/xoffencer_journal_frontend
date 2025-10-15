@@ -69,12 +69,8 @@ export default function ShowDetails() {
       try {
          setOpen(true);
          console.log(`Downloading file with ID: ${id}`);
-         const response = await axios.post(
-            `https://varsharesearchorganization.com/api/v1/download/${id}`,
-            null,
-            { responseType: "blob" }  // 🔥 Ensures binary data is handled correctly
-         );
-
+         const response = await axios.post( `https://varsharesearchorganization.com/api/v1/download/${id}`, null, { responseType: "blob" } ); // 🔥 Ensures binary data is handled correctly
+ 
          if (response.data.size === 0) {
             console.error("Received an empty file!");
             setOpen(false);

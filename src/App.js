@@ -29,6 +29,7 @@ import ConferencePaper from "./components/userinterface/conference/ConferencePap
 import ApplyForm from "./components/userinterface/conference/ApplyForm";
 
 import Delete from "./components/admin/adminlogin/Delete";
+import UpcommingConferenceForm from "./components/admin/conference/UpcommingConferenceForm";
 
 
 function App() {
@@ -67,6 +68,8 @@ function App() {
           <Route element={<ApplyForm />} path="/applyform"></Route>
 
           <Route element={<Delete/>} path="/delete"></Route>
+
+          <Route element={<UpcommingConferenceForm/>} path="/upcommingconferenceform"></Route>
         </Routes>
       </Router>
 

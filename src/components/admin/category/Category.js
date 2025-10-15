@@ -62,6 +62,8 @@ export default function Category(props) {
             formData.append('updated_at', currentDate());
             formData.append('user_admin', 'farzii');
 
+            console.log("xxxxxx:",formData)
+
             var result = await postData('category/category_submit', formData)
 
             if (result.status) {
@@ -96,7 +98,7 @@ export default function Category(props) {
                     <Grid item xs={12}>
                         <div className={classes.mainHeadingStyle}>
 
-                            <img src={logo} className={classes.imageStyle} />
+                            <img alt="logo" src={logo} className={classes.imageStyle} />
                             <div className={classes.headingStyle}>Category Register</div>
 
                         </div>

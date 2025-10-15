@@ -1,6 +1,6 @@
 import { Avatar, Button, FormControl, Grid, InputLabel, MenuItem, Select, TextField, FormHelperText } from "@mui/material"
 import { userStyle } from "./JournalFormCss"
-import { useState } from "react";
+import { useState, useEffect } from "react";
 // import logo from '../../../assets//logo.png'
 import cart from '../../../assets/cart.png'
 import {  postData } from "../../../services/FetchNodeAdminServices";
@@ -16,7 +16,14 @@ import Footer from "../homepage/Footer";
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
+//import { serverURL } from "../../../services/FetchNodeAdminServices";
+import useRazorpay from "react-razorpay";
+import logo from "../../../assets/logo.png";
+
 export default function JournalForm(props) {
+
+    const Razorpay = useRazorpay();
+
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
 
@@ -103,6 +110,54 @@ export default function JournalForm(props) {
 
     }
 
+    /******************* Payment Gateway *********************/
+    
+    const handlePayment = async () => {
+    const options = {
+      key: "rzp_test_GQ6XaPC6gMPNwH",
+      amount: 5 * 1000,
+      currency: "INR",
+      name: "QuickCom",
+      description: "Test Transaction",
+      image: logo,
+
+      handler: (res) => {
+
+        alert("✅ Payment successful!");
+          console.log("Payment details:", res);
+
+      },
+      prefill: {
+          name: "Himanshu Sharma",
+          email: "himanshu@example.com",
+          contact: "9876543210",
+        },
+      notes: {
+        address: "Razorpay Corporate Office",
+      },
+      theme: {
+        color: "#3399cc",
+      },
+    };
+
+    var rzp1 = new window.Razorpay(options);
+    await rzp1.open();
+    //e.preventDefault();
+    
+    
+  };
+  useEffect(function () {
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
+
+
+
+    /******************************************************* */
+
 
     const handleSubmitData = async () => {
         var error = validData();
@@ -150,9 +205,12 @@ export default function JournalForm(props) {
 
             }
             setLoadingButton(false)
-            resetData()
+            resetData();
 
+             alert("Submitt Successfully")
+            handlePayment()
         }
+        
     }
 
 
@@ -396,7 +454,7 @@ export default function JournalForm(props) {
                             variant="contained"
                             onClick={handleSubmitData}
                         >
-                            Submit
+                            Submit & Pay
                         </LoadingButton>
                     </Grid>
 

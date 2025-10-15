@@ -2,7 +2,7 @@ import { Avatar, Button, FormControl, Grid, InputLabel, MenuItem, Select, TextFi
 import Header from "../homepage/Header";
 import { userStyle } from '../journal/JournalFormCss'
 import Footer from "../homepage/Footer";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import cart from '../../../assets/cart.png'
 import Swal from "sweetalert2";
 
@@ -10,10 +10,14 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { postData } from "../../../services/FetchNodeAdminServices";
 
+import useRazorpay from "react-razorpay";
+import logo from "../../../assets/logo.png";
+
 export default function ApplyForm() {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
 
+    const Razorpay=useRazorpay();
 
     const [selectedConference, setSelectedConference] = useState('');
     const [date, setDate] = useState('');
@@ -105,6 +109,56 @@ export default function ApplyForm() {
         setUploadArticle({ bytes: event.target.files[0], fileName: URL.createObjectURL(event.target.files[0]) })
     }
 
+    
+        /******************* Payment Gateway *********************/
+        
+        const handlePayment = async () => {
+        const options = {
+          key: "rzp_test_GQ6XaPC6gMPNwH",
+          amount: 5 * 1000,
+          currency: "INR",
+          name: "QuickCom",
+          description: "Test Transaction",
+          image: logo,
+    
+          handler: (res) => {
+    
+            alert("✅ Payment successful!");
+              console.log("Payment details:", res);
+    
+          },
+          prefill: {
+              name: "Himanshu Sharma",
+              email: "himanshu@example.com",
+              contact: "9876543210",
+            },
+          notes: {
+            address: "Razorpay Corporate Office",
+          },
+          theme: {
+            color: "#3399cc",
+          },
+        };
+    
+        var rzp1 = new window.Razorpay(options);
+        await rzp1.open();
+        //e.preventDefault();
+        
+        
+      };
+      useEffect(function () {
+        const script = document.createElement("script");
+        script.src = "https://checkout.razorpay.com/v1/checkout.js";
+        script.async = true;
+        document.body.appendChild(script);
+      }, []);
+    
+    
+
+    
+        /******************************************************* */
+    
+
 
     const handleSubmitData = async () => {
 
@@ -176,8 +230,11 @@ export default function ApplyForm() {
                     showConfirmButton: false,
                     timer: 2000
                 });
-
+  
             }
+
+            alert("Submitt Successfully");
+            handlePayment();
 
         }
     }

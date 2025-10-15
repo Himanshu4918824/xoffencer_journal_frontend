@@ -51,12 +51,12 @@ export default function DisplayAllCategory() {
   }
   const validData = () => {
     var err = false
-    if (categoryName.length == 0) {
+    if (categoryName.length === 0) {
       handleErrorMessage('categoryName', 'Pls insert categoryname...');
       err = true;
     }
 
-    if (categoryIcon.bytes == 0) {
+    if (categoryIcon.bytes === 0) {
       handleErrorMessage('categoryIcon', 'Pls select category icon...');
       err = true;
     }
@@ -68,7 +68,7 @@ export default function DisplayAllCategory() {
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <div className={classes.mainHeadingStyle}>
-            <img src={logo} className={classes.imageStyle} />
+            <img src={logo} className={classes.imageStyle} alt="logo" />
             <div className={classes.headingStyle}>Category Register</div>
           </div>
         </Grid>
@@ -169,7 +169,7 @@ export default function DisplayAllCategory() {
 
   const handleEditData = async () => {
     var err = validData();
-    if (err == false) {
+    if (err === false) {
       setLoadingButton(true)
       var body = {
         'categoryname': categoryName,
@@ -324,7 +324,12 @@ export default function DisplayAllCategory() {
               { title: 'Created At', render: (rowData) => <div style={{ display: 'flex', flexDirection: 'column' }}><div>{createdDate(rowData.created_at)}</div><div>{createdDate(rowData.updated_at)}</div></div> },
 
               { title: 'Admin', field: 'user_admin' },
-              { title: 'Icon', render: (rowData) => <div><img src={`${serverURL}/images/${rowData.categoryicon}`} style={{ width: 60, height: 60, borderRadius: 6 }} /></div> }
+              {
+                title: 'Icon', render: (rowData) =>
+                  <div>
+                  <img src={`${serverURL}/images/${rowData.categoryicon}`} style={{ width: 60, height: 60, borderRadius: 6 }} alt="img"/>
+                </div>
+              }
 
 
             ]}

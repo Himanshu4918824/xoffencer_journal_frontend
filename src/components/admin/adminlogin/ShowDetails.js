@@ -69,7 +69,7 @@ export default function ShowDetails() {
          setOpen(true);
          console.log(`Downloading file with ID: ${id}`);
          const response = await axios.post(
-            `https://varsharesearchorganization.com/api/v1/download/${id}`,
+            `https://varsharesearchorganization.com/api/v1/downloadCertificate/${id}`,
             null,
             { responseType: "blob" }  // 🔥 Ensures binary data is handled correctly
          );
@@ -97,7 +97,34 @@ export default function ShowDetails() {
       }
    };
 
+   //  this function is use to download the authors updated journal
 
+   const handleDownload = async (id) => {
+      try {
+         console.log(`Downloading file with ID: ${id}`);
+         const response = await axios.post(
+            `https://varsharesearchorganization.com/api/v1/download/${id}`,
+            null,
+            { responseType: "blob" }  // 🔥 Ensures binary data is handled correctly
+         );
+
+         if (response.data.size === 0) {
+            console.error("Received an empty file!");
+            return;
+         }
+
+         const blob = new Blob([response.data], { type: "application/pdf" });
+         const url = window.URL.createObjectURL(blob);
+         const link = document.createElement("a");
+         link.href = url;
+         link.setAttribute("download", `${data.Title_of_paper}.pdf`);
+         document.body.appendChild(link);
+         link.click();
+         document.body.removeChild(link);
+      } catch (error) {
+         console.error("Error downloading file:", error);
+      }
+   };
 
    return (
       <div>

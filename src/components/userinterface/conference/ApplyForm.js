@@ -17,7 +17,7 @@ export default function ApplyForm() {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
 
-    const Razorpay=useRazorpay();
+    const Razorpay = useRazorpay();
 
     const [selectedConference, setSelectedConference] = useState('');
     const [date, setDate] = useState('');
@@ -37,7 +37,7 @@ export default function ApplyForm() {
 
 
     const validData = () => {
-        var err = false;
+        let err = false;
         if (selectedConference === 0) {
             handleErrorMessage("selectedConference", "Please Select Conference");
             err = true;
@@ -93,7 +93,7 @@ export default function ApplyForm() {
 
 
     const handleErrorMessage = (label, message) => {
-        var msg = errorMessage;
+        let msg = errorMessage;
         msg[label] = message;
         setErrorMessage((prev) => ({ ...prev, ...msg }))
 
@@ -109,63 +109,63 @@ export default function ApplyForm() {
         setUploadArticle({ bytes: event.target.files[0], fileName: URL.createObjectURL(event.target.files[0]) })
     }
 
-    
-        /******************* Payment Gateway *********************/
-        
-        const handlePayment = async () => {
+
+    /******************* Payment Gateway *********************/
+
+    const handlePayment = async () => {
         const options = {
-          key: "rzp_test_GQ6XaPC6gMPNwH",
-          amount: 5 * 1000,
-          currency: "INR",
-          name: "QuickCom",
-          description: "Test Transaction",
-          image: logo,
-    
-          handler: (res) => {
-    
-            alert("✅ Payment successful!");
-              console.log("Payment details:", res);
-    
-          },
-          prefill: {
-              name: "Himanshu Sharma",
-              email: "himanshu@example.com",
-              contact: "9876543210",
+            key: "rzp_test_GQ6XaPC6gMPNwH",
+            amount: 5 * 1000,
+            currency: "INR",
+            name: "QuickCom",
+            description: "Test Transaction",
+            image: logo,
+
+            handler: (res) => {
+
+                alert("✅ Payment successful!");
+                console.log("Payment details:", res);
+
             },
-          notes: {
-            address: "Razorpay Corporate Office",
-          },
-          theme: {
-            color: "#3399cc",
-          },
+            prefill: {
+                name: "Himanshu Sharma",
+                email: "himanshu@example.com",
+                contact: "9876543210",
+            },
+            notes: {
+                address: "Razorpay Corporate Office",
+            },
+            theme: {
+                color: "#3399cc",
+            },
         };
-    
-        var rzp1 = new window.Razorpay(options);
+
+        let rzp1 = new window.Razorpay(options);
         await rzp1.open();
         //e.preventDefault();
-        
-        
-      };
-      useEffect(function () {
+
+
+    };
+    useEffect(function () {
         const script = document.createElement("script");
         script.src = "https://checkout.razorpay.com/v1/checkout.js";
         script.async = true;
         document.body.appendChild(script);
-      }, []);
-    
-    
+    }, []);
 
-    
-        /******************************************************* */
-    
+
+
+
+    /******************************************************* */
+
 
 
     const handleSubmitData = async () => {
 
-        var err = validData();
+        let err = validData();
         if (err === false) {
 
-            var formData = new FormData();
+            const formData = new FormData();
             formData.append("selectedConference", selectedConference);
             formData.append("date", date);
             formData.append("mode", mode);
@@ -230,7 +230,7 @@ export default function ApplyForm() {
                     showConfirmButton: false,
                     timer: 2000
                 });
-  
+
             }
 
             alert("Submitt Successfully");
@@ -239,7 +239,7 @@ export default function ApplyForm() {
         }
     }
 
-    var classes = userStyle();
+    let classes = userStyle();
     return (
         <div>
             <div>
@@ -266,7 +266,7 @@ export default function ApplyForm() {
                                     onFocus={() => handleErrorMessage("selectedConference", null)}
                                 >
                                     <MenuItem value=''>Select-Conference</MenuItem>
-                                    <MenuItem value='Exploring Innovative Research Methodologies in a Variety of Multidisciplinary Fields and Their Prospective Future Impact'>Exploring Innovative Research Methodologies in a Variety of Multidisciplinary Fields and Their Prospective Future Impact</MenuItem>
+                                    <MenuItem value='Exploring Innovative Research Methodologies in a letiety of Multidisciplinary Fields and Their Prospective Future Impact'>Exploring Innovative Research Methodologies in a letiety of Multidisciplinary Fields and Their Prospective Future Impact</MenuItem>
                                     <MenuItem value='Integration of Artificial Intelligence in Advancement of Science and Engineering'>Integration of Artificial Intelligence in Advancement of Science and Engineering</MenuItem>
                                 </Select>
                             </FormControl>
@@ -343,7 +343,7 @@ export default function ApplyForm() {
 
                         <Grid item xs={6}>
                             <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                <Button variant="contained" component="label" fullWidth> Upload Address Proof
+                                <Button letiant="contained" component="label" fullWidth> Upload Address Proof
                                     <input onChange={handleProof} type="file" hidden multiple accept="images/*" />
                                 </Button>
                                 <div>{errorMessage?.uploadAddressProof != null ? errorMessage?.uploadAddressProof : <></>}</div>
@@ -352,12 +352,12 @@ export default function ApplyForm() {
                         </Grid>
 
                         <Grid item xs={6} className={classes.centerStyle}>
-                            <Avatar src={uploadAddressProof.fileName} variant="rounded" />
+                            <Avatar src={uploadAddressProof.fileName} letiant="rounded" />
                         </Grid>
 
                         <Grid item xs={6}>
                             <div style={{ display: 'flex', flexDirection: 'column' }}>
-                                <Button variant="contained" component="label" fullWidth> Please attach your article / Research paper or presentation
+                                <Button letiant="contained" component="label" fullWidth> Please attach your article / Research paper or presentation
                                     <input onChange={handleArticle} type="file" hidden multiple />
                                 </Button>
                                 <div>{errorMessage?.uploadArticle != null ? errorMessage?.uploadArticle : <></>}</div>
@@ -365,7 +365,7 @@ export default function ApplyForm() {
                         </Grid>
 
                         <Grid item xs={6} className={classes.centerStyle}>
-                            <Avatar src={uploadArticle.fileName} variant="rounded" />
+                            <Avatar src={uploadArticle.fileName} letiant="rounded" />
                         </Grid>
 
                         <div style={{ fontSize: 20, fontWeight: 500, marginTop: 20, width: "100%", textAlign: "center", margin: 10 }}>
@@ -384,7 +384,7 @@ export default function ApplyForm() {
                         </Grid>
 
                         <Grid item xs={12} className={classes.centerStyle}>
-                            <Button onClick={handleSubmitData} variant="contained" >Submit And Pay</Button>
+                            <Button onClick={handleSubmitData} letiant="contained" >Submit And Pay</Button>
                         </Grid>
 
                     </Grid>

@@ -17,12 +17,10 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 //import { serverURL } from "../../../services/FetchNodeAdminServices";
-import useRazorpay from "react-razorpay";
 import logo from "../../../assets/logo.png";
 
 export default function JournalForm(props) {
 
-    const Razorpay = useRazorpay();
 
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));

@@ -3,7 +3,7 @@ import { userStyle } from "./JournalFormCss"
 import { useState, useEffect } from "react";
 // import logo from '../../../assets//logo.png'
 import cart from '../../../assets/cart.png'
-import {  postData } from "../../../services/FetchNodeAdminServices";
+import { postData } from "../../../services/FetchNodeAdminServices";
 import Swal from "sweetalert2";
 import { LoadingButton } from "@mui/lab";
 import SaveIcon from '@mui/icons-material/Save';
@@ -17,10 +17,12 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 //import { serverURL } from "../../../services/FetchNodeAdminServices";
+// import useRazorpay from "react-razorpay";
 import logo from "../../../assets/logo.png";
 
 export default function JournalForm(props) {
 
+    // const Razorpay = useRazorpay();
 
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
@@ -78,11 +80,11 @@ export default function JournalForm(props) {
 
     const handlePaperIcon = (e) => {
         handleErrorMessage('paperIcon', null)
-        try{
-        setPaperIcon({ bytes: e.target.files[0], fileName: URL.createObjectURL(e.target.files[0]) })
+        try {
+            setPaperIcon({ bytes: e.target.files[0], fileName: URL.createObjectURL(e.target.files[0]) })
         }
         catch (error) {
-            console.log(error.message)  
+            console.log(error.message)
         }
 
     }
@@ -90,66 +92,66 @@ export default function JournalForm(props) {
     const handlePhoto = (e) => {
         handleErrorMessage('photo', null)
         try {
-         setPhoto({ bytes: e.target.files[0], fileName: URL.createObjectURL(e.target.files[0]) })
+            setPhoto({ bytes: e.target.files[0], fileName: URL.createObjectURL(e.target.files[0]) })
+        }
+        catch (error) {
+            console.log(error.message)
+        }
     }
-    catch (error) {
-        console.log(error.message)  
-    }
-}
 
     const handleMarksheet = (e) => {
         handleErrorMessage('marksheet', null)
-        try{
-        setMarksheet({ bytes: e.target.files[0], fileName: URL.createObjectURL(e.target.files[0]) })
+        try {
+            setMarksheet({ bytes: e.target.files[0], fileName: URL.createObjectURL(e.target.files[0]) })
         }
         catch (error) {
-            console.log(error.message)  
+            console.log(error.message)
         }
 
     }
 
     /******************* Payment Gateway *********************/
-    
+
     const handlePayment = async () => {
-    const options = {
-      key: "rzp_test_GQ6XaPC6gMPNwH",
-      amount: 5 * 1000,
-      currency: "INR",
-      name: "QuickCom",
-      description: "Test Transaction",
-      image: logo,
+        const options = {
+            key: "rzp_test_GQ6XaPC6gMPNwH",
+            amount: 5 ,
+            currency: "INR",
+            name: "Varsha Research Organization",
+            description: "Test Transaction",
+            image: logo,
 
-      handler: (res) => {
+            handler: (res) => {
 
-        alert("✅ Payment successful!");
-          console.log("Payment details:", res);
+                alert("✅ Payment successful!");
+                console.log("Payment details:", res);
 
-      },
-      prefill: {
-          name: "Himanshu Sharma",
-          email: "himanshu@example.com",
-          contact: "9876543210",
-        },
-      notes: {
-        address: "Razorpay Corporate Office",
-      },
-      theme: {
-        color: "#3399cc",
-      },
+            },
+            prefill: {
+                name: "Himanshu Sharma",
+                email: "himanshu@example.com",
+                contact: "9876543210",
+            },
+            notes: {
+                address: "Razorpay Corporate Office",
+            },
+            theme: {
+                color: "#3399cc",
+            },
+        };
+
+        var rzp1 = new window.Razorpay(options);
+        await rzp1.open();
+        //e.preventDefault();
+
+
     };
-
-    var rzp1 = new window.Razorpay(options);
-    await rzp1.open();
-    //e.preventDefault();
-    
-    
-  };
-  useEffect(function () {
-    const script = document.createElement("script");
-    script.src = "https://checkout.razorpay.com/v1/checkout.js";
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
+    useEffect(() => {
+        const script = document.createElement("script");
+        script.src = "https://checkout.razorpay.com/v1/checkout.js";
+        script.async = true;
+        document.body.appendChild(script);
+    }, []);
 
 
 
@@ -181,8 +183,8 @@ export default function JournalForm(props) {
             // formData.append('created_at',currentDate());
 
 
-            var result = await postData('api/v1/form-for-publication', formData)
-           //console.log("xxxx",result)
+            var result = await postData('form-for-publication', formData)
+            //console.log("xxxx",result)
             if (result.status) {
                 Swal.fire({
                     position: "top-end",
@@ -205,10 +207,10 @@ export default function JournalForm(props) {
             setLoadingButton(false)
             resetData();
 
-             alert("Submitt Successfully")
             handlePayment()
+            alert("Submitt Successfully")
         }
-        
+
     }
 
 
@@ -296,11 +298,11 @@ export default function JournalForm(props) {
 
         </div>
 
-       <div style={{ background: 'lightgrey', color: 'black', width: '100%', height: 250, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginBottom: 40 }}>
+        <div style={{ background: 'lightgrey', color: 'black', width: '100%', height: 250, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginBottom: 40 }}>
 
             <div style={{ fontSize: '2.2rem', fontWeight: 500, letterSpacing: 1.2, textAlign: 'center' }}>FORM FOR JOURNAL PUBLICATION</div>
 
-        </div> 
+        </div>
 
         <div className={classes.root}>
             <div className={classes.box}>
@@ -320,7 +322,7 @@ export default function JournalForm(props) {
                             </Select>
 
                         </FormControl>
-                        <FormHelperText style={{color:'red'}}>{errorMessage?.journal}</FormHelperText>
+                        <FormHelperText style={{ color: 'red' }}>{errorMessage?.journal}</FormHelperText>
                     </Grid>
 
                     <Grid item xs={matches ? 6 : 12}>
@@ -413,13 +415,13 @@ export default function JournalForm(props) {
                     <Grid item xs={12}>
                         <TextField onChange={(event) => setAnyNumber(event.target.value)} label="Enter Number" value={anynumber} fullWidth />
                     </Grid>
-                    
+
                     <Grid item xs={12}>
                         <div>
                             <b> Note :</b> Certificate fee will be charged extra and AMC (annual maintenance charge) will be applicable every year. Annual Renewal Fee is charged as AMC (Annual Maintenance Charge ). Maintenance includes technical support, space and frequent informative services for the scholars. AMC is 650 per year only.
                         </div>
 
-                       {/* <FormControl style={{marginTop:8}}>
+                        {/* <FormControl style={{marginTop:8}}>
                             <RadioGroup  aria-labelledby="demo-controlled-radio-buttons-group"
                                           name="controlled-radio-buttons-group"
                                           value={value}
@@ -462,7 +464,7 @@ export default function JournalForm(props) {
         </div>
 
         <div style={{ marginTop: 30 }}>
-          <Footer /> 
+            <Footer />
         </div>
 
     </div>)

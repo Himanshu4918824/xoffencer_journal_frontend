@@ -75,7 +75,8 @@ export default function Footer() {
             <h1 style={{ fontFamily: 'fantasy', letterSpacing: 1, textTransform: 'uppercase', fontWeight: "lighter" }}>CreovateIO</h1>
           </div>
         </Link>
-        <p style={{ textAlign: 'center', fontWeight: "bolder" }}>WE BUILD TRUST</p>
+        <p style={{ textAlign: 'center', fontWeight: "bolder" }}>WE BUILD TRUST & Contact Us:+91 6265511439</p>
+        <p></p>
       </div>
       <Divider style={{ marginBottom: '40px' }} />
 

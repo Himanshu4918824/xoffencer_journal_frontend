@@ -10,14 +10,14 @@ import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { postData } from "../../../services/FetchNodeAdminServices";
 
-import useRazorpay from "react-razorpay";
+//import useRazorpay from "react-razorpay";
 import logo from "../../../assets/logo.png";
 
 export default function ApplyForm() {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
 
-    const Razorpay = useRazorpay();
+  //  const Razorpay = useRazorpay();
 
     const [selectedConference, setSelectedConference] = useState('');
     const [date, setDate] = useState('');
@@ -117,7 +117,7 @@ export default function ApplyForm() {
             key: "rzp_test_GQ6XaPC6gMPNwH",
             amount: 5 * 1000,
             currency: "INR",
-            name: "QuickCom",
+            name: "Varsha Research Organisation",
             description: "Test Transaction",
             image: logo,
 

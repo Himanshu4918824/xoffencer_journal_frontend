@@ -80,11 +80,11 @@ export default function Dashboard() {
               <Divider width='90%' />
 
                <div style={{marginTop:20,fontSize:18,fontWeight:600, cursor:'pointer'}}>
-                <Link style={{textDecoration:'none',color:'black'}} href="/uploadjournalform" target="nw">Add Journal</Link>
+                <Link style={{textDecoration:'none',color:'black'}} to="/uploadjournalform" target="nw">Add Journal</Link>
               </div>
 
               <div style={{marginTop:20,fontSize:18,fontWeight:600, cursor:'pointer'}}>
-                <Link style={{textDecoration:'none',color:'black'}} href="/delete" target="nw">Delete Journal</Link>
+                <Link style={{textDecoration:'none',color:'black'}} to="/delete" target="nw">Delete Journal</Link>
               </div>
 
 
